@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STI & AMR Executive Surveillance Dashboard - สคร.10 อุบลราชธานี</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Google Fonts: Prompt -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Prompt', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0D9488',
+              dark: '#0F172A',
+              navy: '#1E293B',
+              accent: '#0284C7',
+              surface: '#F8FAFC'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#F1F5F9] text-slate-800 font-sans min-h-screen">
+
+  <!-- Top Navigation / Banner -->
+  <header class="bg-[#0F172A] text-white border-b border-slate-700 shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-teal-500/20 border border-teal-400/30 flex items-center justify-center text-teal-400 text-xl font-bold">
+          <i class="fa-solid fa-virus-covid"></i>
+        </div>
+        <div>
+          <h1 class="text-lg md:text-xl font-bold tracking-tight text-white flex items-center gap-2">
+            ระบบเฝ้าระวังโรคติดต่อทางเพศสัมพันธ์และเชื้อดื้อยา
+            <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30">Executive</span>
+          </h1>
+          <p class="text-xs text-slate-400">
+            สำนักงานป้องกันควบคุมโรคที่ 10 จ.อุบลราชธานี • เขตสุขภาพที่ 10 (พ.ศ. 2560 - 2569)
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 self-end md:self-auto">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Real-time Active
+        </span>
+        <button onclick="window.print()" class="px-3 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 transition flex items-center gap-1.5 shadow-sm">
+          <i class="fa-solid fa-print"></i> พิมพ์รายงาน
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- KPI Scorecards Grid -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- Card 1 -->
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">ผู้รับบริการตรวจสะสม</span>
+          <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-sm">
+            <i class="fa-solid fa-hospital-user"></i>
+          </div>
+        </div>
+        <div class="mt-3 flex items-baseline gap-2">
+          <span class="text-3xl font-bold tracking-tight text-slate-900" id="kpi-total">691</span>
+          <span class="text-sm font-medium text-slate-500">ราย</span>
+        </div>
+        <div class="mt-2 text-xs text-slate-500 flex items-center justify-between border-t border-slate-100 pt-2">
+          <span>เพศชาย 81.1%</span>
+          <span>เพศหญิง 18.9%</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">ตรวจพบหนองใน (NG)</span>
+          <div class="w-9 h-9 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-sm">
+            <i class="fa-solid fa-bacterium"></i>
+          </div>
+        </div>
+        <div class="mt-3 flex items-baseline gap-2">
+          <span class="text-3xl font-bold tracking-tight text-teal-700" id="kpi-ng">343</span>
+          <span class="text-sm font-medium text-slate-500">เคส</span>
+        </div>
+        <div class="mt-2 text-xs text-slate-500 flex items-center justify-between border-t border-slate-100 pt-2">
+          <span>Positivity Rate</span>
+          <span class="font-semibold text-teal-600">49.6%</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">ตรวจพบคลามีเดีย (CT)</span>
+          <div class="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-sm">
+            <i class="fa-solid fa-dna"></i>
+          </div>
+        </div>
+        <div class="mt-3 flex items-baseline gap-2">
+          <span class="text-3xl font-bold tracking-tight text-sky-700" id="kpi-ct">48</span>
+          <span class="text-sm font-medium text-slate-500">เคส</span>
+        </div>
+        <div class="mt-2 text-xs text-slate-500 flex items-center justify-between border-t border-slate-100 pt-2">
+          <span>PCR Detected</span>
+          <span class="font-semibold text-sky-600">6.9%</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-emerald-200/80 hover:shadow-md transition bg-gradient-to-br from-white to-emerald-50/30">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">ความไว Ceftriaxone</span>
+          <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-sm">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+        </div>
+        <div class="mt-3 flex items-baseline gap-2">
+          <span class="text-3xl font-bold tracking-tight text-emerald-600">100%</span>
+          <span class="text-xs font-semibold text-emerald-700 px-2 py-0.5 rounded bg-emerald-100">ไวสมบูรณ์</span>
+        </div>
+        <div class="mt-2 text-xs text-emerald-800 flex items-center justify-between border-t border-emerald-100 pt-2">
+          <span>ดื้อยา CRO: 0 ราย</span>
+          <span class="font-medium">ยาหลักอันดับ 1</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Trend Chart (2 cols) -->
+      <div class="lg:col-span-2 bg-white p-5 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-base font-bold text-slate-800">แนวโน้มการตรวจพบเชื้อรายเดือน (Monthly Surveillance Trend)</h2>
+            <p class="text-xs text-slate-500">เปรียบเทียบจำนวนผู้รับบริการและจำนวนเคสที่ตรวจพบเชื้อ</p>
+          </div>
+          <span class="text-xs font-medium px-2.5 py-1 bg-slate-100 text-slate-600 rounded-lg">ปีงบ 2568-2569</span>
+        </div>
+        <div class="relative h-72">
+          <canvas id="monthlyTrendChart"></canvas>
+        </div>
+      </div>
+
+      <!-- AMR Profile Chart (1 col) -->
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-base font-bold text-slate-800">สถานะความไวต่อยาปฏิชีวนะ</h2>
+            <p class="text-xs text-slate-500">สัดส่วน ไวต่อยา (S) vs ดื้อยา (R)</p>
+          </div>
+          <span class="text-xs font-semibold text-teal-600 bg-teal-50 px-2 py-0.5 rounded">6 ชนิดหลัก</span>
+        </div>
+        <div class="relative h-72">
+          <canvas id="amrRadarChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Surveillance Table Section -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden">
+      <div class="p-5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-base font-bold text-slate-800 flex items-center gap-2">
+            <i class="fa-solid fa-table-list text-teal-600"></i>
+            ตารางเฝ้าระวังเชื้อดื้อยาและมาตรการตอบโต้ (Monthly AMR Early Warning)
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">ติดตามการดื้อยา Ceftriaxone & Cefixime รายเดือนตามแนวทางสาธารณสุข</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-slate-500">สถานะเฝ้าระวัง:</span>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+            <i class="fa-solid fa-circle-check text-[10px]"></i> ปกติทุกงวด (Safe)
+          </span>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-slate-600">
+          <thead class="bg-slate-50 text-slate-700 uppercase font-semibold text-[11px] border-b border-slate-200">
+            <tr>
+              <th class="px-4 py-3">เดือน</th>
+              <th class="px-4 py-3 text-right">ผู้รับบริการ (คน)</th>
+              <th class="px-4 py-3 text-right">หนองใน NG</th>
+              <th class="px-4 py-3 text-right">อัตราพบ NG (%)</th>
+              <th class="px-4 py-3 text-right">คลามีเดีย CT</th>
+              <th class="px-4 py-3 text-right">เชื้อรา</th>
+              <th class="px-4 py-3 text-center">ทดสอบ/ดื้อยา CRO</th>
+              <th class="px-4 py-3 text-center">สถานะเตือนภัย AMR</th>
+              <th class="px-4 py-3">แนวทางปฏิบัติ / มาตรการสาธารณสุข</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100" id="surveillance-table-body">
+            <!-- Table row injected via JS -->
+          </tbody>
+          <tfoot class="bg-slate-50 font-bold text-slate-900 border-t border-slate-200">
+            <tr>
+              <td class="px-4 py-3">ยอดรวมล่าสุด</td>
+              <td class="px-4 py-3 text-right text-blue-600">220</td>
+              <td class="px-4 py-3 text-right text-teal-700">87</td>
+              <td class="px-4 py-3 text-right">39.5%</td>
+              <td class="px-4 py-3 text-right text-sky-700">21</td>
+              <td class="px-4 py-3 text-right">3</td>
+              <td class="px-4 py-3 text-center">87 / 0 (R=0%)</td>
+              <td class="px-4 py-3 text-center">
+                <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-semibold text-[11px]">ปลอดภัย 100%</span>
+              </td>
+              <td class="px-4 py-3 text-slate-700">ใช้ Ceftriaxone 500mg IM ร่วมกับ Azithromycin ตาม Guideline</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+    <p>© 2026 สำนักงานป้องกันควบคุมโรคที่ 10 จังหวัดอุบลราชธานี (สคร.10) • ระบบเฝ้าระวังทางห้องปฏิบัติการอ้างอิง</p>
+  </footer>
+
+  <!-- Script for Charts and Data Simulation -->
+  <script>
+    // 1. Data Mockup based on your Sheet
+    const monthlyData = [
+      { month: 'ม.ค. 68', total: 18, ng: 7, ct: 1, fungal: 0, croTested: 7, croRes: 0, note: 'ตรวจคัดกรองกลุ่มเสี่ยงปกติ' },
+      { month: 'ก.พ. 68', total: 18, ng: 7, ct: 2, fungal: 0, croTested: 7, croRes: 0, note: 'ตรวจพบ NG เพิ่มขึ้นเล็กน้อย' },
+      { month: 'มี.ค. 68', total: 14, ng: 6, ct: 1, fungal: 0, croTested: 6, croRes: 0, note: 'ไวต่อยา CRO ทุกราย' },
+      { month: 'เม.ย. 68', total: 14, ng: 6, ct: 1, fungal: 0, croTested: 6, croRes: 0, note: 'ติดตามผู้สัมผัสโรค' },
+      { month: 'พ.ค. 68', total: 10, ng: 4, ct: 2, fungal: 0, croTested: 4, croRes: 0, note: 'คัดกรองตามมาตรฐาน' },
+      { month: 'มิ.ย. 68', total: 14, ng: 6, ct: 1, fungal: 0, croTested: 6, croRes: 0, note: 'ตรวจยืนยันความไวต่อยา' },
+      { month: 'ก.ค. 68', total: 12, ng: 5, ct: 0, fungal: 0, croTested: 5, croRes: 0, note: 'ไม่มีรายงานดื้อยา' },
+      { month: 'ส.ค. 68', total: 8,  ng: 3, ct: 1, fungal: 0, croTested: 3, croRes: 0, note: 'ส่งตรวจจากคลินิกเฉพาะทาง' },
+      { month: 'ก.ย. 68', total: 16, ng: 7, ct: 1, fungal: 0, croTested: 7, croRes: 0, note: 'สิ้นสุดปีงบประมาณ 2568' },
+      { month: 'ต.ค. 68', total: 6,  ng: 3, ct: 0, fungal: 0, croTested: 3, croRes: 0, note: 'เริ่มปีงบประมาณ 2569' },
+      { month: 'พ.ย. 68', total: 5,  ng: 2, ct: 1, fungal: 0, croTested: 2, croRes: 0, note: 'ตรวจติดตามอาการ' },
+      { month: 'ธ.ค. 68', total: 4,  ng: 2, ct: 0, fungal: 1, croTested: 2, croRes: 0, note: 'พบเชื้อราร่วม 1 ราย' }
+    ];
+
+    // 2. Render Surveillance Table
+    const tbody = document.getElementById('surveillance-table-body');
+    monthlyData.forEach(row => {
+      const ngRate = ((row.ng / row.total) * 100).toFixed(1);
+      const tr = document.createElement('tr');
+      tr.className = "hover:bg-slate-50 transition";
+      tr.innerHTML = `
+        <td class="px-4 py-3 font-medium text-slate-800">${row.month}</td>
+        <td class="px-4 py-3 text-right font-semibold text-slate-700">${row.total}</td>
+        <td class="px-4 py-3 text-right text-teal-700 font-semibold">${row.ng}</td>
+        <td class="px-4 py-3 text-right">
+          <span class="inline-block px-1.5 py-0.5 rounded text-[11px] font-medium bg-teal-50 text-teal-800">${ngRate}%</span>
+        </td>
+        <td class="px-4 py-3 text-right text-sky-700 font-semibold">${row.ct}</td>
+        <td class="px-4 py-3 text-right">${row.fungal}</td>
+        <td class="px-4 py-3 text-center">${row.croTested} / ${row.croRes}</td>
+        <td class="px-4 py-3 text-center">
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> ปกติ (Safe)
+          </span>
+        </td>
+        <td class="px-4 py-3 text-slate-600">${row.note}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    // 3. Render Trend Chart (Combo: Bar + Line)
+    const ctxTrend = document.getElementById('monthlyTrendChart').getContext('2d');
+    new Chart(ctxTrend, {
+      type: 'bar',
+      data: {
+        labels: monthlyData.map(d => d.month),
+        datasets: [
+          {
+            label: 'ผู้รับบริการตรวจ (คน)',
+            data: monthlyData.map(d => d.total),
+            backgroundColor: 'rgba(148, 163, 184, 0.4)',
+            borderRadius: 6,
+            yAxisID: 'y'
+          },
+          {
+            type: 'line',
+            label: 'ตรวจพบหนองใน NG (เคส)',
+            data: monthlyData.map(d => d.ng),
+            borderColor: '#0D9488',
+            backgroundColor: '#0D9488',
+            borderWidth: 2.5,
+            tension: 0.3,
+            fill: false,
+            yAxisID: 'y'
+          },
+          {
+            type: 'line',
+            label: 'ตรวจพบคลามีเดีย CT (เคส)',
+            data: monthlyData.map(d => d.ct),
+            borderColor: '#0284C7',
+            backgroundColor: '#0284C7',
+            borderWidth: 2,
+            borderDash: [4, 4],
+            tension: 0.3,
+            fill: false,
+            yAxisID: 'y'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'top', labels: { boxWidth: 12, font: { family: 'Prompt', size: 11 } } },
+          tooltip: { bodyFont: { family: 'Prompt' }, titleFont: { family: 'Prompt' } }
+        },
+        scales: {
+          y: { beginAtZero: true, grid: { color: '#F1F5F9' }, ticks: { font: { family: 'Prompt' } } },
+          x: { grid: { display: false }, ticks: { font: { family: 'Prompt' } } }
+        }
+      }
+    });
+
+    // 4. Render AMR Horizontal Stacked Bar Chart
+    const ctxAmr = document.getElementById('amrRadarChart').getContext('2d');
+    new Chart(ctxAmr, {
+      type: 'bar',
+      data: {
+        labels: ['Ceftriaxone', 'Cefixime', 'Spectinomycin', 'Azithromycin', 'Ciprofloxacin', 'Penicillin'],
+        datasets: [
+          {
+            label: 'ไวต่อยา (Sensitive %)',
+            data: [100, 100, 100, 85, 12, 5],
+            backgroundColor: '#0D9488',
+            borderRadius: 4
+          },
+          {
+            label: 'ดื้อยา (Resistant %)',
+            data: [0, 0, 0, 15, 88, 95],
+            backgroundColor: '#F43F5E',
+            borderRadius: 4
+          }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { boxWidth: 12, font: { family: 'Prompt', size: 10 } } },
+          tooltip: { bodyFont: { family: 'Prompt' }, titleFont: { family: 'Prompt' } }
+        },
+        scales: {
+          x: { stacked: true, max: 100, ticks: { callback: v => v + '%' } },
+          y: { stacked: true, grid: { display: false } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
