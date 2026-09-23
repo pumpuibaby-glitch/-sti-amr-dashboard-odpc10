@@ -216,15 +216,40 @@
                 </div>
             </div>
 
+          <!-- MIC Distribution Bar Chart (5-Year Trend) -->
             <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                <h3 class="text-base font-bold text-slate-900 mb-1">การติดตามค่าความเข้มข้นต่ำสุดที่ยับยั้งเชื้อ (MIC Surveillance Trend)</h3>
-                <p class="text-xs text-slate-500 mb-4">หน่วย: mg/L (Ceftriaxone & Cefixime Breakpoint ≤ 0.25 mg/L)</p>
-                <div class="relative h-72">
-                    <canvas id="micTrendChart"></canvas>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-3">
+                    <div>
+                        <h3 class="text-base font-bold text-slate-900 flex items-center">
+                            <i class="fa-solid fa-chart-column text-sky-600 mr-2"></i>
+                            การแจกแจงความถี่ค่า MIC ย้อนหลัง 5 ปี (พ.ศ. 2565 - 2569)
+                        </h3>
+                        <p class="text-xs text-slate-500">ติดตามการกระจายตัวของค่า MIC และเฝ้าระวังการขยับสูงขึ้นของเชื้อ (MIC Creep / Shift Surveillance)</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <label for="drugSelector" class="text-xs font-semibold text-slate-600">เลือกยาต้านจุลชีพ:</label>
+                        <select id="drugSelector" onchange="updateMICChart(this.value)" class="text-xs font-medium bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                            <option value="CRO">Ceftriaxone (CRO) - ยาฉีดหลัก</option>
+                            <option value="CFM">Cefixime (CFM) - ยากินหลัก</option>
+                            <option value="AZM">Azithromycin (AZM) - ยาร่วมรักษา</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Interpretation Sub-banner -->
+                <div id="micInfoBanner" class="mb-4 px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg flex flex-wrap justify-between items-center text-xs text-slate-600">
+                    <div>
+                        <strong>เกณฑ์มาตรฐาน (Breakpoint):</strong> <span id="breakpointText" class="text-emerald-700 font-bold">ไวต่อยา (S) เมื่อ MIC ≤ 0.25 mg/L</span>
+                    </div>
+                    <div class="text-[11px] text-slate-500">
+                        *หากแท่งกราฟปีหลังๆ ขยับตัวไปทางขวา แสดงว่าเกิดการลดความไวของเชื้อในพื้นที่
+                    </div>
+                </div>
+
+                <div class="relative h-80">
+                    <canvas id="micDistributionChart"></canvas>
                 </div>
             </div>
-        </section>
-
         <!-- ==================== TAB 4: EQA ==================== -->
         <section id="section-eqa" class="space-y-8 hidden">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -422,41 +447,128 @@
         });
 
         // 5. MIC Trend Chart
-        new Chart(document.getElementById('micTrendChart'), {
-            type: 'line',
-            data: {
-                labels: ['2565', '2566', '2567', '2568', '2569'],
-                datasets: [
-                    {
-                        label: 'Ceftriaxone (CRO) - Breakpoint ≤ 0.25',
-                        data: [0.0027, 0.0033, 0.0038, 0.0021, 0.0033],
-                        borderColor: '#0284c7',
-                        borderWidth: 2.5,
-                        pointRadius: 4
-                    },
-                    {
-                        label: 'Cefixime (CFM) - Breakpoint ≤ 0.25',
-                        data: [0.016, 0.016, 0.0213, 0.016, 0.016],
-                        borderColor: '#0d9488',
-                        borderWidth: 2,
-                        pointRadius: 4
-                    },
-                    {
-                        label: 'Azithromycin (AZM) - Breakpoint ≤ 1.0',
-                        data: [0.056, 0.050, 0.061, 0.056, 0.058],
-                        borderColor: '#f59e0b',
-                        borderWidth: 2,
-                        pointRadius: 4
-                    }
-                ]
+     // =========================================================
+        // MIC Distribution Data (ย้อนหลัง 5 ปี: 2565 - 2569)
+        // =========================================================
+        const MIC_DATASETS = {
+            CRO: {
+                name: 'Ceftriaxone (CRO)',
+                breakpoint: 'ไวต่อยา (S) เมื่อ MIC ≤ 0.25 mg/L (CLSI/EUCAST)',
+                levels: ['≤0.002', '0.003', '0.004', '0.008', '0.016', '0.032', '≥0.064'],
+                years: {
+                    '2565': [17, 0, 8, 0, 0, 0, 0],
+                    '2566': [2, 0, 1, 1, 0, 0, 0],
+                    '2567': [4, 2, 5, 1, 0, 0, 0],
+                    '2568': [5, 3, 3, 0, 0, 0, 0],
+                    '2569': [0, 0, 2, 0, 0, 0, 0]
+                }
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'MIC (mg/L)' } }
+            CFM: {
+                name: 'Cefixime (CFM)',
+                breakpoint: 'ไวต่อยา (S) เมื่อ MIC ≤ 0.25 mg/L (CLSI/EUCAST)',
+                levels: ['0.016', '0.032', '0.064', '≥0.125'],
+                years: {
+                    '2565': [25, 0, 0, 0],
+                    '2566': [4, 0, 0, 0],
+                    '2567': [10, 0, 1, 0],
+                    '2568': [11, 0, 0, 0],
+                    '2569': [2, 0, 0, 0]
+                }
+            },
+            AZM: {
+                name: 'Azithromycin (AZM)',
+                breakpoint: 'สายพันธุ์ปกติ (Wild Type) เมื่อ MIC ≤ 1.0 mg/L',
+                levels: ['0.016', '0.032', '0.047', '0.064', '0.094', '≥0.125'],
+                years: {
+                    '2565': [0, 2, 7, 14, 0, 0],
+                    '2566': [1, 0, 2, 1, 0, 0],
+                    '2567': [0, 0, 6, 2, 3, 0],
+                    '2568': [0, 1, 3, 7, 0, 0],
+                    '2569': [0, 0, 1, 1, 0, 0]
+                }
+            }
+        };
+
+        // Palette ไล่สีตามปี พ.ศ. 2565 -> 2569 (จากโทนอ่อนไปเข้มเด่นชัด)
+        const YEAR_COLORS = {
+            '2565': '#94a3b8', // สีเทาฟ้า (ปีแรก)
+            '2566': '#38bdf8', // ฟ้าอ่อน
+            '2567': '#0284c7', // น้ำเงินหลัก
+            '2568': '#0369a1', // น้ำเงินเข้ม
+            '2569': '#e11d48'  // สีแดงเชอร์รี่ (ปีล่าสุด เพื่อเน้นเคสปัจจุบัน)
+        };
+
+        let micChartInstance = null;
+
+        function renderMICDistribution(drugKey) {
+            const dataConfig = MIC_DATASETS[drugKey];
+            document.getElementById('breakpointText').innerText = dataConfig.breakpoint;
+
+            const datasets = Object.keys(dataConfig.years).map(year => ({
+                label: `ปี ${year}`,
+                data: dataConfig.years[year],
+                backgroundColor: YEAR_COLORS[year],
+                borderRadius: 3,
+                borderWidth: 1,
+                borderColor: '#ffffff'
+            }));
+
+            const ctx = document.getElementById('micDistributionChart').getContext('2d');
+            
+            if (micChartInstance) {
+                micChartInstance.destroy();
+            }
+
+            micChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: dataConfig.levels.map(l => `${l} mg/L`),
+                    datasets: datasets
                 },
-                plugins: { legend: { position: 'bottom' } }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { boxWidth: 12, padding: 12, font: { size: 11 } }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: (item) => ` ปี ${item.dataset.label}: ${item.parsed.y} ราย`
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'ระดับค่า MIC (mg/L)',
+                                font: { weight: 'bold', size: 12 }
+                            },
+                            grid: { display: false }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'จำนวนตัวอย่าง (เคส)',
+                                font: { weight: 'bold', size: 12 }
+                            },
+                            ticks: { precision: 0 }
+                        }
+                    }
+                }
+            });
+        }
+
+        // ฟังก์ชันเมื่อเปลี่ยน Dropdown
+        window.updateMICChart = function(drugKey) {
+            renderMICDistribution(drugKey);
+        };
+
+        // เรียกเรนเดอร์ค่าเริ่มต้น Ceftriaxone (CRO)
+        renderMICDistribution('CRO');
             }
         });
     </script>
