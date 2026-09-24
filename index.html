@@ -92,7 +92,7 @@
                 <!-- 2. NG จากการเพาะเชื้อ (Culture) สะสม -->
                 <div class="bg-white p-4 rounded-xl border-t-4 border-sky-600 border-x border-b border-slate-200 card-shadow">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-semibold text-sky-800 uppercase tracking-wider">NG เพาะเชื้อ (Culture)</span>
+                        <span class="text-xs font-semibold text-sky-800 uppercase tracking-wider leading-tight">เพาะเชื้อ <em>NG</em></span>
                         <div class="w-7 h-7 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center">
                             <i class="fa-solid fa-bacteria text-xs"></i>
                         </div>
@@ -102,14 +102,14 @@
                         <span class="text-[11px] font-semibold text-sky-700 bg-sky-50 px-1.5 py-0.5 rounded">49.6%</span>
                     </div>
                     <p class="mt-1 text-[11px] text-slate-500">
-                        เชื้อมีชีวิตสะสม (ทดสอบ AST)
+                        <em>N. gonorrhoeae</em> เพาะเชื้อสะสม
                     </p>
                 </div>
 
                 <!-- 3. ผลบวกจากการตรวจ PCR NG สะสม (52 ราย) -->
                 <div class="bg-white p-4 rounded-xl border-t-4 border-indigo-600 border-x border-b border-slate-200 card-shadow">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-semibold text-indigo-800 uppercase tracking-wider leading-tight">PCR NG สะสม</span>
+                        <span class="text-xs font-semibold text-indigo-800 uppercase tracking-wider leading-tight">PCR <em>NG</em> สะสม</span>
                         <div class="w-7 h-7 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
                             <i class="fa-solid fa-dna text-xs"></i>
                         </div>
@@ -119,14 +119,14 @@
                         <span class="text-[11px] font-semibold text-indigo-700 bg-indigo-50 px-1.5 py-0.5 rounded">Detected</span>
                     </div>
                     <p class="mt-1 text-[11px] text-slate-500">
-                        N. gonorrhoeae สารพันธุกรรม
+                        <em>N. gonorrhoeae</em> โมเลกุล
                     </p>
                 </div>
 
                 <!-- 4. ผลบวกจากการตรวจ PCR CT สะสม (48 ราย) -->
                 <div class="bg-white p-4 rounded-xl border-t-4 border-teal-600 border-x border-b border-slate-200 card-shadow">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-semibold text-teal-800 uppercase tracking-wider leading-tight">PCR CT สะสม</span>
+                        <span class="text-xs font-semibold text-teal-800 uppercase tracking-wider leading-tight">PCR <em>CT</em> สะสม</span>
                         <div class="w-7 h-7 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center">
                             <i class="fa-solid fa-dna text-xs"></i>
                         </div>
@@ -136,14 +136,14 @@
                         <span class="text-[11px] font-semibold text-teal-700 bg-teal-50 px-1.5 py-0.5 rounded">Detected</span>
                     </div>
                     <p class="mt-1 text-[11px] text-slate-500">
-                        C. trachomatis (หนองในเทียม)
+                        <em>C. trachomatis</em> โมเลกุล
                     </p>
                 </div>
 
                 <!-- 5. การติดเชื้อร่วม CT/NG Co-infection สะสม (20 ราย) -->
                 <div class="bg-white p-4 rounded-xl border-t-4 border-purple-600 border-x border-b border-slate-200 card-shadow">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-semibold text-purple-800 uppercase tracking-wider leading-tight">CT/NG Co-infection</span>
+                        <span class="text-xs font-semibold text-purple-800 uppercase tracking-wider leading-tight"><em>CT/NG</em> Co-infect</span>
                         <div class="w-7 h-7 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
                             <i class="fa-solid fa-code-merge text-xs"></i>
                         </div>
@@ -153,7 +153,7 @@
                         <span class="text-[11px] font-semibold text-purple-700 bg-purple-50 px-1.5 py-0.5 rounded">สะสม 2567-69</span>
                     </div>
                     <p class="mt-1 text-[11px] text-slate-500">
-                        พบทั้งสองเชื้อ (ปี 69 = 2 ราย)
+                        พบทั้ง 2 เชื้อ (ปี 69 = 2 ราย)
                     </p>
                 </div>
 
@@ -180,7 +180,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                     <h3 class="text-base font-bold text-slate-900 mb-1">สัดส่วนผลตรวจทางห้องปฏิบัติการ (แยกตามวิธีวิเคราะห์)</h3>
-                    <p class="text-xs text-slate-500 mb-4">แสดงจำแนกชัดเจนระหว่างผลเพาะเชื้อบวก (Culture), ผลบวก PCR (NG & CT) และตัวอย่างไม่พบเชื้อ</p>
+                    <p class="text-xs text-slate-500 mb-4">แสดงจำแนกชัดเจนระหว่างผลเพาะเชื้อบวก (Culture), ผลบวก PCR (<em>NG</em> & <em>CT</em>) และตัวอย่างไม่พบเชื้อ</p>
                     <div class="relative h-64">
                         <canvas id="overviewDonutChart"></canvas>
                     </div>
@@ -224,7 +224,7 @@
                         <tbody class="divide-y divide-slate-200 bg-white">
                             <tr class="hover:bg-slate-50">
                                 <td class="px-4 py-3 font-semibold text-sky-900">
-                                    <i class="fa-solid fa-vial text-sky-600 mr-1.5"></i> Neisseria gonorrhoeae จากการเพาะเชื้อ (NG Culture)
+                                    <i class="fa-solid fa-vial text-sky-600 mr-1.5"></i> <em>Neisseria gonorrhoeae</em> จากการเพาะเชื้อ (NG Culture)
                                 </td>
                                 <td class="px-4 py-3 text-slate-600">Bacterial Culture & Isolation</td>
                                 <td class="px-4 py-3 text-right font-medium">24</td>
@@ -234,7 +234,7 @@
                             </tr>
                             <tr class="hover:bg-slate-50">
                                 <td class="px-4 py-3 font-semibold text-indigo-900">
-                                    <i class="fa-solid fa-dna text-indigo-600 mr-1.5"></i> Neisseria gonorrhoeae จากสารพันธุกรรม (NG PCR)
+                                    <i class="fa-solid fa-dna text-indigo-600 mr-1.5"></i> <em>Neisseria gonorrhoeae</em> จากสารพันธุกรรม (NG PCR)
                                 </td>
                                 <td class="px-4 py-3 text-slate-600">Real-time Multiplex PCR (Urethra, Urine)</td>
                                 <td class="px-4 py-3 text-right font-bold text-indigo-700">13</td>
@@ -244,7 +244,7 @@
                             </tr>
                             <tr class="hover:bg-slate-50">
                                 <td class="px-4 py-3 font-semibold text-teal-900">
-                                    <i class="fa-solid fa-dna text-emerald-600 mr-1.5"></i> Chlamydia trachomatis จากสารพันธุกรรม (CT PCR)
+                                    <i class="fa-solid fa-dna text-emerald-600 mr-1.5"></i> <em>Chlamydia trachomatis</em> จากสารพันธุกรรม (CT PCR)
                                 </td>
                                 <td class="px-4 py-3 text-slate-600">Real-time Multiplex PCR (Urethra, Urine)</td>
                                 <td class="px-4 py-3 text-right font-bold text-emerald-700">13</td>
@@ -254,7 +254,7 @@
                             </tr>
                             <tr class="hover:bg-purple-50/50 bg-purple-50/20">
                                 <td class="px-4 py-3 font-semibold text-purple-900">
-                                    <i class="fa-solid fa-code-merge text-purple-600 mr-1.5"></i> การติดเชื้อร่วม (CT/NG Co-infection)
+                                    <i class="fa-solid fa-code-merge text-purple-600 mr-1.5"></i> การติดเชื้อร่วม (<em>CT/NG</em> Co-infection)
                                 </td>
                                 <td class="px-4 py-3 text-slate-600">ตรวจพบสารพันธุกรรมทั้ง 2 ชนิดพร้อมกัน</td>
                                 <td class="px-4 py-3 text-right font-bold text-purple-700">13</td>
@@ -304,7 +304,7 @@
                         <div class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-indigo-100 text-indigo-800 mb-2">
                             <i class="fa-solid fa-code-merge mr-1.5"></i> Dual-Pathogen Surveillance
                         </div>
-                        <h4 class="text-base font-bold text-indigo-950">สถานการณ์การติดเชื้อร่วม (CT/NG Co-infection)</h4>
+                        <h4 class="text-base font-bold text-indigo-950">สถานการณ์การติดเชื้อร่วม (<em>CT/NG</em> Co-infection)</h4>
                         <p class="text-xs text-indigo-700 mt-0.5">
                             รายงานผู้ตรวจพบสารพันธุกรรมทั้ง <em>Chlamydia trachomatis</em> และ <em>Neisseria gonorrhoeae</em> (สะสม 20 ราย | ปี 69 พบ 2 ราย)
                         </p>
@@ -334,9 +334,9 @@
                         <div class="bg-slate-300 h-3" style="width: 46.1%" title="Negative ทั้งสองเชื้อ: 6 ราย (46.2%)"></div>
                     </div>
                     <div class="flex flex-wrap gap-4 mt-2.5 text-[11px] text-slate-600">
-                        <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-purple-600 mr-1.5"></span>ติดเชื้อร่วม (CT+ & NG+) 2 ราย (15.4%)</span>
-                        <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-indigo-500 mr-1.5"></span>NG เดี่ยว 3 ราย (23.1%)</span>
-                        <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-teal-500 mr-1.5"></span>CT เดี่ยว 2 ราย (15.4%)</span>
+                        <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-purple-600 mr-1.5"></span>ติดเชื้อร่วม (<em>CT+ & NG+</em>) 2 ราย (15.4%)</span>
+                        <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-indigo-500 mr-1.5"></span><em>NG</em> เดี่ยว 3 ราย (23.1%)</span>
+                        <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-teal-500 mr-1.5"></span><em>CT</em> เดี่ยว 2 ราย (15.4%)</span>
                         <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-slate-300 mr-1.5"></span>ไม่พบเชื้อทั้งคู่ 6 ราย (46.2%)</span>
                     </div>
                 </div>
@@ -361,7 +361,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                     <div>
                         <h3 class="text-base font-bold text-slate-900">แนวโน้มการตรวจและพบเชื้อ 10 ปี (พ.ศ. 2560 - 2569)</h3>
-                        <p class="text-xs text-slate-500">เปรียบเทียบระหว่าง <strong>หนองในเพาะเชื้อ (Culture NG)</strong>, <strong>หนองใน PCR (PCR NG)</strong> และ <strong>หนองในเทียม PCR (PCR CT)</strong></p>
+                        <p class="text-xs text-slate-500">เปรียบเทียบระหว่าง <strong>หนองในเพาะเชื้อ (Culture <em>NG</em>)</strong>, <strong>หนองใน PCR (PCR <em>NG</em>)</strong> และ <strong>หนองในเทียม PCR (PCR <em>CT</em>)</strong></p>
                     </div>
                 </div>
                 <div class="relative h-80 sm:h-96">
@@ -389,9 +389,9 @@
                             <tr>
                                 <th class="px-2.5 py-3 text-left">ปี พ.ศ.</th>
                                 <th class="px-2.5 py-3 text-right">ผู้รับบริการ (คน)</th>
-                                <th class="px-2.5 py-3 text-right bg-sky-50 text-sky-900 border-l border-sky-100">เพาะเชื้อ NG</th>
-                                <th class="px-2.5 py-3 text-right bg-indigo-50 text-indigo-900 border-l border-indigo-100">PCR NG</th>
-                                <th class="px-2.5 py-3 text-right bg-teal-50 text-teal-900">PCR CT</th>
+                                <th class="px-2.5 py-3 text-right bg-sky-50 text-sky-900 border-l border-sky-100">เพาะเชื้อ <em>NG</em></th>
+                                <th class="px-2.5 py-3 text-right bg-indigo-50 text-indigo-900 border-l border-indigo-100">PCR <em>NG</em></th>
+                                <th class="px-2.5 py-3 text-right bg-teal-50 text-teal-900">PCR <em>CT</em></th>
                                 <th class="px-2.5 py-3 text-right bg-purple-50 text-purple-900">ติดเชื้อร่วม</th>
                                 <th class="px-2.5 py-3 text-right bg-blue-50/50 text-blue-900 border-l border-slate-200">Gram stain</th>
                                 <th class="px-2.5 py-3 text-right bg-rose-50/50 text-rose-900">Syphilis</th>
@@ -436,7 +436,7 @@
             <!-- กราฟ AMR Profile -->
             <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                 <h3 class="text-base font-bold text-slate-900 mb-1">สถานการณ์ความไวต่อยาของเชื้อหนองในจากการเพาะเชื้อ (AMR Profile)</h3>
-                <p class="text-xs text-slate-500 mb-4">ทดสอบจากเชื้อบริสุทธิ์ที่เพาะแยกได้ (Isolates from Culture)</p>
+                <p class="text-xs text-slate-500 mb-4">ทดสอบจากเชื้อบริสุทธิ์ที่เพาะแยกได้ (Isolates from Culture <em>Neisseria gonorrhoeae</em>)</p>
                 <div class="relative h-80">
                     <canvas id="amrBarChart"></canvas>
                 </div>
@@ -450,7 +450,7 @@
                             <i class="fa-solid fa-chart-column text-sky-600 mr-2"></i>
                             การแจกแจงความถี่ค่า MIC ย้อนหลัง 5 ปี (พ.ศ. 2565 - 2569)
                         </h3>
-                        <p class="text-xs text-slate-500">ติดตามการกระจายตัวของค่า MIC และเฝ้าระวังการขยับสูงขึ้นของเชื้อ (MIC Creep / Shift Surveillance)</p>
+                        <p class="text-xs text-slate-500">ติดตามการกระจายตัวของค่า MIC และเฝ้าระวังการขยับสูงขึ้นของเชื้อ <em>Neisseria gonorrhoeae</em> (MIC Creep / Shift Surveillance)</p>
                     </div>
                     <div class="flex items-center space-x-2">
                         <label for="drugSelector" class="text-xs font-semibold text-slate-600">เลือกยาต้านจุลชีพ:</label>
@@ -562,7 +562,7 @@
                             </tr>
                             <tr class="hover:bg-slate-50">
                                 <td class="px-4 py-3 text-slate-400">3</td>
-                                <td class="px-4 py-3 font-semibold text-slate-900">GC Culture (N. gonorrhoeae)</td>
+                                <td class="px-4 py-3 font-semibold text-slate-900">GC Culture (<em>N. gonorrhoeae</em>)</td>
                                 <td class="px-4 py-3 text-slate-600">ศูนย์บางรักฯ (Bangrak STIs Center)</td>
                                 <td class="px-4 py-3 text-right font-medium">6</td>
                                 <td class="px-4 py-3 text-right font-bold text-emerald-600">5</td>
@@ -634,7 +634,7 @@
                 </div>
             </div>
 
-            <!-- มิติการประกันคุณภาพ (Quality Dimensions) -->
+            <!-- มิติการประกันคุณภาพ และ หน่วยบริการเครือข่ายที่ส่งตรวจ (อัปเดตตัวเลขจริง) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                     <h4 class="text-sm font-bold text-slate-900 mb-3 flex items-center">
@@ -657,6 +657,7 @@
                     </ul>
                 </div>
 
+                <!-- ปรับยอดจริงของ Referring Facilities -->
                 <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                     <h4 class="text-sm font-bold text-slate-900 mb-3 flex items-center">
                         <i class="fa-solid fa-hospital-user text-sky-600 mr-2"></i>
@@ -665,29 +666,38 @@
                     <div class="space-y-3">
                         <div>
                             <div class="flex justify-between text-xs mb-1">
-                                <span class="font-medium text-slate-700">ศูนย์เวชฯ สคร.10</span>
-                                <span class="text-slate-500 font-bold">673 เคส (87.2%)</span>
+                                <span class="font-medium text-slate-700">ศูนย์สาธิต สคร.10</span>
+                                <span class="text-slate-600 font-bold">616 เคส (80.2%)</span>
                             </div>
                             <div class="w-full bg-slate-100 rounded-full h-2">
-                                <div class="bg-sky-600 h-2 rounded-full" style="width: 87.2%"></div>
+                                <div class="bg-sky-600 h-2 rounded-full" style="width: 80.2%"></div>
                             </div>
                         </div>
                         <div>
                             <div class="flex justify-between text-xs mb-1">
                                 <span class="font-medium text-slate-700">รพ.มุกดาหาร</span>
-                                <span class="text-slate-500 font-bold">95 เคส (12.3%)</span>
+                                <span class="text-slate-600 font-bold">92 เคส (12.0%)</span>
                             </div>
                             <div class="w-full bg-slate-100 rounded-full h-2">
-                                <div class="bg-teal-500 h-2 rounded-full" style="width: 12.3%"></div>
+                                <div class="bg-teal-500 h-2 rounded-full" style="width: 12.0%"></div>
                             </div>
                         </div>
                         <div>
                             <div class="flex justify-between text-xs mb-1">
-                                <span class="font-medium text-slate-700">คลินิกกามโรค / อื่นๆ</span>
-                                <span class="text-slate-500 font-bold">4 เคส (0.5%)</span>
+                                <span class="font-medium text-slate-700">ศูนย์เวชฯ สคร.10</span>
+                                <span class="text-slate-600 font-bold">59 เคส (7.7%)</span>
                             </div>
                             <div class="w-full bg-slate-100 rounded-full h-2">
-                                <div class="bg-indigo-400 h-2 rounded-full" style="width: 0.5%"></div>
+                                <div class="bg-indigo-500 h-2 rounded-full" style="width: 7.7%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-medium text-slate-700">รพ.พริ้นซ์ อุบล</span>
+                                <span class="text-slate-600 font-bold">1 เคส (0.1%)</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2">
+                                <div class="bg-amber-500 h-2 rounded-full" style="width: 0.1%"></div>
                             </div>
                         </div>
                     </div>
@@ -773,9 +783,9 @@
                 type: 'doughnut',
                 data: {
                     labels: [
-                        'หนองในเพาะเชื้อ (Culture NG)',
-                        'หนองในตรวจสารพันธุกรรม (PCR NG)',
-                        'หนองในเทียมตรวจสารพันธุกรรม (PCR CT)',
+                        'หนองในเพาะเชื้อ (𝘕. 𝘨𝘰𝘯𝘰𝘳𝘳𝘩𝘰𝘦𝘢𝘦: Culture NG)',
+                        'หนองในตรวจสารพันธุกรรม (𝘕. 𝘨𝘰𝘯𝘰𝘳𝘳𝘩𝘰𝘦𝘢𝘦: PCR NG)',
+                        'หนองในเทียมตรวจสารพันธุกรรม (𝘊. 𝘵𝘳𝘢𝘤𝘩𝘰𝘮𝘢𝘵𝘪𝘴: PCR CT)',
                         'เชื้อรา (KOH)',
                         'ไม่พบเชื้อ'
                     ],
@@ -831,7 +841,7 @@
                         },
                         {
                             type: 'line',
-                            label: 'หนองในเพาะเชื้อ (Culture NG)',
+                            label: 'หนองในเพาะเชื้อ (Culture 𝘕𝘎)',
                             data: TREND_DATA.map(d => d.ng_culture),
                             borderColor: '#0284c7',
                             backgroundColor: '#0284c7',
@@ -841,7 +851,7 @@
                         },
                         {
                             type: 'line',
-                            label: 'สารพันธุกรรมหนองใน (PCR NG)',
+                            label: 'สารพันธุกรรมหนองใน (PCR 𝘕𝘎)',
                             data: TREND_DATA.map(d => d.ng_pcr),
                             borderColor: '#6366f1',
                             backgroundColor: '#6366f1',
@@ -851,7 +861,7 @@
                         },
                         {
                             type: 'line',
-                            label: 'สารพันธุกรรมหนองในเทียม (PCR CT)',
+                            label: 'สารพันธุกรรมหนองในเทียม (PCR 𝘊𝘛)',
                             data: TREND_DATA.map(d => d.ct_pcr),
                             borderColor: '#0d9488',
                             backgroundColor: '#0d9488',
