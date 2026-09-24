@@ -136,7 +136,7 @@
                         <span class="text-[11px] font-semibold text-teal-700 bg-teal-50 px-1.5 py-0.5 rounded">Detected</span>
                     </div>
                     <p class="mt-1 text-[11px] text-slate-500">
-                        C. trachomatis สานพันธุกรรม
+                        C. trachomatis (หนองในเทียม)
                     </p>
                 </div>
 
@@ -329,14 +329,14 @@
                     </div>
                     <div class="w-full bg-slate-200 rounded-full h-3 flex overflow-hidden">
                         <div class="bg-purple-600 h-3" style="width: 15.4%" title="Co-infection (CT+ & NG+): 2 ราย (15.4%)"></div>
-                        <div class="bg-indigo-500 h-3" style="width: 38.5%" title="NG Only: 5 ราย (38.5%)"></div>
-                        <div class="bg-teal-500 h-3" style="width: 30.8%" title="CT Only: 4 ราย (30.8%)"></div>
+                        <div class="bg-indigo-500 h-3" style="width: 23.1%" title="NG Only: 3 ราย (23.1%)"></div>
+                        <div class="bg-teal-500 h-3" style="width: 15.4%" title="CT Only: 2 ราย (15.4%)"></div>
                         <div class="bg-slate-300 h-3" style="width: 46.1%" title="Negative ทั้งสองเชื้อ: 6 ราย (46.2%)"></div>
                     </div>
                     <div class="flex flex-wrap gap-4 mt-2.5 text-[11px] text-slate-600">
                         <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-purple-600 mr-1.5"></span>ติดเชื้อร่วม (CT+ & NG+) 2 ราย (15.4%)</span>
                         <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-indigo-500 mr-1.5"></span>NG เดี่ยว 3 ราย (23.1%)</span>
-                        <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-teal-500 mr-1.5"></span>CT เดี่ยว 4 ราย (30.8%)</span>
+                        <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-teal-500 mr-1.5"></span>CT เดี่ยว 2 ราย (15.4%)</span>
                         <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-slate-300 mr-1.5"></span>ไม่พบเชื้อทั้งคู่ 6 ราย (46.2%)</span>
                     </div>
                 </div>
@@ -354,7 +354,22 @@
         </section>
 
         <!-- ==================== TAB 2: 10-YEAR TREND ==================== -->
-      <!-- ตารางสรุปผลการตรวจวิเคราะห์ทางห้องปฏิบัติการสะสม 10 ปี (เพิ่มรายการตรวจคัดกรองครบวงจร) -->
+        <section id="section-trend" class="space-y-8 hidden">
+            
+            <!-- กล่องกราฟแนวโน้ม 10 ปี -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                    <div>
+                        <h3 class="text-base font-bold text-slate-900">แนวโน้มการตรวจและพบเชื้อ 10 ปี (พ.ศ. 2560 - 2569)</h3>
+                        <p class="text-xs text-slate-500">เปรียบเทียบระหว่าง <strong>หนองในเพาะเชื้อ (Culture NG)</strong>, <strong>หนองใน PCR (PCR NG)</strong> และ <strong>หนองในเทียม PCR (PCR CT)</strong></p>
+                    </div>
+                </div>
+                <div class="relative h-80 sm:h-96">
+                    <canvas id="trend10YearsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- ตารางสรุปผลการตรวจวิเคราะห์ทางห้องปฏิบัติการสะสม 10 ปี (ครบทุกรายการตรวจ) -->
             <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
                 <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                     <div>
@@ -412,8 +427,13 @@
                     </table>
                 </div>
             </div>
+
+        </section>
+
         <!-- ==================== TAB 3: AMR & MIC ==================== -->
         <section id="section-amr" class="space-y-8 hidden">
+            
+            <!-- กราฟ AMR Profile -->
             <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                 <h3 class="text-base font-bold text-slate-900 mb-1">สถานการณ์ความไวต่อยาของเชื้อหนองในจากการเพาะเชื้อ (AMR Profile)</h3>
                 <p class="text-xs text-slate-500 mb-4">ทดสอบจากเชื้อบริสุทธิ์ที่เพาะแยกได้ (Isolates from Culture)</p>
@@ -456,6 +476,7 @@
                     <canvas id="micDistributionChart"></canvas>
                 </div>
             </div>
+
         </section>
 
         <!-- ==================== TAB 4: EQA ==================== -->
@@ -564,6 +585,18 @@
                                 <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-amber-500 mr-1.5"></span>ปิดรอบ 5 รอบ, รอดำเนินการ 1 รอบ</td>
                             </tr>
                             <tr class="hover:bg-slate-50">
+                                <td class="px-4 py-3 text-slate-400">5</td>
+                                <td class="px-4 py-3 font-semibold text-slate-900">เบิกวัสดุ GC (Culture Media PT)</td>
+                                <td class="px-4 py-3 text-slate-600">ศูนย์บางรักฯ (Bangrak STIs Center)</td>
+                                <td class="px-4 py-3 text-right font-medium">3</td>
+                                <td class="px-4 py-3 text-right font-bold text-emerald-600">3</td>
+                                <td class="px-4 py-3 text-right text-slate-400">0</td>
+                                <td class="px-4 py-3 text-right text-slate-400">0</td>
+                                <td class="px-4 py-3 text-right font-bold text-emerald-600">100.0%</td>
+                                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-700 font-medium">ดีเยี่ยม (100%)</span></td>
+                                <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>ปิดรอบสมบูรณ์ 3 รอบ</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
                                 <td class="px-4 py-3 text-slate-400">6</td>
                                 <td class="px-4 py-3 font-semibold text-slate-900">Slide proficiency Malaria</td>
                                 <td class="px-4 py-3 text-slate-600">กองโรคติดต่อนำโดยแมลง (VBD)</td>
@@ -660,6 +693,7 @@
                     </div>
                 </div>
             </div>
+
         </section>
 
     </main>
@@ -671,7 +705,7 @@
     </footer>
 
     <script>
-    // ชุดข้อมูลรายงานผลทางห้องปฏิบัติการครบทุกรายการตรวจ (พ.ศ. 2560 - 2569)
+        // ชุดข้อมูลรายงานผลทางห้องปฏิบัติการครบทุกรายการตรวจ (พ.ศ. 2560 - 2569)
         const TREND_DATA = [
             { year: '2560', tested: 56, ng_culture: 38, ng_pcr: 0, ct_pcr: 0, coinfect: 0, gram: 0, syphilis: 0, hiv: 0, hbsag: 0, wetsmear: 0, fungi: 0, total_pos: 38, note: 'บริการตรวจเพาะเชื้อหนองใน' },
             { year: '2561', tested: 34, ng_culture: 23, ng_pcr: 0, ct_pcr: 0, coinfect: 0, gram: 0, syphilis: 0, hiv: 0, hbsag: 0, wetsmear: 0, fungi: 0, total_pos: 23, note: 'บริการตรวจเพาะเชื้อหนองใน' },
@@ -687,39 +721,44 @@
 
         // เรนเดอร์ตารางผลตรวจแล็บแบบครบวงจร
         const tableBody = document.getElementById('trendTableBody');
-        TREND_DATA.forEach(row => {
-            const tr = document.createElement('tr');
-            tr.className = "hover:bg-slate-50 transition-colors";
-            tr.innerHTML = `
-                <td class="px-2.5 py-2.5 font-bold text-slate-900">${row.year}</td>
-                <td class="px-2.5 py-2.5 text-right font-medium text-slate-700">${row.tested.toLocaleString()}</td>
-                <td class="px-2.5 py-2.5 text-right bg-sky-50/60 text-sky-800 font-bold border-l border-sky-100">${row.ng_culture}</td>
-                <td class="px-2.5 py-2.5 text-right bg-indigo-50/60 text-indigo-800 font-bold border-l border-indigo-100">${row.ng_pcr > 0 ? row.ng_pcr : '-'}</td>
-                <td class="px-2.5 py-2.5 text-right bg-teal-50/60 text-teal-800 font-bold">${row.ct_pcr > 0 ? row.ct_pcr : '-'}</td>
-                <td class="px-2.5 py-2.5 text-right bg-purple-50/60 text-purple-800 font-bold">${row.coinfect > 0 ? row.coinfect : '-'}</td>
-                <td class="px-2.5 py-2.5 text-right bg-blue-50/40 text-blue-800 border-l border-slate-200">${row.gram > 0 ? row.gram : '-'}</td>
-                <td class="px-2.5 py-2.5 text-right bg-rose-50/40 text-rose-800">${row.syphilis > 0 ? row.syphilis : '-'}</td>
-                <td class="px-2.5 py-2.5 text-right bg-red-50/40 text-red-800">${row.hiv > 0 ? row.hiv : '-'}</td>
-                <td class="px-2.5 py-2.5 text-right bg-amber-50/40 text-amber-800">${row.hbsag > 0 ? row.hbsag : '-'}</td>
-                <td class="px-2.5 py-2.5 text-right bg-cyan-50/40 text-cyan-800">${row.wetsmear > 0 ? row.wetsmear : '-'}</td>
-                <td class="px-2.5 py-2.5 text-right bg-yellow-50/40 text-yellow-800">${row.fungi > 0 ? row.fungi : '-'}</td>
-                <td class="px-3 py-2.5 text-right bg-slate-100 font-black text-slate-900 border-l border-slate-200">${row.total_pos}</td>
-                <td class="px-3 py-2.5 text-slate-500 text-[11px]">${row.note}</td>
-            `;
-            tableBody.appendChild(tr);
-        });
+        if (tableBody) {
+            TREND_DATA.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 transition-colors";
+                tr.innerHTML = `
+                    <td class="px-2.5 py-2.5 font-bold text-slate-900">${row.year}</td>
+                    <td class="px-2.5 py-2.5 text-right font-medium text-slate-700">${row.tested.toLocaleString()}</td>
+                    <td class="px-2.5 py-2.5 text-right bg-sky-50/60 text-sky-800 font-bold border-l border-sky-100">${row.ng_culture}</td>
+                    <td class="px-2.5 py-2.5 text-right bg-indigo-50/60 text-indigo-800 font-bold border-l border-indigo-100">${row.ng_pcr > 0 ? row.ng_pcr : '-'}</td>
+                    <td class="px-2.5 py-2.5 text-right bg-teal-50/60 text-teal-800 font-bold">${row.ct_pcr > 0 ? row.ct_pcr : '-'}</td>
+                    <td class="px-2.5 py-2.5 text-right bg-purple-50/60 text-purple-800 font-bold">${row.coinfect > 0 ? row.coinfect : '-'}</td>
+                    <td class="px-2.5 py-2.5 text-right bg-blue-50/40 text-blue-800 border-l border-slate-200">${row.gram > 0 ? row.gram : '-'}</td>
+                    <td class="px-2.5 py-2.5 text-right bg-rose-50/40 text-rose-800">${row.syphilis > 0 ? row.syphilis : '-'}</td>
+                    <td class="px-2.5 py-2.5 text-right bg-red-50/40 text-red-800">${row.hiv > 0 ? row.hiv : '-'}</td>
+                    <td class="px-2.5 py-2.5 text-right bg-amber-50/40 text-amber-800">${row.hbsag > 0 ? row.hbsag : '-'}</td>
+                    <td class="px-2.5 py-2.5 text-right bg-cyan-50/40 text-cyan-800">${row.wetsmear > 0 ? row.wetsmear : '-'}</td>
+                    <td class="px-2.5 py-2.5 text-right bg-yellow-50/40 text-yellow-800">${row.fungi > 0 ? row.fungi : '-'}</td>
+                    <td class="px-3 py-2.5 text-right bg-slate-100 font-black text-slate-900 border-l border-slate-200">${row.total_pos}</td>
+                    <td class="px-3 py-2.5 text-slate-500 text-[11px]">${row.note}</td>
+                `;
+                tableBody.appendChild(tr);
+            });
+        }
 
-        // Tab Navigation
+        // ฟังก์ชันสลับแท็บเมนู
         function switchTab(tabId) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('tab-' + tabId).classList.add('active');
+            const activeBtn = document.getElementById('tab-' + tabId);
+            if (activeBtn) activeBtn.classList.add('active');
 
             ['overview', 'trend', 'amr', 'eqa'].forEach(id => {
                 const section = document.getElementById('section-' + id);
-                if (id === tabId) {
-                    section.classList.remove('hidden');
-                } else {
-                    section.classList.add('hidden');
+                if (section) {
+                    if (id === tabId) {
+                        section.classList.remove('hidden');
+                    } else {
+                        section.classList.add('hidden');
+                    }
                 }
             });
         }
@@ -728,132 +767,144 @@
         Chart.defaults.color = '#64748b';
 
         // 1. Overview Donut Chart
-        new Chart(document.getElementById('overviewDonutChart'), {
-            type: 'doughnut',
-            data: {
-                labels: [
-                    'หนองในเพาะเชื้อ (Culture NG)',
-                    'หนองในตรวจสารพันธุกรรม (PCR NG)',
-                    'หนองในเทียมตรวจสารพันธุกรรม (PCR CT)',
-                    'เชื้อรา (KOH)',
-                    'ไม่พบเชื้อ'
-                ],
-                datasets: [{
-                    data: [343, 52, 48, 3, 245],
-                    backgroundColor: ['#0284c7', '#6366f1', '#0d9488', '#f59e0b', '#e2e8f0'],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15 } } }
-            }
-        });
+        const overviewEl = document.getElementById('overviewDonutChart');
+        if (overviewEl) {
+            new Chart(overviewEl, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        'หนองในเพาะเชื้อ (Culture NG)',
+                        'หนองในตรวจสารพันธุกรรม (PCR NG)',
+                        'หนองในเทียมตรวจสารพันธุกรรม (PCR CT)',
+                        'เชื้อรา (KOH)',
+                        'ไม่พบเชื้อ'
+                    ],
+                    datasets: [{
+                        data: [343, 52, 48, 3, 245],
+                        backgroundColor: ['#0284c7', '#6366f1', '#0d9488', '#f59e0b', '#e2e8f0'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15 } } }
+                }
+            });
+        }
 
         // 2. Specimen Sites Chart
-        new Chart(document.getElementById('specimenChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['ท่อปัสสาวะ (Urethra)', 'อื่นๆ / ปากมดลูก', 'ผิวหนัง (Skin/KOH)', 'พลาสมา/เลือด'],
-                datasets: [{
-                    data: [619, 144, 7, 2],
-                    backgroundColor: ['#0369a1', '#38bdf8', '#fbbf24', '#f43f5e'],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15 } } }
-            }
-        });
+        const specimenEl = document.getElementById('specimenChart');
+        if (specimenEl) {
+            new Chart(specimenEl, {
+                type: 'doughnut',
+                data: {
+                    labels: ['ท่อปัสสาวะ (Urethra)', 'อื่นๆ / ปากมดลูก', 'ผิวหนัง (Skin/KOH)', 'พลาสมา/เลือด'],
+                    datasets: [{
+                        data: [619, 144, 7, 2],
+                        backgroundColor: ['#0369a1', '#38bdf8', '#fbbf24', '#f43f5e'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15 } } }
+                }
+            });
+        }
 
         // 3. 10-Year Trend Chart
-        new Chart(document.getElementById('trend10YearsChart'), {
-            type: 'bar',
-            data: {
-                labels: TREND_DATA.map(d => d.year),
-                datasets: [
-                    {
-                        label: 'ผู้รับบริการตรวจทั้งหมด (คน)',
-                        data: TREND_DATA.map(d => d.tested),
-                        backgroundColor: '#e2e8f0',
-                        borderRadius: 4,
-                        order: 4
-                    },
-                    {
-                        type: 'line',
-                        label: 'หนองในเพาะเชื้อ (Culture NG)',
-                        data: TREND_DATA.map(d => d.ng_culture),
-                        borderColor: '#0284c7',
-                        backgroundColor: '#0284c7',
-                        borderWidth: 3,
-                        pointRadius: 4,
-                        order: 1
-                    },
-                    {
-                        type: 'line',
-                        label: 'สารพันธุกรรมหนองใน (PCR NG)',
-                        data: TREND_DATA.map(d => d.ng_pcr),
-                        borderColor: '#6366f1',
-                        backgroundColor: '#6366f1',
-                        borderWidth: 2,
-                        pointRadius: 4,
-                        order: 2
-                    },
-                    {
-                        type: 'line',
-                        label: 'สารพันธุกรรมหนองในเทียม (PCR CT)',
-                        data: TREND_DATA.map(d => d.ct_pcr),
-                        borderColor: '#0d9488',
-                        backgroundColor: '#0d9488',
-                        borderWidth: 2,
-                        borderDash: [5, 5],
-                        pointRadius: 4,
-                        order: 3
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom' } },
-                scales: { y: { beginAtZero: true } }
-            }
-        });
+        const trendEl = document.getElementById('trend10YearsChart');
+        if (trendEl) {
+            new Chart(trendEl, {
+                type: 'bar',
+                data: {
+                    labels: TREND_DATA.map(d => d.year),
+                    datasets: [
+                        {
+                            label: 'ผู้รับบริการตรวจทั้งหมด (คน)',
+                            data: TREND_DATA.map(d => d.tested),
+                            backgroundColor: '#e2e8f0',
+                            borderRadius: 4,
+                            order: 4
+                        },
+                        {
+                            type: 'line',
+                            label: 'หนองในเพาะเชื้อ (Culture NG)',
+                            data: TREND_DATA.map(d => d.ng_culture),
+                            borderColor: '#0284c7',
+                            backgroundColor: '#0284c7',
+                            borderWidth: 3,
+                            pointRadius: 4,
+                            order: 1
+                        },
+                        {
+                            type: 'line',
+                            label: 'สารพันธุกรรมหนองใน (PCR NG)',
+                            data: TREND_DATA.map(d => d.ng_pcr),
+                            borderColor: '#6366f1',
+                            backgroundColor: '#6366f1',
+                            borderWidth: 2,
+                            pointRadius: 4,
+                            order: 2
+                        },
+                        {
+                            type: 'line',
+                            label: 'สารพันธุกรรมหนองในเทียม (PCR CT)',
+                            data: TREND_DATA.map(d => d.ct_pcr),
+                            borderColor: '#0d9488',
+                            backgroundColor: '#0d9488',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            pointRadius: 4,
+                            order: 3
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } },
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+        }
 
         // 4. AMR Bar Chart
-        new Chart(document.getElementById('amrBarChart'), {
-            type: 'bar',
-            data: {
-                labels: ['Ceftriaxone (CRO)', 'Azithromycin (AZM)', 'Tetracycline (TC)', 'Spectinomycin (SC)', 'Penicillin (PEN)', 'Ciprofloxacin (CIP)'],
-                datasets: [
-                    {
-                        label: 'ไวต่อยา (S)',
-                        data: [100.0, 99.1, 62.7, 44.4, 7.6, 2.7],
-                        backgroundColor: '#10b981',
-                        borderRadius: 4
-                    },
-                    {
-                        label: 'ดื้อยา (R)',
-                        data: [0.0, 0.3, 37.3, 55.6, 92.4, 97.3],
-                        backgroundColor: '#ef4444',
-                        borderRadius: 4
-                    }
-                ]
-            },
-            options: {
-                indexAxis: 'y',
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: { stacked: true, max: 100, ticks: { callback: v => v + '%' } },
-                    y: { stacked: true }
+        const amrEl = document.getElementById('amrBarChart');
+        if (amrEl) {
+            new Chart(amrEl, {
+                type: 'bar',
+                data: {
+                    labels: ['Ceftriaxone (CRO)', 'Azithromycin (AZM)', 'Tetracycline (TC)', 'Spectinomycin (SC)', 'Penicillin (PEN)', 'Ciprofloxacin (CIP)'],
+                    datasets: [
+                        {
+                            label: 'ไวต่อยา (S)',
+                            data: [100.0, 99.1, 62.7, 44.4, 7.6, 2.7],
+                            backgroundColor: '#10b981',
+                            borderRadius: 4
+                        },
+                        {
+                            label: 'ดื้อยา (R)',
+                            data: [0.0, 0.3, 37.3, 55.6, 92.4, 97.3],
+                            backgroundColor: '#ef4444',
+                            borderRadius: 4
+                        }
+                    ]
                 },
-                plugins: { legend: { position: 'bottom' } }
-            }
-        });
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true, max: 100, ticks: { callback: v => v + '%' } },
+                        y: { stacked: true }
+                    },
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+        }
 
         // 5. MIC Distribution Data
         const MIC_DATASETS = {
@@ -907,7 +958,8 @@
 
         function renderMICDistribution(drugKey) {
             const dataConfig = MIC_DATASETS[drugKey];
-            document.getElementById('breakpointText').innerText = dataConfig.breakpoint;
+            const bpText = document.getElementById('breakpointText');
+            if (bpText) bpText.innerText = dataConfig.breakpoint;
 
             const datasets = Object.keys(dataConfig.years).map(year => ({
                 label: `ปี ${year}`,
@@ -918,7 +970,9 @@
                 borderColor: '#ffffff'
             }));
 
-            const ctx = document.getElementById('micDistributionChart').getContext('2d');
+            const canvas = document.getElementById('micDistributionChart');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
             
             if (micChartInstance) {
                 micChartInstance.destroy();
@@ -971,6 +1025,7 @@
             renderMICDistribution(drugKey);
         };
 
+        // เริ่มต้นเรนเดอร์กราฟ MIC
         renderMICDistribution('CRO');
     </script>
 </body>
