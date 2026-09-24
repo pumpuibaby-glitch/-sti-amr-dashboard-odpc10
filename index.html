@@ -329,14 +329,14 @@
                     </div>
                     <div class="w-full bg-slate-200 rounded-full h-3 flex overflow-hidden">
                         <div class="bg-purple-600 h-3" style="width: 15.4%" title="Co-infection (CT+ & NG+): 2 ราย (15.4%)"></div>
-                        <div class="bg-indigo-500 h-3" style="width: 23.1%" title="NG Only: 3 ราย (23.1%)"></div>
-                        <div class="bg-teal-500 h-3" style="width: 15.4%" title="CT Only: 2 ราย (15.4%)"></div>
+                        <div class="bg-indigo-500 h-3" style="width: 38.5%" title="NG Only: 5 ราย (38.5%)"></div>
+                        <div class="bg-teal-500 h-3" style="width: 30.8%" title="CT Only: 4 ราย (30.8%)"></div>
                         <div class="bg-slate-300 h-3" style="width: 46.1%" title="Negative ทั้งสองเชื้อ: 6 ราย (46.2%)"></div>
                     </div>
                     <div class="flex flex-wrap gap-4 mt-2.5 text-[11px] text-slate-600">
                         <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-purple-600 mr-1.5"></span>ติดเชื้อร่วม (CT+ & NG+) 2 ราย (15.4%)</span>
                         <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-indigo-500 mr-1.5"></span>NG เดี่ยว 3 ราย (23.1%)</span>
-                        <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-teal-500 mr-1.5"></span>CT เดี่ยว 2 ราย (15.4%)</span>
+                        <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-teal-500 mr-1.5"></span>CT เดี่ยว 4 ราย (30.8%)</span>
                         <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-slate-300 mr-1.5"></span>ไม่พบเชื้อทั้งคู่ 6 ราย (46.2%)</span>
                     </div>
                 </div>
@@ -354,48 +354,64 @@
         </section>
 
         <!-- ==================== TAB 2: 10-YEAR TREND ==================== -->
-        <section id="section-trend" class="space-y-8 hidden">
-            <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                    <div>
-                        <h3 class="text-base font-bold text-slate-900">แนวโน้มการตรวจและพบเชื้อ 10 ปี (พ.ศ. 2560 - 2569)</h3>
-                        <p class="text-xs text-slate-500">แยกเส้นแสดงชัดเจนระหว่าง <strong>หนองในแท้จากการเพาะเชื้อ (Culture NG)</strong>, <strong>หนองในจาก PCR (PCR NG)</strong> และ <strong>คลามีเดียจาก PCR (PCR CT)</strong></p>
-                    </div>
-                </div>
-                <div class="relative h-80 sm:h-96">
-                    <canvas id="trend10YearsChart"></canvas>
-                </div>
-            </div>
-
-            <!-- Table with explicit methodology breakdown -->
+      <!-- ตารางสรุปผลการตรวจวิเคราะห์ทางห้องปฏิบัติการสะสม 10 ปี (เพิ่มรายการตรวจคัดกรองครบวงจร) -->
             <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
-                <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
-                    <h4 class="text-sm font-bold text-slate-900">ตารางข้อมูลระบาดวิทยาจำแนกตามวิธีตรวจ (พ.ศ. 2560 - 2569)</h4>
-                    <span class="text-xs text-slate-500 italic">*ปี 2560-2566 เป็นระบบตรวจเพาะเชื้อล้วน, ปี 2567 เป็นต้นมาเริ่มมีการตรวจยืนยันด้วย PCR</span>
+                <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-900 flex items-center">
+                            <i class="fa-solid fa-list-check text-sky-600 mr-2"></i>
+                            ตารางสรุปผลการให้บริการตรวจวิเคราะห์ทางห้องปฏิบัติการสะสม 10 ปี (พ.ศ. 2560 - 2569)
+                        </h4>
+                        <p class="text-xs text-slate-500">รายงานการเข้าถึงบริการตรวจวิเคราะห์จริง จำแนกตามรายการทดสอบทางห้องปฏิบัติการ (Culture, PCR, Serology และ Microscopy)</p>
+                    </div>
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-100 text-emerald-800">
+                        <i class="fa-solid fa-certificate mr-1.5 text-[10px]"></i> ISO 15189:2022
+                    </span>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="min-w-full divide-y divide-slate-200 text-xs">
                         <thead class="bg-slate-100 text-slate-700 font-semibold">
                             <tr>
-                                <th class="px-3 py-3 text-left">ปี พ.ศ.</th>
-                                <th class="px-3 py-3 text-right">ผู้ส่งตรวจ (คน)</th>
-                                <th class="px-3 py-3 text-right bg-sky-50 text-sky-800">หนองในเพาะเชื้อ (Culture NG)</th>
-                                <th class="px-3 py-3 text-right bg-indigo-50 text-indigo-800">หนองใน PCR (PCR NG)</th>
-                                <th class="px-3 py-3 text-right bg-teal-50 text-teal-800">หนองในเทียม (PCR CT)</th>
-                                <th class="px-3 py-3 text-right">เชื้อรา (KOH)</th>
-                                <th class="px-3 py-3 text-right font-bold">รวมผู้ติดเชื้อรายคน</th>
-                                <th class="px-3 py-3 text-right font-bold">อัตราพบเชื้อ (%)</th>
-                                <th class="px-3 py-3 text-left">หมายเหตุทางระบาดวิทยา</th>
+                                <th class="px-2.5 py-3 text-left">ปี พ.ศ.</th>
+                                <th class="px-2.5 py-3 text-right">ผู้รับบริการ (คน)</th>
+                                <th class="px-2.5 py-3 text-right bg-sky-50 text-sky-900 border-l border-sky-100">เพาะเชื้อ NG</th>
+                                <th class="px-2.5 py-3 text-right bg-indigo-50 text-indigo-900 border-l border-indigo-100">PCR NG</th>
+                                <th class="px-2.5 py-3 text-right bg-teal-50 text-teal-900">PCR CT</th>
+                                <th class="px-2.5 py-3 text-right bg-purple-50 text-purple-900">ติดเชื้อร่วม</th>
+                                <th class="px-2.5 py-3 text-right bg-blue-50/50 text-blue-900 border-l border-slate-200">Gram stain</th>
+                                <th class="px-2.5 py-3 text-right bg-rose-50/50 text-rose-900">Syphilis</th>
+                                <th class="px-2.5 py-3 text-right bg-red-50/50 text-red-900">Anti-HIV</th>
+                                <th class="px-2.5 py-3 text-right bg-amber-50/50 text-amber-900">HBsAg</th>
+                                <th class="px-2.5 py-3 text-right bg-cyan-50/50 text-cyan-900">Wet smear</th>
+                                <th class="px-2.5 py-3 text-right bg-yellow-50/50 text-yellow-900">เชื้อรา KOH</th>
+                                <th class="px-3 py-3 text-right font-bold bg-slate-200/70 text-slate-900 border-l border-slate-300">รวมพบเชื้อ (เคส)</th>
+                                <th class="px-3 py-3 text-left">บันทึกการให้บริการของห้องปฏิบัติการ</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-200 bg-white" id="trendTableBody">
                             <!-- Populated dynamically via JS -->
                         </tbody>
+                        <tfoot class="bg-slate-50 font-bold border-t-2 border-slate-300 text-slate-900">
+                            <tr>
+                                <td class="px-2.5 py-3">รวมสะสม</td>
+                                <td class="px-2.5 py-3 text-right">691</td>
+                                <td class="px-2.5 py-3 text-right bg-sky-50 text-sky-800 border-l border-sky-100">343</td>
+                                <td class="px-2.5 py-3 text-right bg-indigo-50 text-indigo-800 border-l border-indigo-100">52</td>
+                                <td class="px-2.5 py-3 text-right bg-teal-50 text-teal-800">48</td>
+                                <td class="px-2.5 py-3 text-right bg-purple-50 text-purple-800">20</td>
+                                <td class="px-2.5 py-3 text-right bg-blue-50/50 text-blue-800 border-l border-slate-200">45</td>
+                                <td class="px-2.5 py-3 text-right bg-rose-50/50 text-rose-800">9</td>
+                                <td class="px-2.5 py-3 text-right bg-red-50/50 text-red-800">27</td>
+                                <td class="px-2.5 py-3 text-right bg-amber-50/50 text-amber-800">3</td>
+                                <td class="px-2.5 py-3 text-right bg-cyan-50/50 text-cyan-800">2</td>
+                                <td class="px-2.5 py-3 text-right bg-yellow-50/50 text-yellow-800">3</td>
+                                <td class="px-3 py-3 text-right bg-slate-200 text-slate-900 font-black border-l border-slate-300">394</td>
+                                <td class="px-3 py-3 text-emerald-700 text-[11px]">✓ รวมการเข้าถึงบริการสะสม 10 ปี สคร.10</td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
-        </section>
-
         <!-- ==================== TAB 3: AMR & MIC ==================== -->
         <section id="section-amr" class="space-y-8 hidden">
             <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
@@ -548,18 +564,6 @@
                                 <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-amber-500 mr-1.5"></span>ปิดรอบ 5 รอบ, รอดำเนินการ 1 รอบ</td>
                             </tr>
                             <tr class="hover:bg-slate-50">
-                                <td class="px-4 py-3 text-slate-400">5</td>
-                                <td class="px-4 py-3 font-semibold text-slate-900">เบิกวัสดุ GC (Culture Media PT)</td>
-                                <td class="px-4 py-3 text-slate-600">ศูนย์บางรักฯ (Bangrak STIs Center)</td>
-                                <td class="px-4 py-3 text-right font-medium">3</td>
-                                <td class="px-4 py-3 text-right font-bold text-emerald-600">3</td>
-                                <td class="px-4 py-3 text-right text-slate-400">0</td>
-                                <td class="px-4 py-3 text-right text-slate-400">0</td>
-                                <td class="px-4 py-3 text-right font-bold text-emerald-600">100.0%</td>
-                                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-700 font-medium">ดีเยี่ยม (100%)</span></td>
-                                <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>ปิดรอบสมบูรณ์ 3 รอบ</td>
-                            </tr>
-                            <tr class="hover:bg-slate-50">
                                 <td class="px-4 py-3 text-slate-400">6</td>
                                 <td class="px-4 py-3 font-semibold text-slate-900">Slide proficiency Malaria</td>
                                 <td class="px-4 py-3 text-slate-600">กองโรคติดต่อนำโดยแมลง (VBD)</td>
@@ -667,34 +671,40 @@
     </footer>
 
     <script>
-        // Exact Data segregated by Culture and PCR
+    // ชุดข้อมูลรายงานผลทางห้องปฏิบัติการครบทุกรายการตรวจ (พ.ศ. 2560 - 2569)
         const TREND_DATA = [
-            { year: '2560', tested: 56, ng_culture: 38, ng_pcr: 0, ct_pcr: 0, fungi: 0, total_pos: 38, rate: 67.9, note: 'เพาะเชื้อหนองใน 38 เคส (ไม่มีส่งตรวจ PCR)' },
-            { year: '2561', tested: 34, ng_culture: 23, ng_pcr: 0, ct_pcr: 0, fungi: 0, total_pos: 23, rate: 67.6, note: 'อัตราเพาะเชื้อพบผลบวกทรงตัวระดับสูง' },
-            { year: '2562', tested: 63, ng_culture: 39, ng_pcr: 0, ct_pcr: 0, fungi: 0, total_pos: 39, rate: 61.9, note: 'ส่งตรวจเพาะเชื้อขยายตัวเป็น 63 เคส' },
-            { year: '2563', tested: 57, ng_culture: 44, ng_pcr: 0, ct_pcr: 0, fungi: 0, total_pos: 44, rate: 77.2, note: 'เฝ้าระวังช่วงต้นสถานการณ์โควิด-19' },
-            { year: '2564', tested: 32, ng_culture: 29, ng_pcr: 0, ct_pcr: 0, fungi: 0, total_pos: 29, rate: 90.6, note: 'ตรวจเฉพาะเคสสงสัยสูงตามมาตรการ' },
-            { year: '2565', tested: 52, ng_culture: 50, ng_pcr: 0, ct_pcr: 0, fungi: 0, total_pos: 50, rate: 96.2, note: 'ยอดตรวจพบเชื้อหนองใน 50 เคส' },
-            { year: '2566', tested: 19, ng_culture: 19, ng_pcr: 0, ct_pcr: 0, fungi: 0, total_pos: 19, rate: 100.0, note: 'เพาะเชื้อขึ้นทุกรายในกลุ่มอาการชัดเจน' },
-            { year: '2567', tested: 224, ng_culture: 41, ng_pcr: 26, ct_pcr: 32, fungi: 0, total_pos: 73, rate: 32.6, note: 'เริ่มนำ PCR มาคัดกรอง CT/NG คู่ขนาน' },
-            { year: '2568', tested: 88, ng_culture: 36, ng_pcr: 21, ct_pcr: 8, fungi: 0, total_pos: 44, rate: 50.0, note: 'เพาะเชื้อ NG 36 ราย, ตรวจพบ CT PCR 8 ราย' },
-            { year: '2569', tested: 66, ng_culture: 24, ng_pcr: 5, ct_pcr: 4, fungi: 3, total_pos: 35, rate: 53.0, note: 'เพาะเชื้อ NG 24 ราย, NG PCR 5 ราย, CT PCR 4 ราย, เชื้อรา 3 ราย' }
+            { year: '2560', tested: 56, ng_culture: 38, ng_pcr: 0, ct_pcr: 0, coinfect: 0, gram: 0, syphilis: 0, hiv: 0, hbsag: 0, wetsmear: 0, fungi: 0, total_pos: 38, note: 'บริการตรวจเพาะเชื้อหนองใน' },
+            { year: '2561', tested: 34, ng_culture: 23, ng_pcr: 0, ct_pcr: 0, coinfect: 0, gram: 0, syphilis: 0, hiv: 0, hbsag: 0, wetsmear: 0, fungi: 0, total_pos: 23, note: 'บริการตรวจเพาะเชื้อหนองใน' },
+            { year: '2562', tested: 63, ng_culture: 39, ng_pcr: 0, ct_pcr: 0, coinfect: 0, gram: 0, syphilis: 0, hiv: 0, hbsag: 0, wetsmear: 0, fungi: 0, total_pos: 39, note: 'บริการตรวจเพาะเชื้อหนองใน' },
+            { year: '2563', tested: 57, ng_culture: 44, ng_pcr: 0, ct_pcr: 0, coinfect: 0, gram: 0, syphilis: 0, hiv: 0, hbsag: 0, wetsmear: 0, fungi: 0, total_pos: 44, note: 'บริการตรวจเพาะเชื้อหนองใน' },
+            { year: '2564', tested: 32, ng_culture: 29, ng_pcr: 0, ct_pcr: 0, coinfect: 0, gram: 0, syphilis: 0, hiv: 0, hbsag: 0, wetsmear: 0, fungi: 0, total_pos: 29, note: 'บริการตรวจเพาะเชื้อหนองใน' },
+            { year: '2565', tested: 52, ng_culture: 50, ng_pcr: 0, ct_pcr: 0, coinfect: 0, gram: 0, syphilis: 0, hiv: 0, hbsag: 0, wetsmear: 0, fungi: 0, total_pos: 50, note: 'บริการตรวจเพาะเชื้อหนองใน' },
+            { year: '2566', tested: 19, ng_culture: 19, ng_pcr: 0, ct_pcr: 0, coinfect: 0, gram: 0, syphilis: 0, hiv: 0, hbsag: 0, wetsmear: 0, fungi: 0, total_pos: 19, note: 'บริการตรวจเพาะเชื้อหนองใน' },
+            { year: '2567', tested: 224, ng_culture: 41, ng_pcr: 26, ct_pcr: 32, coinfect: 12, gram: 12, syphilis: 0, hiv: 4, hbsag: 0, wetsmear: 1, fungi: 0, total_pos: 73, note: 'เริ่มเปิดบริการ Real-time Multiplex PCR และคัดกรองร่วม' },
+            { year: '2568', tested: 88, ng_culture: 36, ng_pcr: 21, ct_pcr: 8, coinfect: 6, gram: 27, syphilis: 5, hiv: 17, hbsag: 3, wetsmear: 1, fungi: 0, total_pos: 44, note: 'ขยายการตรวจคัดกรอง Serology (Syphilis, HIV, HBsAg)' },
+            { year: '2569', tested: 66, ng_culture: 24, ng_pcr: 5, ct_pcr: 4, coinfect: 2, gram: 6, syphilis: 4, hiv: 6, hbsag: 0, wetsmear: 0, fungi: 3, total_pos: 35, note: 'ให้บริการตรวจครบวงจร (Culture, PCR, Serology, KOH)' }
         ];
 
-        // Populate Table
+        // เรนเดอร์ตารางผลตรวจแล็บแบบครบวงจร
         const tableBody = document.getElementById('trendTableBody');
         TREND_DATA.forEach(row => {
             const tr = document.createElement('tr');
+            tr.className = "hover:bg-slate-50 transition-colors";
             tr.innerHTML = `
-                <td class="px-3 py-3 font-semibold text-slate-900">${row.year}</td>
-                <td class="px-3 py-3 text-right font-medium">${row.tested.toLocaleString()}</td>
-                <td class="px-3 py-3 text-right bg-sky-50 text-sky-700 font-bold">${row.ng_culture}</td>
-                <td class="px-3 py-3 text-right bg-indigo-50 text-indigo-700 font-bold">${row.ng_pcr}</td>
-                <td class="px-3 py-3 text-right bg-teal-50 text-teal-700 font-semibold">${row.ct_pcr}</td>
-                <td class="px-3 py-3 text-right text-amber-600">${row.fungi}</td>
-                <td class="px-3 py-3 text-right font-bold text-slate-900">${row.total_pos}</td>
-                <td class="px-3 py-3 text-right font-semibold text-slate-700">${row.rate.toFixed(1)}%</td>
-                <td class="px-3 py-3 text-slate-500">${row.note}</td>
+                <td class="px-2.5 py-2.5 font-bold text-slate-900">${row.year}</td>
+                <td class="px-2.5 py-2.5 text-right font-medium text-slate-700">${row.tested.toLocaleString()}</td>
+                <td class="px-2.5 py-2.5 text-right bg-sky-50/60 text-sky-800 font-bold border-l border-sky-100">${row.ng_culture}</td>
+                <td class="px-2.5 py-2.5 text-right bg-indigo-50/60 text-indigo-800 font-bold border-l border-indigo-100">${row.ng_pcr > 0 ? row.ng_pcr : '-'}</td>
+                <td class="px-2.5 py-2.5 text-right bg-teal-50/60 text-teal-800 font-bold">${row.ct_pcr > 0 ? row.ct_pcr : '-'}</td>
+                <td class="px-2.5 py-2.5 text-right bg-purple-50/60 text-purple-800 font-bold">${row.coinfect > 0 ? row.coinfect : '-'}</td>
+                <td class="px-2.5 py-2.5 text-right bg-blue-50/40 text-blue-800 border-l border-slate-200">${row.gram > 0 ? row.gram : '-'}</td>
+                <td class="px-2.5 py-2.5 text-right bg-rose-50/40 text-rose-800">${row.syphilis > 0 ? row.syphilis : '-'}</td>
+                <td class="px-2.5 py-2.5 text-right bg-red-50/40 text-red-800">${row.hiv > 0 ? row.hiv : '-'}</td>
+                <td class="px-2.5 py-2.5 text-right bg-amber-50/40 text-amber-800">${row.hbsag > 0 ? row.hbsag : '-'}</td>
+                <td class="px-2.5 py-2.5 text-right bg-cyan-50/40 text-cyan-800">${row.wetsmear > 0 ? row.wetsmear : '-'}</td>
+                <td class="px-2.5 py-2.5 text-right bg-yellow-50/40 text-yellow-800">${row.fungi > 0 ? row.fungi : '-'}</td>
+                <td class="px-3 py-2.5 text-right bg-slate-100 font-black text-slate-900 border-l border-slate-200">${row.total_pos}</td>
+                <td class="px-3 py-2.5 text-slate-500 text-[11px]">${row.note}</td>
             `;
             tableBody.appendChild(tr);
         });
@@ -784,7 +794,7 @@
                     },
                     {
                         type: 'line',
-                        label: 'หนองในโมเลกุล (PCR NG)',
+                        label: 'สารพันธุกรรมหนองใน (PCR NG)',
                         data: TREND_DATA.map(d => d.ng_pcr),
                         borderColor: '#6366f1',
                         backgroundColor: '#6366f1',
@@ -794,7 +804,7 @@
                     },
                     {
                         type: 'line',
-                        label: 'คลามีเดียโมเลกุล (PCR CT)',
+                        label: 'สารพันธุกรรมหนองในเทียม (PCR CT)',
                         data: TREND_DATA.map(d => d.ct_pcr),
                         borderColor: '#0d9488',
                         backgroundColor: '#0d9488',
