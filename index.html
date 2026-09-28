@@ -69,10 +69,10 @@
         <!-- ==================== TAB 1: OVERVIEW ==================== -->
         <section id="section-overview" class="space-y-8">
 
-          <!-- Modern Executive KPI Grid: Hero Card + Diagnostic Matrix -->
+            <!-- Modern Executive KPI Grid: Hero Card + Diagnostic Matrix -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
                 
-                <!-- 1. Hero Card: ปริมาณผู้รับบริการและการเข้าถึงบริการ (กว้าง 4 คอลัมน์ เด่นพิเศษ) -->
+                <!-- 1. Hero Card: ปริมาณผู้รับบริการและการเข้าถึงบริการ -->
                 <div class="lg:col-span-4 bg-gradient-to-br from-slate-900 via-slate-800 to-sky-950 text-white p-6 rounded-2xl shadow-lg border border-slate-700/50 flex flex-col justify-between relative overflow-hidden">
                     <div class="absolute -right-6 -bottom-6 w-36 h-36 bg-sky-500/10 rounded-full blur-2xl pointer-events-none"></div>
                     <div>
@@ -89,8 +89,8 @@
                     </div>
                     <div class="mt-6 pt-4 border-t border-slate-700/60">
                         <div class="flex justify-between text-xs text-slate-300 mb-1.5 font-medium">
-                            <span class="flex items-center"><i class="fa-solid fa-mars text-sky-400 mr-1.5"></i>ชาย 81.5% (640 ราย)</span>
-                            <span class="flex items-center"><i class="fa-solid fa-venus text-rose-400 mr-1.5"></i>หญิง 18.5% (144 ราย)</span>
+                            <span class="flex items-center"><i class="fa-solid fa-mars text-sky-400 mr-1.5"></i>ชาย 81.5% (563 ราย)</span>
+                            <span class="flex items-center"><i class="fa-solid fa-venus text-rose-400 mr-1.5"></i>หญิง 18.5% (128 ราย)</span>
                         </div>
                         <div class="w-full bg-slate-700 rounded-full h-2 flex overflow-hidden">
                             <div class="bg-sky-500 h-2" style="width: 81.5%"></div>
@@ -99,7 +99,7 @@
                     </div>
                 </div>
 
-                <!-- 2. Diagnostic Hub & AMR Matrix (กว้าง 8 คอลัมน์ แบ่ง 4 การ์ดย่อย) -->
+                <!-- 2. Diagnostic Hub & AMR Matrix -->
                 <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     
                     <!-- 2.1 NG Culture -->
@@ -184,7 +184,8 @@
                 </div>
 
             </div>
-            <!-- Overview Charts Grid -->
+
+            <!-- Overview Charts Grid (อัปเดตสิ่งส่งตรวจจำแนก Vaginal ถูกต้อง) -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                     <h3 class="text-base font-bold text-slate-900 mb-1">สัดส่วนผลตรวจทางห้องปฏิบัติการ (แยกตามวิธีวิเคราะห์)</h3>
@@ -196,7 +197,7 @@
 
                 <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                     <h3 class="text-base font-bold text-slate-900 mb-1">การกระจายตัวของสิ่งส่งตรวจ (Specimen Sites)</h3>
-                    <p class="text-xs text-slate-500 mb-4">ตำแหน่งสิ่งส่งตรวจในระบบเฝ้าระวังทางห้องปฏิบัติการ (772 สิ่งส่งตรวจ)</p>
+                    <p class="text-xs text-slate-500 mb-4">จำแนกตามตำแหน่งหลัก: ท่อปัสสาวะ, ช่องคลอด/ปากมดลูก (Vaginal), ผิวหนัง และพลาสมา/เลือด (712 ตัวอย่าง)</p>
                     <div class="relative h-64">
                         <canvas id="specimenChart"></canvas>
                     </div>
@@ -297,7 +298,7 @@
                                 <td class="px-4 py-3 text-slate-600">Direct Microscopic Exam</td>
                                 <td class="px-4 py-3 text-right font-medium">17</td>
                                 <td class="px-4 py-3 text-right font-bold text-amber-600">3</td>
-                                <td class="px-4 py-3 text-right font-semibold text-slate-700">21.4%</td>
+                                <td class="px-4 py-3 text-right font-semibold text-slate-700">17.6%</td>
                                 <td class="px-4 py-3 text-slate-500">วินิจฉัยการติดเชื้อราในร่มผ้า/กลุ่มอาการคันระคายเคือง</td>
                             </tr>
                         </tbody>
@@ -422,7 +423,7 @@
                                 <td class="px-2.5 py-3 text-right bg-indigo-50 text-indigo-800 border-l border-indigo-100">52/60</td>
                                 <td class="px-2.5 py-3 text-right bg-teal-50 text-teal-800">48/53</td>
                                 <td class="px-2.5 py-3 text-right bg-purple-50 text-purple-800">20</td>
-                                <td class="px-2.5 py-3 text-right bg-blue-50/50 text-blue-800 border-l border-slate-200">24/52</td>
+                                <td class="px-2.5 py-3 text-right bg-blue-50/50 text-blue-800 border-l border-slate-200">24/47</td>
                                 <td class="px-2.5 py-3 text-right bg-rose-50/50 text-rose-800">0/9</td>
                                 <td class="px-2.5 py-3 text-right bg-red-50/50 text-red-800">0/27</td>
                                 <td class="px-2.5 py-3 text-right bg-amber-50/50 text-amber-800">0/3</td>
@@ -493,22 +494,22 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 <div class="bg-white p-5 rounded-xl border border-slate-200 card-shadow">
                     <span class="text-xs font-semibold text-slate-500 uppercase">รอบประเมิน EQA ทั้งหมด</span>
-                    <div class="mt-2 text-3xl font-bold text-slate-900">32 รอบ</div>
+                    <div class="mt-2 text-3xl font-bold text-slate-900">32 รอบ[cite: 1]</div>
                     <p class="mt-1 text-xs text-slate-500">ปี 67: 7 รอบ | ปี 68: 14 รอบ | ปี 69: 11 รอบ</p>
                 </div>
                 <div class="bg-white p-5 rounded-xl border border-slate-200 card-shadow">
                     <span class="text-xs font-semibold text-slate-500 uppercase">อัตราผ่านการประเมินรวม</span>
-                    <div class="mt-2 text-3xl font-bold text-emerald-600">100%</div>
-                    <p class="mt-1 text-xs text-slate-500">ผ่านเกณฑ์ 30 จาก 30 รอบที่ประกาศผลแล้ว</p>
+                    <div class="mt-2 text-3xl font-bold text-emerald-600">100%[cite: 1]</div>
+                    <p class="mt-1 text-xs text-slate-500">ผ่านเกณฑ์ 30 จาก 30 รอบที่ประกาศผลแล้ว[cite: 1]</p>
                 </div>
                 <div class="bg-white p-5 rounded-xl border border-slate-200 card-shadow">
                     <span class="text-xs font-semibold text-slate-500 uppercase">ผลระดับดีเยี่ยม (Excellent)</span>
-                    <div class="mt-2 text-3xl font-bold text-indigo-600">28 รอบ</div>
+                    <div class="mt-2 text-3xl font-bold text-indigo-600">28 รอบ[cite: 1]</div>
                     <p class="mt-1 text-xs text-slate-500">สัดส่วน 93.3% ของรอบที่ประกาศผล</p>
                 </div>
                 <div class="bg-white p-5 rounded-xl border border-slate-200 card-shadow">
                     <span class="text-xs font-semibold text-slate-500 uppercase">มาตรฐานสากล</span>
-                    <div class="mt-2 text-3xl font-bold text-sky-600">ISO 15189</div>
+                    <div class="mt-2 text-3xl font-bold text-sky-600">ISO 15189[cite: 1]</div>
                     <p class="mt-1 text-xs text-slate-500">ผ่านการรับรองคุณภาพมาตรฐานห้องปฏิบัติการ</p>
                 </div>
             </div>
@@ -521,10 +522,10 @@
                             <i class="fa-solid fa-award text-amber-500 mr-2"></i>
                             ตารางสรุปรายการโปรแกรมการประเมินคุณภาพภายนอก (EQA Program Surveillance)
                         </h4>
-                        <p class="text-xs text-slate-500">รายงานสถานะการประเมิน ความสอดคล้องตามมาตรฐาน ISO 15189:2022 และรอบทดสอบสะสม (พ.ศ. 2567 - 2569)</p>
+                        <p class="text-xs text-slate-500">รายงานสถานะการประเมิน ความสอดคล้องตามมาตรฐาน ISO 15189:2022 และรอบทดสอบสะสม (พ.ศ. 2567 - 2569)[cite: 1]</p>
                     </div>
                     <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-100 text-emerald-800">
-                        เกณฑ์ผ่านการรับรอง ≥ 90%
+                        เกณฑ์ผ่านการรับรอง ≥ 90%[cite: 1]
                     </span>
                 </div>
                 <div class="overflow-x-auto">
@@ -547,83 +548,83 @@
                             <tr class="hover:bg-slate-50">
                                 <td class="px-4 py-3 text-slate-400">1</td>
                                 <td class="px-4 py-3 font-semibold text-slate-900">Gram stain</td>
-                                <td class="px-4 py-3 text-slate-600">กรมวิทยาศาสตร์การแพทย์ (DMSc PT)</td>
-                                <td class="px-4 py-3 text-right font-medium">9</td>
-                                <td class="px-4 py-3 text-right font-bold text-emerald-600">9</td>
-                                <td class="px-4 py-3 text-right text-slate-400">0</td>
+                                <td class="px-4 py-3 text-slate-600">กรมวิทยาศาสตร์การแพทย์ (DMSc PT)[cite: 1]</td>
+                                <td class="px-4 py-3 text-right font-medium">9[cite: 1]</td>
+                                <td class="px-4 py-3 text-right font-bold text-emerald-600">9[cite: 1]</td>
+                                <td class="px-4 py-3 text-right text-slate-400">0[cite: 1]</td>
                                 <td class="px-4 py-3 text-right text-slate-400">0</td>
                                 <td class="px-4 py-3 text-right font-bold text-emerald-600">100.0%</td>
-                                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-700 font-medium">ดีเยี่ยม (100%)</span></td>
-                                <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>ปิดรอบสมบูรณ์ 9 รอบ</td>
+                                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-700 font-medium">ดีเยี่ยม (100%)[cite: 1]</span></td>
+                                <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>ปิดรอบสมบูรณ์ 9 รอบ[cite: 1]</td>
                             </tr>
                             <tr class="hover:bg-slate-50">
                                 <td class="px-4 py-3 text-slate-400">2</td>
                                 <td class="px-4 py-3 font-semibold text-slate-900">Syphilis Serology</td>
-                                <td class="px-4 py-3 text-slate-600">กรมวิทยาศาสตร์การแพทย์ (DMSc PT)</td>
-                                <td class="px-4 py-3 text-right font-medium">6</td>
-                                <td class="px-4 py-3 text-right font-bold text-emerald-600">6</td>
-                                <td class="px-4 py-3 text-right text-slate-400">0</td>
+                                <td class="px-4 py-3 text-slate-600">กรมวิทยาศาสตร์การแพทย์ (DMSc PT)[cite: 1]</td>
+                                <td class="px-4 py-3 text-right font-medium">6[cite: 1]</td>
+                                <td class="px-4 py-3 text-right font-bold text-emerald-600">6[cite: 1]</td>
+                                <td class="px-4 py-3 text-right text-slate-400">0[cite: 1]</td>
                                 <td class="px-4 py-3 text-right text-slate-400">0</td>
                                 <td class="px-4 py-3 text-right font-bold text-emerald-600">100.0%</td>
-                                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-700 font-medium">ดีเยี่ยม (100%)/span></td>
-                                <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>ปิดรอบสมบูรณ์ 6 รอบ</td>
+                                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-700 font-medium">ดีเยี่ยม (100%)[cite: 1]</span></td>
+                                <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>ปิดรอบสมบูรณ์ 6 รอบ[cite: 1]</td>
                             </tr>
                             <tr class="hover:bg-slate-50">
                                 <td class="px-4 py-3 text-slate-400">3</td>
                                 <td class="px-4 py-3 font-semibold text-slate-900">GC Culture (<em>N. gonorrhoeae</em>)</td>
-                                <td class="px-4 py-3 text-slate-600">ศูนย์บางรักฯ (Bangrak STIs Center)</td>
-                                <td class="px-4 py-3 text-right font-medium">6</td>
-                                <td class="px-4 py-3 text-right font-bold text-emerald-600">5</td>
-                                <td class="px-4 py-3 text-right text-slate-400">0</td>
+                                <td class="px-4 py-3 text-slate-600">ศูนย์บางรักฯ (Bangrak STIs Center)[cite: 1]</td>
+                                <td class="px-4 py-3 text-right font-medium">6[cite: 1]</td>
+                                <td class="px-4 py-3 text-right font-bold text-emerald-600">5[cite: 1]</td>
+                                <td class="px-4 py-3 text-right text-slate-400">0[cite: 1]</td>
                                 <td class="px-4 py-3 text-right text-amber-600 font-semibold">1</td>
                                 <td class="px-4 py-3 text-right font-bold text-emerald-600">100.0%</td>
-                                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-700 font-medium">ดีเยี่ยม (100%)</span></td>
-                                <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-amber-500 mr-1.5"></span>ปิดรอบ 5 รอบ, รอสรุปผล 1 รอบ</td>
+                                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-700 font-medium">ดีเยี่ยม (100%)[cite: 1]</span></td>
+                                <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-amber-500 mr-1.5"></span>ปิดรอบ 5 รอบ, รอสรุปผล 1 รอบ[cite: 1]</td>
                             </tr>
                             <tr class="hover:bg-slate-50">
                                 <td class="px-4 py-3 text-slate-400">4</td>
                                 <td class="px-4 py-3 font-semibold text-slate-900">PCR For Malaria</td>
-                                <td class="px-4 py-3 text-slate-600">VBD, ODPC1, ODPC5, DMSc PT</td>
-                                <td class="px-4 py-3 text-right font-medium">6</td>
-                                <td class="px-4 py-3 text-right font-bold text-emerald-600">5</td>
-                                <td class="px-4 py-3 text-right text-slate-400">0</td>
+                                <td class="px-4 py-3 text-slate-600">VBD, ODPC1, ODPC5, DMSc PT[cite: 1]</td>
+                                <td class="px-4 py-3 text-right font-medium">6[cite: 1]</td>
+                                <td class="px-4 py-3 text-right font-bold text-emerald-600">5[cite: 1]</td>
+                                <td class="px-4 py-3 text-right text-slate-400">0[cite: 1]</td>
                                 <td class="px-4 py-3 text-right text-amber-600 font-semibold">1</td>
                                 <td class="px-4 py-3 text-right font-bold text-emerald-600">100.0%</td>
-                                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-700 font-medium">ดีเยี่ยม (100%)</span></td>
-                                <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-amber-500 mr-1.5"></span>ปิดรอบ 5 รอบ, รอดำเนินการ 1 รอบ</td>
+                                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-700 font-medium">ดีเยี่ยม (100%)[cite: 1]</span></td>
+                                <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-amber-500 mr-1.5"></span>ปิดรอบ 5 รอบ, รอดำเนินการ 1 รอบ[cite: 1]</td>
                             </tr>
                             <tr class="hover:bg-slate-50">
                                 <td class="px-4 py-3 text-slate-400">5</td>
                                 <td class="px-4 py-3 font-semibold text-slate-900">Slide proficiency Malaria</td>
-                                <td class="px-4 py-3 text-slate-600">กองโรคติดต่อนำโดยแมลง (VBD)</td>
-                                <td class="px-4 py-3 text-right font-medium">1</td>
-                                <td class="px-4 py-3 text-right font-bold text-emerald-600">1</td>
-                                <td class="px-4 py-3 text-right text-slate-400">0</td>
+                                <td class="px-4 py-3 text-slate-600">กองโรคติดต่อนำโดยแมลง (VBD)[cite: 1]</td>
+                                <td class="px-4 py-3 text-right font-medium">1[cite: 1]</td>
+                                <td class="px-4 py-3 text-right font-bold text-emerald-600">1[cite: 1]</td>
+                                <td class="px-4 py-3 text-right text-slate-400">0[cite: 1]</td>
                                 <td class="px-4 py-3 text-right text-slate-400">0</td>
                                 <td class="px-4 py-3 text-right font-bold text-emerald-600">100.0%</td>
-                                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-700 font-medium">ดีเยี่ยม (100%)</span></td>
-                                <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>ปิดรอบสมบูรณ์ 1 รอบ</td>
+                                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-700 font-medium">ดีเยี่ยม (100%)[cite: 1]</span></td>
+                                <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>ปิดรอบสมบูรณ์ 1 รอบ[cite: 1]</td>
                             </tr>
                             <tr class="hover:bg-slate-50">
                                 <td class="px-4 py-3 text-slate-400">6</td>
                                 <td class="px-4 py-3 font-semibold text-slate-900">Slide proficiency Microfilaria</td>
-                                <td class="px-4 py-3 text-slate-600">กรมวิทยาศาสตร์การแพทย์ (DMSc PT)</td>
-                                <td class="px-4 py-3 text-right font-medium">1</td>
-                                <td class="px-4 py-3 text-right font-bold text-emerald-600">1</td>
-                                <td class="px-4 py-3 text-right text-slate-400">0</td>
+                                <td class="px-4 py-3 text-slate-600">กรมวิทยาศาสตร์การแพทย์ (DMSc PT)[cite: 1]</td>
+                                <td class="px-4 py-3 text-right font-medium">1[cite: 1]</td>
+                                <td class="px-4 py-3 text-right font-bold text-emerald-600">1[cite: 1]</td>
+                                <td class="px-4 py-3 text-right text-slate-400">0[cite: 1]</td>
                                 <td class="px-4 py-3 text-right text-slate-400">0</td>
                                 <td class="px-4 py-3 text-right font-bold text-emerald-600">100.0%</td>
-                                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-700 font-medium">ดีเยี่ยม (100%)</span></td>
-                                <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>ปิดรอบสมบูรณ์ 1 รอบ</td>
+                                <td class="px-4 py-3"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-50 text-emerald-700 font-medium">ดีเยี่ยม (100%)[cite: 1]</span></td>
+                                <td class="px-4 py-3 text-slate-600"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>ปิดรอบสมบูรณ์ 1 รอบ[cite: 1]</td>
                             </tr>
                             <tr class="bg-slate-50 font-bold border-t-2 border-slate-300">
-                                <td class="px-4 py-3 text-center" colspan="3">รวมผลการดำเนินงาน EQA ทั้งหมด</td>
+                                <td class="px-4 py-3 text-center" colspan="3">รวมผลการดำเนินงาน EQA ทั้งหมด[cite: 1]</td>
                                 <td class="px-4 py-3 text-right text-slate-900">32</td>
-                                <td class="px-4 py-3 text-right text-emerald-600">30</td>
-                                <td class="px-4 py-3 text-right text-slate-400">0</td>
-                                <td class="px-4 py-3 text-right text-amber-600">2</td>
+                                <td class="px-4 py-3 text-right text-emerald-600">30[cite: 1]</td>
+                                <td class="px-4 py-3 text-right text-slate-400">0[cite: 1]</td>
+                                <td class="px-4 py-3 text-right text-amber-600">2[cite: 1]</td>
                                 <td class="px-4 py-3 text-right text-emerald-700 font-black">100.0%</td>
-                                <td class="px-4 py-3 text-emerald-700" colspan="2">✓ ผ่านเกณฑ์มาตรฐานรวม 100% (ISO 15189:2022)</td>
+                                <td class="px-4 py-3 text-emerald-700" colspan="2">✓ ผ่านเกณฑ์มาตรฐานรวม 100% (ISO 15189:2022)[cite: 1]</td>
                             </tr>
                         </tbody>
                     </table>
@@ -640,15 +641,15 @@
                     <ul class="text-xs space-y-2.5 text-slate-600">
                         <li class="flex items-start">
                             <i class="fa-solid fa-check-circle text-emerald-500 mt-0.5 mr-2"></i>
-                            <span><strong>มาตรฐานสากล:</strong> สอดคล้องตามมาตรฐาน ISO 15189:2022 และเกณฑ์เครือข่ายห้องปฏิบัติการอ้างอิง</span>
+                            <span><strong>มาตรฐานสากล:</strong> สอดคล้องตามมาตรฐาน ISO 15189:2022 และเกณฑ์เครือข่ายห้องปฏิบัติการอ้างอิง[cite: 1]</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fa-solid fa-check-circle text-emerald-500 mt-0.5 mr-2"></i>
-                            <span><strong>หน่วยงานผู้ประเมิน:</strong> กรมวิทยาศาสตร์การแพทย์ (DMSc PT), ศูนย์บางรักฯ, สคร.1, สคร.5 และกองโรคติดต่อนำโดยแมลง</span>
+                            <span><strong>หน่วยงานผู้ประเมิน:</strong> กรมวิทยาศาสตร์การแพทย์ (DMSc PT), ศูนย์บางรักฯ, สคร.1, สคร.5 และกองโรคติดต่อนำโดยแมลง[cite: 1]</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fa-solid fa-check-circle text-emerald-500 mt-0.5 mr-2"></i>
-                            <span><strong>การควบคุมคุณภาพ:</strong> ผ่านการทดสอบ IQC และ Cold Chain ในการขนส่ง 100% ตรงตามเวลาที่กำหนด</span>
+                            <span><strong>การควบคุมคุณภาพ:</strong> ผ่านการทดสอบ IQC และ Cold Chain ในการขนส่ง 100% ตรงตามเวลาที่กำหนด[cite: 1]</span>
                         </li>
                     </ul>
                 </div>
@@ -758,13 +759,13 @@
             { 
                 year: '2567', tested: 224, 
                 ng_culture: '41/41', ng_pcr: '26/26', ct_pcr: '32/32', coinfect: '12', 
-                gram: '5/15', syphilis: '-', hiv: '0/4', hbsag: '-', wetsmear: '1/1', fungi: '-', 
+                gram: '5/14', syphilis: '-', hiv: '0/4', hbsag: '-', wetsmear: '1/1', fungi: '-', 
                 total_pos: 73, note: 'เริ่มเปิดบริการ Real-time Multiplex PCR และคัดกรองร่วม' 
             },
             { 
                 year: '2568', tested: 88, 
                 ng_culture: '36/36', ng_pcr: '21/21', ct_pcr: '8/8', coinfect: '6', 
-                gram: '15/31', syphilis: '0/5', hiv: '0/17', hbsag: '0/3', wetsmear: '1/1', fungi: '-', 
+                gram: '15/27', syphilis: '0/5', hiv: '0/17', hbsag: '0/3', wetsmear: '1/1', fungi: '-', 
                 total_pos: 44, note: 'ขยายการตรวจคัดกรอง Serology (Syphilis, HIV, HBsAg)' 
             },
             { 
@@ -849,23 +850,38 @@
             });
         }
 
-        // 2. Specimen Sites Chart
+        // 2. Specimen Sites Chart (แก้ไข: จำแนก Urethra 571, ช่องคลอด 120, ผิวหนัง 17, เลือด 4)
         const specimenEl = document.getElementById('specimenChart');
         if (specimenEl) {
             new Chart(specimenEl, {
                 type: 'doughnut',
                 data: {
-                    labels: ['ท่อปัสสาวะ (Urethra)', 'อื่นๆ / ปากมดลูก', 'ผิวหนัง (Skin/KOH)', 'พลาสมา/เลือด'],
+                    labels: ['ท่อปัสสาวะ (Urethra)', 'ช่องคลอด/ปากมดลูก (Vaginal)', 'ผิวหนัง (Skin/KOH)', 'พลาสมา/เลือด (Plasma/Serum)'],
                     datasets: [{
-                        data: [619, 144, 7, 2],
-                        backgroundColor: ['#0369a1', '#38bdf8', '#fbbf24', '#f43f5e'],
+                        data: [571, 120, 17, 4],
+                        backgroundColor: ['#0369a1', '#ec4899', '#fbbf24', '#f43f5e'],
                         borderWidth: 0
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15 } } }
+                    plugins: { 
+                        legend: { 
+                            position: 'bottom', 
+                            labels: { boxWidth: 12, padding: 15 } 
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const total = 712;
+                                    const value = context.parsed;
+                                    const percentage = ((value / total) * 100).toFixed(1);
+                                    return ` ${context.label}: ${value} ตัวอย่าง (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
                 }
             });
         }
