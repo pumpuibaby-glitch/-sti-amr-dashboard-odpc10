@@ -1,5 +1,30 @@
 <!DOCTYPE html>
 <html lang="th">
+    // URL ที่ได้จากการ Publish to web (แท็บ Calc_summary)
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-.../pub?gid=XXXXX&single=true&output=csv";
+
+async function fetchRealtimeSummary() {
+    try {
+        const response = await fetch(SHEET_CSV_URL);
+        const csvText = await response.text();
+        
+        // แปลงข้อความ CSV เป็นแถวข้อมูล
+        const rows = csvText.split('\n').map(row => row.split(','));
+        console.log("โหลดข้อมูลล่าสุดจาก Google Sheets สำเร็จ:", rows);
+        
+        // ตัวอย่าง: ดึงตัวเลขจากแถวและคอลัมน์ที่ต้องการมาอัปเดตลงหน้าเว็บ
+        // document.getElementById('total-patients').innerText = rows[1][2];
+        
+        // สั่งให้ชาร์ตและตารางวาดใหม่ด้วยข้อมูลชุดล่าสุดทันที
+        // renderDashboard(rows);
+    } catch (error) {
+        console.error("เกิดข้อผิดพลาดในการดึงข้อมูล:", error);
+    }
+}
+
+// เรียกทำงานทันทีเมื่อเปิดหน้าเว็บ
+window.addEventListener('DOMContentLoaded', fetchRealtimeSummary);
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -263,7 +288,7 @@
                 </div>
             </div>
 
-            <!-- รายงานสรุปปี 2569 จาก Calc_summary -->
+           <!-- รายงานสรุปปี 2569 จาก Calc_summary (ปรับปรุงแยกวิธีตรวจและคำนวณ Positivity % ถูกต้อง) -->
             <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
                 <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                     <div>
@@ -271,7 +296,7 @@
                             <i class="fa-solid fa-calendar-check text-sky-600 mr-2"></i>
                             รายงานสรุปผลการให้บริการตรวจวิเคราะห์ ประจำปีงบประมาณ 2569 (Calc_summary)
                         </h4>
-                        <p class="text-xs text-slate-500">ข้อมูลผู้รับบริการ 44 คน ตรวจพบเชื้อรวม 13 เคส</p>
+                        <p class="text-xs text-slate-500">จำแนกรายการส่งตรวจแยกวิธี Culture, PCR และ Smear (ผู้รับบริการ 44 คน พบเชื้อรวม 13 ราย)</p>
                     </div>
                     <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-sky-100 text-sky-800">
                         ปีงบประมาณ 2569 (ล่าสุด)
@@ -282,61 +307,73 @@
                         <thead class="bg-slate-100 text-slate-700 font-semibold">
                             <tr>
                                 <th class="px-4 py-3 text-left">รายการตรวจวิเคราะห์</th>
-                                <th class="px-4 py-3 text-left">วิธีตรวจ</th>
-                                <th class="px-4 py-3 text-right">จำนวนตรวจ (เคส)</th>
-                                <th class="px-4 py-3 text-right">ตรวจพบเชื้อ (เคส)</th>
-                                <th class="px-4 py-3 text-right">สัดส่วนพบเชื้อ (%)</th>
-                                <th class="px-4 py-3 text-left">หมายเหตุ / ระเบียบวิธี</th>
+                                <th class="px-4 py-3 text-left">วิธีตรวจ (Methodology)</th>
+                                <th class="px-4 py-3 text-right">จำนวนส่งตรวจ (เคส)</th>
+                                <th class="px-4 py-3 text-right">ตรวจพบเชื้อจริง (เคส)</th>
+                                <th class="px-4 py-3 text-right">อัตราพบเชื้อ (% Positivity)</th>
+                                <th class="px-4 py-3 text-left">การนำไปใช้ประโยชน์ทางห้องปฏิบัติการ</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-200 bg-white">
-                            <tr class="hover:bg-slate-50">
-                                <td class="px-4 py-3 font-semibold text-slate-800">ผู้รับบริการตรวจทั้งหมด (Total Patients)</td>
+                            <!-- ผู้รับบริการทั้งหมด -->
+                            <tr class="hover:bg-slate-50 bg-slate-50/40">
+                                <td class="px-4 py-3 font-bold text-slate-900">
+                                    <i class="fa-solid fa-users text-slate-600 mr-1.5"></i> ผู้รับบริการตรวจทั้งหมด (Total Patients)
+                                </td>
                                 <td class="px-4 py-3 text-slate-600">ลงทะเบียนรับบริการ</td>
-                                <td class="px-4 py-3 text-right font-bold text-slate-900">44</td>
-                                <td class="px-4 py-3 text-right font-bold text-sky-700">13</td>
-                                <td class="px-4 py-3 text-right font-semibold text-sky-700">29.5%</td>
-                                <td class="px-4 py-3 text-slate-500">ยอดติดเชื้อรวมทุกรายการ</td>
+                                <td class="px-4 py-3 text-right font-black text-slate-900">44</td>
+                                <td class="px-4 py-3 text-right font-black text-sky-700">13</td>
+                                <td class="px-4 py-3 text-right font-bold text-sky-700 bg-sky-50/60">29.5%</td>
+                                <td class="px-4 py-3 text-slate-500">ยอดผู้ติดเชื้อจริงสะสมทุกรายการ (Unique Cases)</td>
                             </tr>
+                            <!-- NG Culture -->
                             <tr class="hover:bg-slate-50">
-                                <td class="px-4 py-3 font-semibold text-sky-900">หนองในจากการเพาะเชื้อ (NG Culture)</td>
+                                <td class="px-4 py-3 font-semibold text-sky-900">
+                                    <i class="fa-solid fa-vial text-sky-600 mr-1.5"></i> หนองในแท้จากการเพาะเชื้อ (NG Culture)
+                                </td>
                                 <td class="px-4 py-3 text-slate-600">Culture & Isolation</td>
                                 <td class="px-4 py-3 text-right font-medium">11</td>
                                 <td class="px-4 py-3 text-right font-bold text-sky-700">5</td>
-                                <td class="px-4 py-3 text-right font-semibold text-emerald-600">100.0%</td>
-                                <td class="px-4 py-3 text-slate-500">นำไปทดสอบ MIC ต่อยาต้านจุลชีพ</td>
+                                <td class="px-4 py-3 text-right font-bold text-sky-700 bg-sky-50/30">45.5%</td>
+                                <td class="px-4 py-3 text-slate-500">ส่งต่อทดสอบความไวต่อยา (AST & MIC Creep)</td>
                             </tr>
+                            <!-- NG PCR -->
                             <tr class="hover:bg-slate-50">
-                                <td class="px-4 py-3 font-semibold text-indigo-900">หนองในจากสารพันธุกรรม (NG PCR)</td>
-                                <td class="px-4 py-3 text-slate-600">Real-time PCR</td>
+                                <td class="px-4 py-3 font-semibold text-indigo-900">
+                                    <i class="fa-solid fa-dna text-indigo-600 mr-1.5"></i> หนองในแท้จากสารพันธุกรรม (NG PCR)
+                                </td>
+                                <td class="px-4 py-3 text-slate-600">Real-time Multiplex PCR</td>
                                 <td class="px-4 py-3 text-right font-medium">17</td>
-                                <td class="px-4 py-3 text-right font-bold text-indigo-700">7</td>
-                                <td class="px-4 py-3 text-right font-semibold text-indigo-700">100.0%</td>
-                                <td class="px-4 py-3 text-slate-500">ตรวจยืนยันสารพันธุกรรม</td>
+                                <td class="px-4 py-3 text-right font-bold text-indigo-700">4</td>
+                                <td class="px-4 py-3 text-right font-bold text-indigo-700 bg-indigo-50/30">23.5%</td>
+                                <td class="px-4 py-3 text-slate-500">วินิจฉัยยืนยันระดับชีวโมเลกุลในกลุ่มอาการเฉียบพลัน</td>
                             </tr>
+                            <!-- CT PCR -->
                             <tr class="hover:bg-slate-50">
-                                <td class="px-4 py-3 font-semibold text-teal-900">หนองในเทียมจากสารพันธุกรรม (CT PCR)</td>
-                                <td class="px-4 py-3 text-slate-600">Real-time PCR</td>
+                                <td class="px-4 py-3 font-semibold text-teal-900">
+                                    <i class="fa-solid fa-bacterium text-teal-600 mr-1.5"></i> หนองในเทียมจากสารพันธุกรรม (CT PCR)
+                                </td>
+                                <td class="px-4 py-3 text-slate-600">Real-time Multiplex PCR</td>
                                 <td class="px-4 py-3 text-right font-medium">17</td>
                                 <td class="px-4 py-3 text-right font-bold text-teal-700">4</td>
-                                <td class="px-4 py-3 text-right font-semibold text-teal-700">100.0%</td>
-                                <td class="px-4 py-3 text-slate-500">ตรวจคัดกรองร่วม (Multiplex PCR)</td>
+                                <td class="px-4 py-3 text-right font-bold text-teal-700 bg-teal-50/30">23.5%</td>
+                                <td class="px-4 py-3 text-slate-500">ตรวจคัดกรองการติดเชื้อคลามีเดียร่วม (Dual Detection)</td>
                             </tr>
+                            <!-- เชื้อรา KOH -->
                             <tr class="hover:bg-slate-50">
-                                <td class="px-4 py-3 font-semibold text-amber-900">ตรวจเชื้อรา (KOH / Wet Smear)</td>
+                                <td class="px-4 py-3 font-semibold text-amber-900">
+                                    <i class="fa-solid fa-circle-nodes text-amber-600 mr-1.5"></i> ตรวจเชื้อรา (KOH Preparation)
+                                </td>
                                 <td class="px-4 py-3 text-slate-600">Direct Microscopy</td>
                                 <td class="px-4 py-3 text-right font-medium">17</td>
                                 <td class="px-4 py-3 text-right font-bold text-amber-600">3</td>
-                                <td class="px-4 py-3 text-right font-semibold text-amber-600">100.0%</td>
-                                <td class="px-4 py-3 text-slate-500">ตรวจกลุ่มอาการคัน/ตกขาว</td>
+                                <td class="px-4 py-3 text-right font-bold text-amber-600 bg-amber-50/30">17.6%</td>
+                                <td class="px-4 py-3 text-slate-500">วินิจฉัยการติดเชื้อราที่ผิวหนัง/ร่มผ้า</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-
-        </section>
-
         <!-- ==================== TAB 2: 10-YEAR TREND ==================== -->
         <section id="section-trend" class="space-y-8 hidden">
             
