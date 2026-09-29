@@ -146,25 +146,25 @@
                         </div>
                     </div>
 
-                    <!-- เชื้อรา / KOH -->
-                    <div class="bg-white p-5 rounded-2xl border border-slate-200 card-shadow hover:border-amber-300 transition-all flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">พบเชื้อรา (KOH/Wet)</span>
-                                <div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shadow-sm">
-                                    <i class="fa-solid fa-circle-nodes text-sm"></i>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <span class="text-3xl font-black text-amber-600">17</span>
-                                <span class="text-xs text-slate-500 ml-1">เคส</span>
-                            </div>
-                        </div>
-                        <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs">
-                            <span class="text-slate-500">Direct Smear</span>
-                            <span class="font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">Positive</span>
-                        </div>
-                    </div>
+                   <!-- เชื้อรา / KOH (แก้ไขตัวเลขจริง: พบเชื้อ 3 / ส่งตรวจ 17) -->
+<div class="bg-white p-5 rounded-2xl border border-slate-200 card-shadow hover:border-amber-300 transition-all flex flex-col justify-between">
+    <div>
+        <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">พบเชื้อรา (KOH Preparation)</span>
+            <div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shadow-sm">
+                <i class="fa-solid fa-circle-nodes text-sm"></i>
+            </div>
+        </div>
+        <div class="mt-3">
+            <span class="text-3xl font-black text-amber-600">3</span>
+            <span class="text-xs text-slate-500 ml-1">/ 17 ตัวอย่าง</span>
+        </div>
+    </div>
+    <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs">
+        <span class="text-slate-500">อัตราพบเชื้อ (Positivity)</span>
+        <span class="font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">17.6%</span>
+    </div>
+</div>
 
                     <!-- Ceftriaxone Susceptibility -->
                     <div class="bg-gradient-to-br from-emerald-500 to-teal-600 text-white p-5 rounded-2xl shadow-md flex flex-col justify-between">
@@ -188,16 +188,29 @@
                 </div>
             </div>
 
-            <!-- Overview Charts Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- สัดส่วนผลตรวจสะสม -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                    <h3 class="text-base font-bold text-slate-900 mb-1">สัดส่วนผู้รับบริการและผลการตรวจพบเชื้อสะสม (N = 696)</h3>
-                    <p class="text-xs text-slate-500 mb-4">สรุปจากตาราง Calc_summary จำแนกตามชนิดเชื้อที่ตรวจพบ</p>
-                    <div class="relative h-64">
-                        <canvas id="overviewDonutChart"></canvas>
-                    </div>
-                </div>
+           // 1. Overview Donut Chart (แก้ไขยอดเชื้อราเป็น 3)
+function initOverviewChart() {
+    const ctx = document.getElementById('overviewDonutChart');
+    if (!ctx) return;
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['ตรวจพบหนองใน (NG Pos)', 'ตรวจพบคลามีเดีย (CT Pos)', 'ตรวจพบเชื้อรา (KOH)', 'ไม่พบเชื้อ'],
+            datasets: [{
+                data: [187, 44, 3, 462], // ปรับเชื้อราเป็น 3 และปรับยอดไม่พบเชื้อเป็น 462
+                backgroundColor: ['#0284c7', '#0d9488', '#f59e0b', '#e2e8f0'],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15 } }
+            }
+        }
+    });
+}
 
                 <!-- การกระจายตัวของสิ่งส่งตรวจ -->
                 <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
