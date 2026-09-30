@@ -1,31 +1,5 @@
 <!DOCTYPE html>
 <html lang="th">
-    // URL ที่ได้จากการ Publish to web (แท็บ Calc_summary)
-const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-.../pub?gid=XXXXX&single=true&output=csv";
-
-async function fetchRealtimeSummary() {
-    try {
-        const response = await fetch(SHEET_CSV_URL);
-        const csvText = await response.text();
-        
-        // แปลงข้อความ CSV เป็นแถวข้อมูล
-        const rows = csvText.split('\n').map(row => row.split(','));
-        console.log("โหลดข้อมูลล่าสุดจาก Google Sheets สำเร็จ:", rows);
-        
-        // ตัวอย่าง: ดึงตัวเลขจากแถวและคอลัมน์ที่ต้องการมาอัปเดตลงหน้าเว็บ
-        // document.getElementById('total-patients').innerText = rows[1][2];
-        
-        // สั่งให้ชาร์ตและตารางวาดใหม่ด้วยข้อมูลชุดล่าสุดทันที
-        // renderDashboard(rows);
-    } catch (error) {
-        console.error("เกิดข้อผิดพลาดในการดึงข้อมูล:", error);
-    }
-}
-
-// เรียกทำงานทันทีเมื่อเปิดหน้าเว็บ
-window.addEventListener('DOMContentLoaded', fetchRealtimeSummary);
-    
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Executive STI & AMR Dashboard - สคร.10 อุบลราชธานี</title>
