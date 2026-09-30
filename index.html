@@ -42,29 +42,23 @@
                         ISO 15189:2022
                     </span>
                     <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
-                        <i class="fa-solid fa-rotate mr-1 text-[10px]"></i> Automated ETL Active
+                        <i class="fa-solid fa-code-branch mr-1 text-[10px]"></i> แยกวิธี Culture & PCR
                     </span>
                 </div>
             </div>
         </div>
 
-        <!-- Navigation Tabs (ครบทุกมิติ) -->
+        <!-- Navigation Tabs 4 แท็บหลัก -->
         <div class="bg-white border-t border-slate-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-8 overflow-x-auto">
                 <button onclick="switchTab('overview')" id="tab-overview" class="tab-btn active py-3 text-sm font-medium text-slate-600 hover:text-sky-600 whitespace-nowrap">
                     <i class="fa-solid fa-chart-pie mr-2"></i>ภาพรวมผู้บริหาร (Overview)
                 </button>
-                <button onclick="switchTab('monthly')" id="tab-monthly" class="tab-btn py-3 text-sm font-medium text-slate-600 hover:text-sky-600 whitespace-nowrap">
-                    <i class="fa-solid fa-calendar-days mr-2"></i>เฝ้าระวังรายเดือน (2565–2569)
-                </button>
                 <button onclick="switchTab('trend')" id="tab-trend" class="tab-btn py-3 text-sm font-medium text-slate-600 hover:text-sky-600 whitespace-nowrap">
                     <i class="fa-solid fa-chart-line mr-2"></i>แนวโน้ม 10 ปี แยกวิธีตรวจ
                 </button>
-                <button onclick="switchTab('mic-trend')" id="tab-mic-trend" class="tab-btn py-3 text-sm font-medium text-slate-600 hover:text-sky-600 whitespace-nowrap">
-                    <i class="fa-solid fa-wave-square mr-2"></i>วิเคราะห์แนวโน้ม MIC 5 ปี
-                </button>
                 <button onclick="switchTab('amr')" id="tab-amr" class="tab-btn py-3 text-sm font-medium text-slate-600 hover:text-sky-600 whitespace-nowrap">
-                    <i class="fa-solid fa-shield-virus mr-2"></i>เฝ้าระวังเชื้อดื้อยา (AMR Profile)
+                    <i class="fa-solid fa-shield-virus mr-2"></i>เฝ้าระวังเชื้อดื้อยา (AMR & MIC)
                 </button>
                 <button onclick="switchTab('eqa')" id="tab-eqa" class="tab-btn py-3 text-sm font-medium text-slate-600 hover:text-sky-600 whitespace-nowrap">
                     <i class="fa-solid fa-award mr-2"></i>ประกันคุณภาพ (EQA)
@@ -79,7 +73,7 @@
         <!-- ==================== TAB 1: OVERVIEW ==================== -->
         <section id="section-overview" class="space-y-8">
 
-            <!-- 1. KPI Cards แถวเดียว 6 คอลัมน์สมดุล (ยอดสะสมตรง Calc_summary 696 ราย) -->
+            <!-- 1. KPI Cards แถวเดียว 6 คอลัมน์สมบูรณ์ (ผู้รับบริการ 696 คน) -->
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
                 
                 <!-- 1. ผู้รับบริการสะสม -->
@@ -93,7 +87,7 @@
                             </div>
                         </div>
                         <div class="mt-2.5">
-                            <span class="text-2xl sm:text-3xl font-black text-white" id="kpi-total-pts">696</span>
+                            <span class="text-2xl sm:text-3xl font-black text-white">696</span>
                             <span class="text-[11px] text-sky-100 ml-0.5">คน</span>
                         </div>
                     </div>
@@ -113,7 +107,7 @@
                             </div>
                         </div>
                         <div class="mt-2.5">
-                            <span class="text-2xl sm:text-3xl font-black text-sky-700" id="kpi-ng-pos">187</span>
+                            <span class="text-2xl sm:text-3xl font-black text-sky-700">187</span>
                             <span class="text-[11px] text-slate-500 ml-0.5">เคส</span>
                         </div>
                     </div>
@@ -133,7 +127,7 @@
                             </div>
                         </div>
                         <div class="mt-2.5">
-                            <span class="text-2xl sm:text-3xl font-black text-teal-700" id="kpi-ct-pos">44</span>
+                            <span class="text-2xl sm:text-3xl font-black text-teal-700">44</span>
                             <span class="text-[11px] text-slate-500 ml-0.5">เคส</span>
                         </div>
                     </div>
@@ -153,7 +147,7 @@
                             </div>
                         </div>
                         <div class="mt-2.5">
-                            <span class="text-2xl sm:text-3xl font-black text-purple-700" id="kpi-coinfect">20</span>
+                            <span class="text-2xl sm:text-3xl font-black text-purple-700">20</span>
                             <span class="text-[11px] text-slate-500 ml-0.5">เคส</span>
                         </div>
                     </div>
@@ -163,7 +157,7 @@
                     </div>
                 </div>
 
-                <!-- 5. พบเชื้อรา (KOH Preparation) ยอดถูกต้อง 3 จาก 17 -->
+                <!-- 5. พบเชื้อรา (KOH Preparation) -->
                 <div class="bg-white p-4 rounded-2xl border border-slate-200 card-shadow hover:border-amber-300 transition-all flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between">
@@ -173,7 +167,7 @@
                             </div>
                         </div>
                         <div class="mt-2.5 flex items-baseline">
-                            <span class="text-2xl sm:text-3xl font-black text-amber-600" id="kpi-fungi-pos">3</span>
+                            <span class="text-2xl sm:text-3xl font-black text-amber-600">3</span>
                             <span class="text-[11px] text-slate-400 ml-1">/ 17 ตรวจ</span>
                         </div>
                     </div>
@@ -183,7 +177,7 @@
                     </div>
                 </div>
 
-                <!-- 6. ไวต่อยาหลัก Ceftriaxone -->
+                <!-- 6. ความไวต่อยาหลัก Ceftriaxone -->
                 <div class="bg-gradient-to-br from-emerald-500 to-teal-600 text-white p-4 rounded-2xl shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between">
@@ -261,7 +255,8 @@
                     </div>
                 </div>
             </div>
-            <!-- ==================== ตารางเฝ้าระวังรายเดือน ประจำปีงบประมาณ 2569 ==================== -->
+
+            <!-- 4. ตารางเฝ้าระวังรายเดือน ประจำปีงบประมาณ 2569 (เรนเดอร์ข้อมูลจริงครบ 12 เดือน) -->
             <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
                 <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                     <div>
@@ -285,7 +280,7 @@
                                 <th class="px-3 py-3 text-right bg-teal-50 text-teal-900">คลามีเดีย CT (เคส)</th>
                                 <th class="px-3 py-3 text-right bg-amber-50 text-amber-900">เชื้อรา KOH (เคส)</th>
                                 <th class="px-3 py-3 text-right font-bold text-slate-900">รวมพบเชื้อ (เคส)</th>
-                                <th class="px-3 py-3 text-right font-bold bg-indigo-50 text-indigo-900">อัตราพบเชื้อ (% Positivity)</th>
+                                <th class="px-3 py-3 text-right font-bold bg-indigo-50 text-indigo-900">อัตราพบเชื้อ (%)</th>
                                 <th class="px-4 py-3 text-center">สถานะเฝ้าระวัง AMR (CRO / CFM)</th>
                                 <th class="px-4 py-3 text-left">บันทึกทางระบาดวิทยา</th>
                             </tr>
@@ -294,22 +289,23 @@
                             <!-- Populated dynamically via JS -->
                         </tbody>
                         <tfoot class="bg-slate-100 font-bold border-t-2 border-slate-300 text-slate-900" id="currentYearMonthlyTableFoot">
-                            <!-- Calculated Summary -->
+                            <!-- Calculated Summary populated dynamically via JS -->
                         </tfoot>
                     </table>
                 </div>
             </div>
-            <!-- 4. ตารางรายงานสรุปปี 2569 (แยกวิธีตรวจและคำนวณ % ถูกต้อง) -->
+
+            <!-- 5. ตารางสรุปภาพรวมปี 2569 แยกตามวิธีตรวจวิเคราะห์ (Culture, PCR, Smear) -->
             <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
                 <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                     <div>
                         <h4 class="text-sm font-bold text-slate-900 flex items-center">
-                            <i class="fa-solid fa-calendar-check text-sky-600 mr-2"></i> รายงานสรุปผลการให้บริการตรวจวิเคราะห์ ประจำปีงบประมาณ 2569
+                            <i class="fa-solid fa-list-check text-sky-600 mr-2"></i> รายงานสรุปผลการให้บริการตรวจวิเคราะห์แยกวิธี ประจำปีงบประมาณ 2569
                         </h4>
                         <p class="text-xs text-slate-500">จำแนกรายการส่งตรวจแยกวิธีตรวจ (ผู้รับบริการ 44 คน พบเชื้อจริง 13 ราย)</p>
                     </div>
-                    <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-sky-100 text-sky-800">
-                        ปีงบประมาณ 2569 (ล่าสุด)
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-100 text-emerald-800">
+                        Calc_summary Synchronized
                     </span>
                 </div>
                 <div class="overflow-x-auto">
@@ -372,58 +368,7 @@
 
         </section>
 
-        <!-- ==================== TAB 2: MONTHLY BREAKDOWN (เพิ่มใหม่) ==================== -->
-        <section id="section-monthly" class="space-y-8 hidden">
-            
-            <!-- กราฟรายเดือน: ยอดตรวจและอัตรา Positivity Rate -->
-            <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
-                    <div>
-                        <h3 class="text-base font-bold text-slate-900">แนวโน้มการตรวจและอัตราพบเชื้อรายเดือน (พ.ศ. 2565 - 2569)</h3>
-                        <p class="text-xs text-slate-500">ติดตามปริมาณสิ่งส่งตรวจและอัตราความชุกรวมรายเดือน (Total Positivity Rate)</p>
-                    </div>
-                    <span class="text-xs font-semibold bg-sky-100 text-sky-800 px-3 py-1 rounded-lg">
-                        5-Year Monthly Surveillance
-                    </span>
-                </div>
-                <div class="relative h-80 sm:h-96">
-                    <canvas id="monthlyTrendChart"></canvas>
-                </div>
-            </div>
-
-            <!-- ตารางสรุปรายเดือนพร้อมสถานะเตือนภัย AMR -->
-            <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
-                <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
-                    <div>
-                        <h4 class="text-sm font-bold text-slate-900">ตารางรายงานสถานการณ์เฝ้าระวังรายเดือนและสถานะเตือนภัย AMR</h4>
-                        <p class="text-xs text-slate-500">แจ้งเตือนทันทีหากพบเชื้อดื้อยา Ceftriaxone (CRO) หรือ Cefixime (CFM)</p>
-                    </div>
-                </div>
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-slate-200 text-xs">
-                        <thead class="bg-slate-100 text-slate-700 font-semibold">
-                            <tr>
-                                <th class="px-3 py-3 text-left">ปี พ.ศ.</th>
-                                <th class="px-3 py-3 text-left">เดือน (YYYY-MM)</th>
-                                <th class="px-3 py-3 text-right">ผู้รับบริการ (คน)</th>
-                                <th class="px-3 py-3 text-right bg-sky-50 text-sky-900">หนองใน NG</th>
-                                <th class="px-3 py-3 text-right bg-teal-50 text-teal-900">คลามีเดีย CT</th>
-                                <th class="px-3 py-3 text-right bg-amber-50 text-amber-900">เชื้อรา</th>
-                                <th class="px-3 py-3 text-right font-bold text-slate-900">รวมพบเชื้อ</th>
-                                <th class="px-3 py-3 text-right font-bold bg-indigo-50 text-indigo-900">อัตราพบเชื้อ (%)</th>
-                                <th class="px-4 py-3 text-center">สถานะเตือนภัย AMR</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-200 bg-white" id="monthlyTableBody">
-                            <!-- Populated via Script -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- ==================== TAB 3: 10-YEAR TREND ==================== -->
+        <!-- ==================== TAB 2: 10-YEAR TREND ==================== -->
         <section id="section-trend" class="space-y-8 hidden">
             
             <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
@@ -466,68 +411,19 @@
 
         </section>
 
-        <!-- ==================== TAB 4: 5-YEAR MIC TRENDS (เพิ่มใหม่) ==================== -->
-        <section id="section-mic-trend" class="space-y-8 hidden">
-            
-            <!-- กราฟเส้น Logarithmic Scale แสดงการเปลี่ยนแปลงค่าเฉลี่ย MIC -->
-            <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
-                    <div>
-                        <h3 class="text-base font-bold text-slate-900 flex items-center">
-                            <i class="fa-solid fa-chart-line text-sky-600 mr-2"></i>
-                            แนวโน้มค่าเฉลี่ยความเข้มข้นต่ำสุดที่ยับยั้งเชื้อ (5-Year MIC Trend on Log Scale)
-                        </h3>
-                        <p class="text-xs text-slate-500">ติดตามค่าเฉลี่ย MIC (mg/L) เพื่อเฝ้าระวังการเกิด MIC Shift / MIC Creep ต่อยาต้านจุลชีพหลัก</p>
-                    </div>
-                    <span class="text-xs font-semibold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-lg">
-                        CLSI/EUCAST Surveillance Standard
-                    </span>
-                </div>
-                <div class="relative h-80 sm:h-96">
-                    <canvas id="micTrendLogChart"></canvas>
-                </div>
-            </div>
-
-            <!-- ตารางสรุปค่าเฉลี่ย MIC 5 ปี และการแปลผล -->
-            <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
-                <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
-                    <div>
-                        <h4 class="text-sm font-bold text-slate-900">ตารางวิเคราะห์แนวโน้มค่าเฉลี่ย MIC ย้อนหลัง 5 ปี (พ.ศ. 2565 - 2569)</h4>
-                        <p class="text-xs text-slate-500">วิเคราะห์ตามเกณฑ์ Breakpoint สากล: Ceftriaxone ≤ 0.25 mg/L, Cefixime ≤ 0.25 mg/L, Azithromycin ≤ 1.0 mg/L</p>
-                    </div>
-                </div>
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-slate-200 text-xs">
-                        <thead class="bg-slate-100 text-slate-700 font-semibold">
-                            <tr>
-                                <th class="px-4 py-3 text-left">ปี พ.ศ.</th>
-                                <th class="px-4 py-3 text-right bg-sky-50 text-sky-900">CRO Mean (mg/L)</th>
-                                <th class="px-4 py-3 text-right bg-teal-50 text-teal-900">CFM Mean (mg/L)</th>
-                                <th class="px-4 py-3 text-right bg-indigo-50 text-indigo-900">AZM Mean (mg/L)</th>
-                                <th class="px-4 py-3 text-right bg-slate-100 text-slate-900">TC Mean (mg/L)</th>
-                                <th class="px-4 py-3 text-left">การแปลผลทางระบาดวิทยา (Surveillance Interpretation)</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-200 bg-white" id="micTrendTableBody">
-                            <!-- Populated via Script -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- ==================== TAB 5: AMR PROFILE ==================== -->
+        <!-- ==================== TAB 3: AMR & MIC (คงกราฟแท่งเดิมที่เลือกยาได้) ==================== -->
         <section id="section-amr" class="space-y-8 hidden">
             
+            <!-- 1. AMR Profile Bar Chart -->
             <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                 <h3 class="text-base font-bold text-slate-900 mb-1">สถานการณ์ความไวต่อยาของเชื้อหนองใน (AMR Profile สะสม)</h3>
-                <p class="text-xs text-slate-500 mb-4">อัตราส่วนไวต่อยา (S) และดื้อยา (R) ต่อยาต้านจุลชีพ 6 ชนิดหลัก</p>
+                <p class="text-xs text-slate-500 mb-4">อัตราส่วนไวต่อยา (S) และดื้อยา (R) ต่อยาต้านจุลชีพ 6 ชนิดหลักจากฐานข้อมูล</p>
                 <div class="relative h-80">
                     <canvas id="amrBarChart"></canvas>
                 </div>
             </div>
 
+            <!-- 2. ตารางอัตราดื้อยารายปี (พ.ศ. 2559 - 2569) -->
             <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
                 <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
                     <div>
@@ -554,9 +450,44 @@
                 </div>
             </div>
 
+            <!-- 3. MIC Distribution Bar Chart (คงกราฟแท่งเดิมที่สามารถเลือกยา CRO/CFM/AZM ได้) -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-3">
+                    <div>
+                        <h3 class="text-base font-bold text-slate-900 flex items-center">
+                            <i class="fa-solid fa-chart-column text-sky-600 mr-2"></i>
+                            การแจกแจงความถี่ค่า MIC ย้อนหลัง 5 ปี (พ.ศ. 2565 - 2569)
+                        </h3>
+                        <p class="text-xs text-slate-500">ติดตามการกระจายตัวของค่า MIC และเฝ้าระวังการขยับสูงขึ้นของเชื้อ Neisseria gonorrhoeae (MIC Creep)</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <label for="drugSelector" class="text-xs font-semibold text-slate-600">เลือกยาต้านจุลชีพ:</label>
+                        <select id="drugSelector" onchange="updateMICChart(this.value)" class="text-xs font-medium bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                            <option value="CRO">Ceftriaxone (CRO) - ยาฉีดหลัก</option>
+                            <option value="CFM">Cefixime (CFM) - ยากินหลัก</option>
+                            <option value="AZM">Azithromycin (AZM) - ยาร่วมรักษา</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Interpretation Banner -->
+                <div id="micInfoBanner" class="mb-4 px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg flex flex-wrap justify-between items-center text-xs text-slate-600">
+                    <div>
+                        <strong>เกณฑ์มาตรฐาน (Breakpoint):</strong> <span id="breakpointText" class="text-emerald-700 font-bold">ไวต่อยา (S) เมื่อ MIC ≤ 0.25 mg/L</span>
+                    </div>
+                    <div class="text-[11px] text-slate-500">
+                        *หากแท่งกราฟปีหลังๆ ขยับตัวไปทางขวา แสดงว่าเกิดการลดความไวของเชื้อในพื้นที่
+                    </div>
+                </div>
+
+                <div class="relative h-80">
+                    <canvas id="micDistributionChart"></canvas>
+                </div>
+            </div>
+
         </section>
 
-        <!-- ==================== TAB 6: EQA ==================== -->
+        <!-- ==================== TAB 4: EQA ==================== -->
         <section id="section-eqa" class="space-y-8 hidden">
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -614,13 +545,29 @@
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500 mt-auto">
         <p>© 2569 กลุ่มห้องปฏิบัติการทางการแพทย์ด้านควบคุมโรค สำนักงานป้องกันควบคุมโรคที่ 10 จังหวัดอุบลราชธานี</p>
-        <p class="mt-1">ระบบสารสนเทศข้อมูลเฝ้าระวังทางห้องปฏิบัติการโรคติดต่อทางเพศสัมพันธ์และการดื้อยาต้านจุลชีพ (ETL & GitHub Pipeline)</p>
+        <p class="mt-1">ระบบสารสนเทศข้อมูลเฝ้าระวังทางห้องปฏิบัติการโรคติดต่อทางเพศสัมพันธ์และการดื้อยาต้านจุลชีพ (Calc_summary Synchronized)</p>
     </footer>
 
-    <!-- Scripts: Data Repository & Chart.js -->
+    <!-- Scripts -->
     <script>
-        // ========================== 1. DEFAULT DATA REPOSITORY ==========================
+        // ========================== 1. DATA REPOSITORY ==========================
         
+        // ข้อมูลเฝ้าระวังรายเดือนจริง ปีงบประมาณ 2569 (12 เดือน: ต.ค. 68 - ก.ย. 69)
+        const MONTHLY_SURVEILLANCE_2569 = [
+            { month: 'ต.ค. 68', ym: '2025-10', tested: 4, ng: 3, ct: 0, fungi: 0, total_pos: 3, pos_rate: '75.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบ NG เพาะเชื้อ 3 เคส (CRO/CFM S)' },
+            { month: 'พ.ย. 68', ym: '2025-11', tested: 1, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '⚪ รอผลทดสอบ', note: 'ส่งตรวจคัดกรองทั่วไป' },
+            { month: 'ธ.ค. 68', ym: '2025-12', tested: 2, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '⚪ รอผลทดสอบ', note: 'ส่งตรวจคัดกรองทั่วไป' },
+            { month: 'ม.ค. 69', ym: '2026-01', tested: 3, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '⚪ รอผลทดสอบ', note: 'ส่งตรวจคัดกรองทั่วไป' },
+            { month: 'ก.พ. 69', ym: '2026-02', tested: 1, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '⚪ รอผลทดสอบ', note: 'ส่งตรวจคัดกรองทั่วไป' },
+            { month: 'มี.ค. 69', ym: '2026-03', tested: 5, ng: 1, ct: 1, fungi: 0, total_pos: 2, pos_rate: '40.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบ NG Culture 1 เคส (ไวต่อยาหลัก)' },
+            { month: 'เม.ย. 69', ym: '2026-04', tested: 3, ng: 0, ct: 1, fungi: 0, total_pos: 1, pos_rate: '33.3%', amr_badge: '⚪ รอผลทดสอบ', note: 'พบ CT จาก Real-time PCR' },
+            { month: 'พ.ค. 69', ym: '2026-05', tested: 3, ng: 1, ct: 1, fungi: 0, total_pos: 2, pos_rate: '66.7%', amr_badge: '🔴 ตรวจพบเชื้อดื้อยา (Alert)', note: '⚠️ เคส M502 ดื้อยาหลายขนาน (CRO 0.75, CFM 2.0)' },
+            { month: 'มิ.ย. 69', ym: '2026-06', tested: 4, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'ตรวจ KOH ผิวหนัง 3 ราย (Not found)' },
+            { month: 'ก.ค. 69', ym: '2026-07', tested: 6, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'ตรวจ KOH ผิวหนัง 5 ราย (Not found)' },
+            { month: 'ส.ค. 69', ym: '2026-08', tested: 10, ng: 1, ct: 1, fungi: 2, total_pos: 4, pos_rate: '40.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบเชื้อรา KOH 2 เคส, ติดเชื้อร่วม CT/NG' },
+            { month: 'ก.ย. 69', ym: '2026-09', tested: 2, ng: 0, ct: 0, fungi: 1, total_pos: 1, pos_rate: '50.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบเชื้อรา KOH 1 เคส' }
+        ];
+
         // ข้อมูล 10 ปี (Calc_summary)
         const TREND_10_YEARS = [
             { year: '2560', patients: 56, ng: 11, ct: 0, fungi: 0, cum_pts: 56, cum_inf: 11, ng_culture: 11, ng_pcr: 0 },
@@ -654,7 +601,7 @@
             { name: 'รพ.ม.อุบล', count: 1, pct: '0.1%' }
         ];
 
-        // ข้อมูล AMR และยา
+        // ข้อมูล AMR
         const AMR_DRUGS = [
             { drug: 'Ceftriaxone (CRO)', tested: 149, s: 148, r: 0, r_pct: 0.0 },
             { drug: 'Azithromycin (AZM)', tested: 149, s: 148, r: 0, r_pct: 0.0 },
@@ -677,23 +624,69 @@
             { year: '2568', pen: '77.8%', cip: '100%', sc: '0.0%', tc: '85.7%', azm: '0.0%', cro: '0.0%', mean: '43.9%' },
             { year: '2569', pen: '88.9%', cip: '88.9%', sc: '11.1%', tc: '77.8%', azm: '0.0%', cro: '0.0%', mean: '44.4%' }
         ];
-            // ชุดข้อมูลรายเดือนจริง ปีงบประมาณ 2569 (12 เดือน: ต.ค. 68 - ก.ย. 69)
-        const MONTHLY_SURVEILLANCE_2569 = [
-            { month: 'ต.ค. 68', ym: '2025-10', tested: 4, ng: 3, ct: 0, fungi: 0, total_pos: 3, pos_rate: '75.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบ NG เพาะเชื้อ 3 เคส (CRO/CFM S)' },
-            { month: 'พ.ย. 68', ym: '2025-11', tested: 1, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '⚪ รอผลทดสอบ', note: 'ส่งตรวจคัดกรองทั่วไป' },
-            { month: 'ธ.ค. 68', ym: '2025-12', tested: 2, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '⚪ รอผลทดสอบ', note: 'ส่งตรวจคัดกรองทั่วไป' },
-            { month: 'ม.ค. 69', ym: '2026-01', tested: 3, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '⚪ รอผลทดสอบ', note: 'ส่งตรวจคัดกรองทั่วไป' },
-            { month: 'ก.พ. 69', ym: '2026-02', tested: 1, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '⚪ รอผลทดสอบ', note: 'ส่งตรวจคัดกรองทั่วไป' },
-            { month: 'มี.ค. 69', ym: '2026-03', tested: 5, ng: 1, ct: 1, fungi: 0, total_pos: 2, pos_rate: '40.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบ NG Culture 1 เคส (ไวต่อยาหลัก)' },
-            { month: 'เม.ย. 69', ym: '2026-04', tested: 3, ng: 0, ct: 1, fungi: 0, total_pos: 1, pos_rate: '33.3%', amr_badge: '⚪ รอผลทดสอบ', note: 'พบ CT จาก Real-time PCR' },
-            { month: 'พ.ค. 69', ym: '2026-05', tested: 3, ng: 1, ct: 1, fungi: 0, total_pos: 2, pos_rate: '66.7%', amr_badge: '🔴 ตรวจพบเชื้อดื้อยา (Alert)', note: '⚠️ เคส M502 ดื้อยาหลายขนาน (CRO 0.75, CFM 2.0)' },
-            { month: 'มิ.ย. 69', ym: '2026-06', tested: 4, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'ตรวจ KOH ผิวหนัง 3 ราย (Not found)' },
-            { month: 'ก.ค. 69', ym: '2026-07', tested: 6, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'ตรวจ KOH ผิวหนัง 5 ราย (Not found)' },
-            { month: 'ส.ค. 69', ym: '2026-08', tested: 10, ng: 1, ct: 1, fungi: 2, total_pos: 4, pos_rate: '40.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบเชื้อรา KOH 2 เคส, ติดเชื้อร่วม CT/NG' },
-            { month: 'ก.ย. 69', ym: '2026-09', tested: 2, ng: 0, ct: 0, fungi: 1, total_pos: 1, pos_rate: '50.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบเชื้อรา KOH 1 เคส' }
+
+        // ข้อมูลความถี่ MIC 5 ปี (ตามที่กำหนดในตาราง Calc_summary)
+        const MIC_DATASETS = {
+            CRO: {
+                name: 'Ceftriaxone (CRO)',
+                breakpoint: 'ไวต่อยา (S) เมื่อ MIC ≤ 0.25 mg/L (CLSI/EUCAST)',
+                levels: ['0.002', '0.003', '0.004', '0.008', '≥0.020'],
+                years: {
+                    '2565': [14, 0, 8, 0, 0],
+                    '2566': [4, 0, 1, 1, 0],
+                    '2567': [2, 2, 5, 1, 0],
+                    '2568': [4, 1, 0, 0, 0],
+                    '2569': [1, 1, 2, 0, 1]
+                }
+            },
+            CFM: {
+                name: 'Cefixime (CFM)',
+                breakpoint: 'ไวต่อยา (S) เมื่อ MIC ≤ 0.25 mg/L (CLSI/EUCAST)',
+                levels: ['0.006', '0.016', '0.064', '≥0.125'],
+                years: {
+                    '2565': [0, 22, 0, 0],
+                    '2566': [0, 6, 0, 0],
+                    '2567': [0, 9, 1, 0],
+                    '2568': [0, 5, 0, 0],
+                    '2569': [0, 4, 0, 1]
+                }
+            },
+            AZM: {
+                name: 'Azithromycin (AZM)',
+                breakpoint: 'สายพันธุ์ปกติ (Wild Type) เมื่อ MIC ≤ 1.0 mg/L',
+                levels: ['0.016', '0.032', '0.047', '0.064', '≥0.094'],
+                years: {
+                    '2565': [0, 2, 6, 14, 0],
+                    '2566': [1, 0, 2, 3, 0],
+                    '2567': [0, 0, 5, 3, 2],
+                    '2568': [0, 1, 2, 2, 0],
+                    '2569': [0, 0, 2, 2, 1]
+                }
+            }
+        };
+
+        const YEAR_COLORS = {
+            '2565': '#94a3b8',
+            '2566': '#38bdf8',
+            '2567': '#0284c7',
+            '2568': '#0369a1',
+            '2569': '#e11d48'
+        };
+
+        // โปรแกรม EQA
+        const EQA_PROGRAMS = [
+            { prog: 'Gram stain', rounds: 9, pass: 9, fail: 0, rate: '100.0%', status: 'ปิดรอบสมบูรณ์' },
+            { prog: 'Syphilis Serology', rounds: 6, pass: 6, fail: 0, rate: '100.0%', status: 'ปิดรอบสมบูรณ์' },
+            { prog: 'GC Culture', rounds: 6, pass: 5, fail: 0, rate: '100.0%', status: 'ปิดรอบ 5 / รอสรุป 1' },
+            { prog: 'PCR For Malaria', rounds: 5, pass: 5, fail: 0, rate: '100.0%', status: 'ปิดรอบสมบูรณ์' },
+            { prog: 'Slide proficiency Malaria', rounds: 1, pass: 1, fail: 0, rate: '100.0%', status: 'ปิดรอบสมบูรณ์' },
+            { prog: 'Slide proficiency Microfilaria', rounds: 1, pass: 1, fail: 0, rate: '100.0%', status: 'ปิดรอบสมบูรณ์' },
+            { prog: 'เบิกวัสดุ GC', rounds: 3, pass: 3, fail: 0, rate: '100.0%', status: 'ปิดรอบสมบูรณ์' }
         ];
 
-        // ฟังก์ชันเรนเดอร์ตารางเฝ้าระวังรายเดือนปี 2569
+        // ========================== 2. RENDERING FUNCTIONS ==========================
+        
+        // 1. เรนเดอร์ตารางเฝ้าระวังรายเดือน ปี 2569 (ทำงานแน่นอน)
         function renderCurrentYearMonthlyTable() {
             const tbody = document.getElementById('currentYearMonthlyTableBody');
             const tfoot = document.getElementById('currentYearMonthlyTableFoot');
@@ -737,120 +730,12 @@
                     <td class="px-3 py-3 text-right font-black text-slate-900">${sumTotalPos}</td>
                     <td class="px-3 py-3 text-right bg-indigo-100 text-indigo-900 font-black">${overallRate}</td>
                     <td class="px-4 py-3 text-center text-rose-700 font-bold">⚠️ พบเชื้อดื้อยา 1 เคส (พ.ค. 69)</td>
-                    <td class="px-4 py-3 text-emerald-700 text-[11px]">✓ ข้อมูลสอดคล้องกับ Calc_summary</td>
+                    <td class="px-4 py-3 text-emerald-700 text-[11px]">✓ สอดคล้องกับ Calc_summary</td>
                 </tr>
             `;
         }
 
-        // เพิ่มการเรียกใช้ใน window.addEventListener('DOMContentLoaded', ...)
-        // renderCurrentYearMonthlyTable();
-        // ข้อมูลสถิติรายเดือน (Monthly Baseline & Fallback)
-        let MONTHLY_DATA = [
-            { year: 2565, month: '2022-01', tested: 8, ng_pos: 3, ct_pos: 0, fungi_pos: 0, total_pos: 3, positivity_rate: 37.5, amr_badge: '🟢 ไวต่อยาปกติ' },
-            { year: 2565, month: '2022-02', tested: 7, ng_pos: 4, ct_pos: 0, fungi_pos: 0, total_pos: 4, positivity_rate: 57.1, amr_badge: '🟢 ไวต่อยาปกติ' },
-            { year: 2565, month: '2022-03', tested: 11, ng_pos: 6, ct_pos: 0, fungi_pos: 0, total_pos: 6, positivity_rate: 54.5, amr_badge: '🟢 ไวต่อยาปกติ' },
-            { year: 2565, month: '2022-04', tested: 5, ng_pos: 2, ct_pos: 0, fungi_pos: 0, total_pos: 2, positivity_rate: 40.0, amr_badge: '🟢 ไวต่อยาปกติ' },
-            { year: 2566, month: '2023-02', tested: 5, ng_pos: 2, ct_pos: 0, fungi_pos: 0, total_pos: 2, positivity_rate: 40.0, amr_badge: '🟢 ไวต่อยาปกติ' },
-            { year: 2566, month: '2023-05', tested: 6, ng_pos: 2, ct_pos: 0, fungi_pos: 0, total_pos: 2, positivity_rate: 33.3, amr_badge: '🟢 ไวต่อยาปกติ' },
-            { year: 2567, month: '2024-03', tested: 15, ng_pos: 4, ct_pos: 3, fungi_pos: 0, total_pos: 7, positivity_rate: 46.7, amr_badge: '🟢 ไวต่อยาปกติ' },
-            { year: 2567, month: '2024-08', tested: 75, ng_pos: 12, ct_pos: 14, fungi_pos: 0, total_pos: 26, positivity_rate: 34.7, amr_badge: '🟢 ไวต่อยาปกติ' },
-            { year: 2567, month: '2024-09', tested: 55, ng_pos: 8, ct_pos: 7, fungi_pos: 0, total_pos: 15, positivity_rate: 27.3, amr_badge: '🟢 ไวต่อยาปกติ' },
-            { year: 2568, month: '2025-01', tested: 8, ng_pos: 3, ct_pos: 2, fungi_pos: 0, total_pos: 5, positivity_rate: 62.5, amr_badge: '🟢 ไวต่อยาปกติ' },
-            { year: 2568, month: '2025-07', tested: 6, ng_pos: 3, ct_pos: 1, fungi_pos: 0, total_pos: 4, positivity_rate: 66.7, amr_badge: '🟢 ไวต่อยาปกติ' },
-            { year: 2569, month: '2026-03', tested: 7, ng_pos: 2, ct_pos: 1, fungi_pos: 0, total_pos: 3, positivity_rate: 42.9, amr_badge: '🟢 ไวต่อยาปกติ' },
-            { year: 2569, month: '2026-05', tested: 6, ng_pos: 2, ct_pos: 1, fungi_pos: 0, total_pos: 3, positivity_rate: 50.0, amr_badge: '🟢 ไวต่อยาปกติ' },
-            { year: 2569, month: '2026-08', tested: 12, ng_pos: 1, ct_pos: 1, fungi_pos: 2, total_pos: 4, positivity_rate: 33.3, amr_badge: '🟢 ไวต่อยาปกติ' },
-            { year: 2569, month: '2026-09', tested: 5, ng_pos: 0, ct_pos: 0, fungi_pos: 1, total_pos: 1, positivity_rate: 20.0, amr_badge: '🟢 ไวต่อยาปกติ' }
-        ];
-
-        // ข้อมูลแนวโน้มค่าเฉลี่ย MIC 5 ปี (MIC Shift Baseline & Fallback)
-        let MIC_5Y_DATA = [
-            { year: 2565, cro_mean: 0.0027, cfm_mean: 0.0160, azm_mean: 0.0565, tc_mean: 17.16, interpretation: '✅ ไวต่อยาหลักสมบูรณ์ (Wild Type)' },
-            { year: 2566, cro_mean: 0.0033, cfm_mean: 0.0160, azm_mean: 0.0503, tc_mean: 19.33, interpretation: '✅ ไวต่อยาหลักสมบูรณ์ (Wild Type)' },
-            { year: 2567, cro_mean: 0.0038, cfm_mean: 0.0208, azm_mean: 0.0615, tc_mean: 14.80, interpretation: '✅ ไวต่อยาหลักสมบูรณ์ (Wild Type)' },
-            { year: 2568, cro_mean: 0.0022, cfm_mean: 0.0160, azm_mean: 0.0508, tc_mean: 14.50, interpretation: '✅ ไวต่อยาหลักสมบูรณ์ (Wild Type)' },
-            { year: 2569, cro_mean: 0.0030, cfm_mean: 0.0160, azm_mean: 0.0640, tc_mean: 16.00, interpretation: '✅ ไวต่อยาหลักสมบูรณ์ (Wild Type)' }
-        ];
-
-        // โปรแกรม EQA
-        const EQA_PROGRAMS = [
-            { prog: 'Gram stain', rounds: 9, pass: 9, fail: 0, rate: '100.0%', status: 'ปิดรอบสมบูรณ์' },
-            { prog: 'Syphilis Serology', rounds: 6, pass: 6, fail: 0, rate: '100.0%', status: 'ปิดรอบสมบูรณ์' },
-            { prog: 'GC Culture', rounds: 6, pass: 5, fail: 0, rate: '100.0%', status: 'ปิดรอบ 5 / รอสรุป 1' },
-            { prog: 'PCR For Malaria', rounds: 5, pass: 5, fail: 0, rate: '100.0%', status: 'ปิดรอบสมบูรณ์' },
-            { prog: 'Slide proficiency Malaria', rounds: 1, pass: 1, fail: 0, rate: '100.0%', status: 'ปิดรอบสมบูรณ์' },
-            { prog: 'Slide proficiency Microfilaria', rounds: 1, pass: 1, fail: 0, rate: '100.0%', status: 'ปิดรอบสมบูรณ์' },
-            { prog: 'เบิกวัสดุ GC', rounds: 3, pass: 3, fail: 0, rate: '100.0%', status: 'ปิดรอบสมบูรณ์' }
-        ];
-
-        // ========================== 2. HYBRID DATA LOADER (ETL FETCH) ==========================
-        async function loadProcessedDataFromETL() {
-            try {
-                const [resMonthly, resMIC] = await Promise.all([
-                    fetch('data/monthly_surveillance.json'),
-                    fetch('data/mic_trends_5years.json')
-                ]);
-                if (resMonthly.ok) {
-                    MONTHLY_DATA = await resMonthly.json();
-                    console.log('✅ โหลดข้อมูลรายเดือนล่าสุดจาก JSON สำเร็จ');
-                }
-                if (resMIC.ok) {
-                    MIC_5Y_DATA = await resMIC.json();
-                    console.log('✅ โหลดข้อมูลแนวโน้ม MIC 5 ปีจาก JSON สำเร็จ');
-                }
-            } catch (e) {
-                console.warn('⚠️ ใช้งานข้อมูล Baseline ในตัวเนื่องจากรันแบบ Local / Offline:', e);
-            } finally {
-                // เรนเดอร์ตารางและกราฟชุดใหม่ทันทีเมื่อข้อมูลพร้อม
-                renderMonthlySurveillance();
-                renderMICTrends();
-            }
-        }
-
-        // ========================== 3. RENDERING FUNCTIONS ==========================
-        
-        // เรนเดอร์ตารางรายเดือน
-        function renderMonthlySurveillance() {
-            const tbody = document.getElementById('monthlyTableBody');
-            if (!tbody) return;
-
-            tbody.innerHTML = MONTHLY_DATA.map(d => `
-                <tr class="hover:bg-slate-50 transition-colors">
-                    <td class="px-3 py-2.5 font-bold text-slate-900">${d.year}</td>
-                    <td class="px-3 py-2.5 font-medium text-slate-700">${d.month}</td>
-                    <td class="px-3 py-2.5 text-right font-medium">${d.tested}</td>
-                    <td class="px-3 py-2.5 text-right bg-sky-50/50 text-sky-800 font-bold">${d.ng_pos}</td>
-                    <td class="px-3 py-2.5 text-right bg-teal-50/50 text-teal-800 font-bold">${d.ct_pos}</td>
-                    <td class="px-3 py-2.5 text-right bg-amber-50/50 text-amber-800 font-bold">${d.fungi_pos}</td>
-                    <td class="px-3 py-2.5 text-right font-black text-slate-900">${d.total_pos}</td>
-                    <td class="px-3 py-2.5 text-right font-bold text-indigo-700 bg-indigo-50/50">${d.positivity_rate}%</td>
-                    <td class="px-4 py-2.5 text-center text-xs font-semibold">${d.amr_badge}</td>
-                </tr>
-            `).join('');
-
-            initMonthlyChart();
-        }
-
-        // เรนเดอร์ตารางและกราฟวิเคราะห์แนวโน้ม MIC 5 ปี
-        function renderMICTrends() {
-            const tbody = document.getElementById('micTrendTableBody');
-            if (!tbody) return;
-
-            tbody.innerHTML = MIC_5Y_DATA.map(m => `
-                <tr class="hover:bg-slate-50 transition-colors">
-                    <td class="px-4 py-3 font-bold text-slate-900">${m.year}</td>
-                    <td class="px-4 py-3 text-right font-bold text-sky-700 bg-sky-50/40">${m.cro_mean}</td>
-                    <td class="px-4 py-3 text-right font-bold text-teal-700 bg-teal-50/40">${m.cfm_mean}</td>
-                    <td class="px-4 py-3 text-right font-bold text-indigo-700 bg-indigo-50/40">${m.azm_mean}</td>
-                    <td class="px-4 py-3 text-right font-medium text-slate-700 bg-slate-50/60">${m.tc_mean}</td>
-                    <td class="px-4 py-3 text-slate-700 font-medium">${m.interpretation}</td>
-                </tr>
-            `).join('');
-
-            initMICLogChart();
-        }
-
-        // ตารางสถิติเดิม (10 ปี, สถิติประชากร, AMR, EQA)
+        // 2. เรนเดอร์ตารางสถิติเดิม (10 ปี, สถิติประชากร, AMR, EQA)
         function renderStandardTables() {
             const trendBody = document.getElementById('trendTableBody');
             const trendFoot = document.getElementById('trendTableFoot');
@@ -947,130 +832,83 @@
             }
         }
 
-        // ========================== 4. CHART.JS VISUALIZATIONS ==========================
+        // ========================== 3. CHART.JS VISUALIZATIONS ==========================
         Chart.defaults.font.family = "'Sarabun', 'Inter', sans-serif";
         Chart.defaults.color = '#64748b';
 
-        // กราฟรายเดือน (Dual Axes: ยอดตรวจแท่ง + อัตรา Positivity เส้น)
-        let monthlyChartInstance = null;
-        function initMonthlyChart() {
-            const ctx = document.getElementById('monthlyTrendChart');
-            if (!ctx) return;
-            if (monthlyChartInstance) monthlyChartInstance.destroy();
+        // 1. กราฟแท่งแจกแจงความถี่ MIC แบบเดิมที่เลือกยาได้ (CRO / CFM / AZM)
+        let micChartInstance = null;
 
-            monthlyChartInstance = new Chart(ctx, {
+        function renderMICDistribution(drugKey) {
+            const dataConfig = MIC_DATASETS[drugKey];
+            const bpText = document.getElementById('breakpointText');
+            if (bpText) bpText.innerText = dataConfig.breakpoint;
+
+            const datasets = Object.keys(dataConfig.years).map(year => ({
+                label: `ปี ${year}`,
+                data: dataConfig.years[year],
+                backgroundColor: YEAR_COLORS[year],
+                borderRadius: 3,
+                borderWidth: 1,
+                borderColor: '#ffffff'
+            }));
+
+            const canvas = document.getElementById('micDistributionChart');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            if (micChartInstance) {
+                micChartInstance.destroy();
+            }
+
+            micChartInstance = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: MONTHLY_DATA.map(d => d.month),
-                    datasets: [
-                        {
-                            type: 'line',
-                            label: 'อัตราพบเชื้อรวม (% Positivity)',
-                            data: MONTHLY_DATA.map(d => d.positivity_rate),
-                            borderColor: '#e11d48',
-                            backgroundColor: '#e11d48',
-                            borderWidth: 2.5,
-                            pointRadius: 4,
-                            yAxisID: 'y1',
-                            order: 1
-                        },
-                        {
-                            type: 'bar',
-                            label: 'ตรวจพบเชื้อ (เคส)',
-                            data: MONTHLY_DATA.map(d => d.total_pos),
-                            backgroundColor: '#0284c7',
-                            borderRadius: 4,
-                            yAxisID: 'y',
-                            order: 2
-                        },
-                        {
-                            type: 'bar',
-                            label: 'ส่งตรวจทั้งหมด (คน)',
-                            data: MONTHLY_DATA.map(d => d.tested),
-                            backgroundColor: '#e2e8f0',
-                            borderRadius: 4,
-                            yAxisID: 'y',
-                            order: 3
-                        }
-                    ]
+                    labels: dataConfig.levels.map(l => `${l} mg/L`),
+                    datasets: datasets
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    scales: {
-                        y: { beginAtZero: true, title: { display: true, text: 'จำนวนตัวอย่าง (เคส)' } },
-                        y1: { beginAtZero: true, position: 'right', max: 100, ticks: { callback: v => v + '%' }, grid: { drawOnChartArea: false }, title: { display: true, text: 'อัตราพบเชื้อ (%)' } }
-                    },
-                    plugins: { legend: { position: 'bottom' } }
-                }
-            });
-        }
-
-        // กราฟ Log Scale วิเคราะห์ MIC 5 ปี (ตรวจจับ MIC Shift)
-        let micLogChartInstance = null;
-        function initMICLogChart() {
-            const ctx = document.getElementById('micTrendLogChart');
-            if (!ctx) return;
-            if (micLogChartInstance) micLogChartInstance.destroy();
-
-            micLogChartInstance = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: MIC_5Y_DATA.map(m => `ปี ${m.year}`),
-                    datasets: [
-                        {
-                            label: 'Ceftriaxone (CRO) Mean',
-                            data: MIC_5Y_DATA.map(m => m.cro_mean),
-                            borderColor: '#0284c7',
-                            backgroundColor: '#0284c7',
-                            borderWidth: 3,
-                            pointRadius: 5
-                        },
-                        {
-                            label: 'Cefixime (CFM) Mean',
-                            data: MIC_5Y_DATA.map(m => m.cfm_mean),
-                            borderColor: '#0d9488',
-                            backgroundColor: '#0d9488',
-                            borderWidth: 2.5,
-                            pointRadius: 5
-                        },
-                        {
-                            label: 'Azithromycin (AZM) Mean',
-                            data: MIC_5Y_DATA.map(m => m.azm_mean),
-                            borderColor: '#6366f1',
-                            backgroundColor: '#6366f1',
-                            borderWidth: 2.5,
-                            pointRadius: 5
-                        },
-                        {
-                            label: 'Breakpoint เฝ้าระวัง CRO (0.125 mg/L)',
-                            data: [0.125, 0.125, 0.125, 0.125, 0.125],
-                            borderColor: '#ef4444',
-                            borderDash: [6, 4],
-                            borderWidth: 2,
-                            pointRadius: 0
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            type: 'logarithmic',
-                            title: { display: true, text: 'ระดับความเข้มข้นยาเฉลี่ย MIC (mg/L) - Log Scale' },
-                            ticks: { callback: v => Number(v.toString()) }
-                        }
-                    },
                     plugins: {
-                        legend: { position: 'bottom' },
-                        tooltip: { callbacks: { label: item => ` ${item.dataset.label}: ${item.parsed.y} mg/L` } }
+                        legend: {
+                            position: 'bottom',
+                            labels: { boxWidth: 12, padding: 12, font: { size: 11 } }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: (item) => ` ปี ${item.dataset.label}: ${item.parsed.y} ราย`
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'ระดับค่า MIC (mg/L)',
+                                font: { weight: 'bold', size: 12 }
+                            },
+                            grid: { display: false }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'จำนวนตัวอย่าง (เคส)',
+                                font: { weight: 'bold', size: 12 }
+                            },
+                            ticks: { precision: 0 }
+                        }
                     }
                 }
             });
         }
 
-        // กราฟ Donut, Specimen, 10-Year, AMR Profile เดิม
+        window.updateMICChart = function(drugKey) {
+            renderMICDistribution(drugKey);
+        };
+
+        // 2. กราฟภาพรวมอื่นๆ
         function initStaticCharts() {
             const donutCtx = document.getElementById('overviewDonutChart');
             if (donutCtx) {
@@ -1142,7 +980,7 @@
             const activeBtn = document.getElementById('tab-' + tabId);
             if (activeBtn) activeBtn.classList.add('active');
 
-            ['overview', 'monthly', 'trend', 'mic-trend', 'amr', 'eqa'].forEach(id => {
+            ['overview', 'trend', 'amr', 'eqa'].forEach(id => {
                 const section = document.getElementById('section-' + id);
                 if (section) {
                     if (id === tabId) {
@@ -1154,11 +992,12 @@
             });
         }
 
-        // ========================== 5. APP INITIALIZATION ==========================
+        // ========================== 4. INITIALIZATION ==========================
         window.addEventListener('DOMContentLoaded', () => {
             renderStandardTables();
+            renderCurrentYearMonthlyTable();
             initStaticCharts();
-            loadProcessedDataFromETL();
+            renderMICDistribution('CRO');
         });
     </script>
 </body>
