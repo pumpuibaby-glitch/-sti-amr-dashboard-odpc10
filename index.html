@@ -261,6 +261,44 @@
                     </div>
                 </div>
             </div>
+            <!-- ==================== ตารางเฝ้าระวังรายเดือน ประจำปีงบประมาณ 2569 ==================== -->
+            <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
+                <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-900 flex items-center">
+                            <i class="fa-solid fa-calendar-check text-sky-600 mr-2"></i>
+                            สรุปสถานการณ์การเฝ้าระวังโรคติดต่อทางเพศสัมพันธ์และเชื้อดื้อยารายเดือน ประจำปีงบประมาณ 2569
+                        </h4>
+                        <p class="text-xs text-slate-500">FY 2569 Monthly STI &amp; AMR Surveillance Breakdown (ต.ค. 2568 – ก.ย. 2569)</p>
+                    </div>
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-sky-100 text-sky-800">
+                        ปีงบประมาณ 2569 (รวม 44 ราย)
+                    </span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-slate-200 text-xs">
+                        <thead class="bg-slate-100 text-slate-700 font-semibold">
+                            <tr>
+                                <th class="px-3 py-3 text-left">เดือน / ปี</th>
+                                <th class="px-3 py-3 text-right">ส่งตรวจทั้งหมด (คน)</th>
+                                <th class="px-3 py-3 text-right bg-sky-50 text-sky-900">หนองใน NG (เคส)</th>
+                                <th class="px-3 py-3 text-right bg-teal-50 text-teal-900">คลามีเดีย CT (เคส)</th>
+                                <th class="px-3 py-3 text-right bg-amber-50 text-amber-900">เชื้อรา KOH (เคส)</th>
+                                <th class="px-3 py-3 text-right font-bold text-slate-900">รวมพบเชื้อ (เคส)</th>
+                                <th class="px-3 py-3 text-right font-bold bg-indigo-50 text-indigo-900">อัตราพบเชื้อ (% Positivity)</th>
+                                <th class="px-4 py-3 text-center">สถานะเฝ้าระวัง AMR (CRO / CFM)</th>
+                                <th class="px-4 py-3 text-left">บันทึกทางระบาดวิทยา</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 bg-white" id="currentYearMonthlyTableBody">
+                            <!-- Populated dynamically via JS -->
+                        </tbody>
+                        <tfoot class="bg-slate-100 font-bold border-t-2 border-slate-300 text-slate-900" id="currentYearMonthlyTableFoot">
+                            <!-- Calculated Summary -->
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
 
             <!-- 4. ตารางรายงานสรุปปี 2569 (แยกวิธีตรวจและคำนวณ % ถูกต้อง) -->
             <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
