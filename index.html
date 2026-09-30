@@ -329,7 +329,7 @@
             <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                 <div class="mb-4">
                     <h3 class="text-base font-bold text-slate-900">แนวโน้มการตรวจและพบเชื้อ 10 ปี (พ.ศ. 2560 - 2569)</h3>
-                    <p class="text-xs text-slate-500">ข้อมูลจากตารางสรุปรายปี (ตรวจสะสม 614 คน ติดเชื้อสะสม 199 เคส)</p>
+                    <p class="text-xs text-slate-500">ข้อมูลจากตารางสรุปรายปี (ตรวจสะสม 694 คน ติดเชื้อสะสม 199 เคส)</p>
                 </div>
                 <div class="relative h-80 sm:h-96">
                     <canvas id="trend10YearsChart"></canvas>
@@ -719,7 +719,7 @@
                     <td class="px-4 py-3 text-right font-medium">${d.ng_culture.tested} ตัวอย่าง</td>
                     <td class="px-4 py-3 text-right font-bold text-sky-700">${d.ng_culture.pos} เคส</td>
                     <td class="px-4 py-3 text-right font-bold text-sky-700 bg-sky-50/40">${d.ng_culture.rate}</td>
-                    <td class="px-4 py-3 text-slate-500">พบร่วมกับ PCR 3 เคส / เพาะเชื้อ 2 เคส</td>
+                    <td class="px-4 py-3 text-slate-500">พบร่วมกับ PCR 3 เคส</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
                     <td class="px-4 py-3 font-semibold text-indigo-900">
@@ -729,7 +729,7 @@
                     <td class="px-4 py-3 text-right font-medium">${d.ng_pcr.tested} ตัวอย่าง</td>
                     <td class="px-4 py-3 text-right font-bold text-indigo-700">${d.ng_pcr.pos} เคส</td>
                     <td class="px-4 py-3 text-right font-bold text-indigo-700 bg-indigo-50/40">${d.ng_pcr.rate}</td>
-                    <td class="px-4 py-3 text-slate-500">พบร่วมกับ Culture 3 เคส / PCR  1 เคส</td>
+                    <td class="px-4 py-3 text-slate-500">พบร่วมกับ Culture 3 เคส</td>
                 </tr>
                 <tr class="bg-sky-50/60 font-semibold border-y border-sky-100">
                     <td class="px-4 py-2.5 text-sky-950 font-bold" colspan="2">
@@ -738,7 +738,7 @@
                     <td class="px-4 py-2.5 text-right text-slate-500">รวม 2 วิธี</td>
                     <td class="px-4 py-2.5 text-right font-black text-sky-800">${d.ng_overall} ราย</td>
                     <td class="px-4 py-2.5 text-right text-sky-800 font-bold">—</td>
-                    <td class="px-4 py-2.5 text-sky-800 font-medium">ตรงกับยอดหนองใน ${d.ng_overall} เคสในตารางรายเดือน</td>
+                    <td class="px-4 py-2.5 text-sky-800 font-medium">ตรงกับยอดหนองใน ${d.ng_overall} จากตารางรายเดือน</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
                     <td class="px-4 py-3 font-semibold text-teal-900">
@@ -748,7 +748,7 @@
                     <td class="px-4 py-3 text-right font-medium">${d.ct_pcr.tested} ตัวอย่าง</td>
                     <td class="px-4 py-3 text-right font-bold text-teal-700">${d.ct_pcr.pos} ราย</td>
                     <td class="px-4 py-3 text-right font-bold text-teal-700 bg-teal-50/40">${d.ct_pcr.rate}</td>
-                    <td class="px-4 py-3 text-slate-500">ตรงกับยอดหนองในเทียม ${d.ct_pcr.pos} เคสในตารางรายเดือน</td>
+                    <td class="px-4 py-3 text-slate-500">ตรงกับยอดหนองในเทียม ${d.ct_pcr.pos} จากตารางรายเดือน</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
                     <td class="px-4 py-3 font-semibold text-amber-900">
@@ -758,7 +758,7 @@
                     <td class="px-4 py-3 text-right font-medium">${d.fungi_koh.tested} ตัวอย่าง</td>
                     <td class="px-4 py-3 text-right font-bold text-amber-600">${d.fungi_koh.pos} ราย</td>
                     <td class="px-4 py-3 text-right font-bold text-amber-600 bg-amber-50/40">${d.fungi_koh.rate}</td>
-                    <td class="px-4 py-3 text-slate-500">ตรงกับยอดเชื้อรา ${d.fungi_koh.pos} เคสในตารางรายเดือน</td>
+                    <td class="px-4 py-3 text-slate-500">ตรงกับยอดเชื้อรา ${d.fungi_koh.pos} จากตารางรายเดือน</td>
                 </tr>
                 <tr class="bg-slate-100 font-bold border-t-2 border-slate-300">
                     <td class="px-4 py-3 text-slate-900 font-black" colspan="2">
