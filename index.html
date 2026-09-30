@@ -518,12 +518,12 @@
         // ข้อมูลเฝ้าระวังรายเดือนจริง ปีงบประมาณ 2569 (12 เดือน: ต.ค. 68 - ก.ย. 69)
         const MONTHLY_SURVEILLANCE_2569 = [
             { month: 'ต.ค. 68', ym: '2025-10', tested: 4, ng: 3, ct: 0, fungi: 0, total_pos: 3, pos_rate: '75.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบ NG เพาะเชื้อ 3 เคส (CRO/CFM S)' },
-            { month: 'พ.ย. 68', ym: '2025-11', tested: 1, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '⚪ รอผลทดสอบ', note: 'ส่งตรวจคัดกรองทั่วไป' },
-            { month: 'ธ.ค. 68', ym: '2025-12', tested: 2, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '⚪ รอผลทดสอบ', note: 'ส่งตรวจคัดกรองทั่วไป' },
-            { month: 'ม.ค. 69', ym: '2026-01', tested: 3, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '⚪ รอผลทดสอบ', note: 'ส่งตรวจคัดกรองทั่วไป' },
-            { month: 'ก.พ. 69', ym: '2026-02', tested: 1, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '⚪ รอผลทดสอบ', note: 'ส่งตรวจคัดกรองทั่วไป' },
+            { month: 'พ.ย. 68', ym: '2025-11', tested: 1, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'ส่งตรวจคัดกรองทั่วไป' },
+            { month: 'ธ.ค. 68', ym: '2025-12', tested: 2, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'ส่งตรวจคัดกรองทั่วไป' },
+            { month: 'ม.ค. 69', ym: '2026-01', tested: 3, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'ส่งตรวจคัดกรองทั่วไป' },
+            { month: 'ก.พ. 69', ym: '2026-02', tested: 1, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'ส่งตรวจคัดกรองทั่วไป' },
             { month: 'มี.ค. 69', ym: '2026-03', tested: 5, ng: 1, ct: 1, fungi: 0, total_pos: 2, pos_rate: '40.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบ NG Culture 1 เคส (ไวต่อยาหลัก)' },
-            { month: 'เม.ย. 69', ym: '2026-04', tested: 3, ng: 0, ct: 1, fungi: 0, total_pos: 1, pos_rate: '33.3%', amr_badge: '⚪ รอผลทดสอบ', note: 'พบ CT จาก Real-time PCR' },
+            { month: 'เม.ย. 69', ym: '2026-04', tested: 3, ng: 0, ct: 1, fungi: 0, total_pos: 1, pos_rate: '33.3%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบ CT จาก Real-time PCR' },
             { month: 'พ.ค. 69', ym: '2026-05', tested: 3, ng: 1, ct: 1, fungi: 0, total_pos: 2, pos_rate: '66.7%', amr_badge: '🔴 ตรวจพบเชื้อดื้อยา (Alert)', note: '⚠️ เคส M502 ดื้อยาหลายขนาน (CRO 0.75, CFM 2.0)' },
             { month: 'มิ.ย. 69', ym: '2026-06', tested: 4, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'ตรวจ KOH ผิวหนัง 3 ราย (Not found)' },
             { month: 'ก.ค. 69', ym: '2026-07', tested: 6, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'ตรวจ KOH ผิวหนัง 5 ราย (Not found)' },
@@ -567,7 +567,7 @@
         ];
 
         const FACILITY_DATA = [
-            { name: 'ศูนย์สาธิต สคร.10', count: 583, pct: '83.8%' },
+            { name: 'ศูนย์สาธิต สคร.10', count: 582, pct: '83.6%' }, // ปรับจาก 583 เป็น 582
             { name: 'รพ.มุกดาหาร', count: 78, pct: '11.2%' },
             { name: 'ศูนย์เวชฯ สคร.10', count: 31, pct: '4.5%' },
             { name: 'รพ.วารินชำราบ', count: 3, pct: '0.4%' },
@@ -719,27 +719,27 @@
             tbody.innerHTML = `
                 <tr class="hover:bg-slate-50">
                     <td class="px-4 py-3 font-semibold text-sky-900">
-                        <i class="fa-solid fa-vial text-sky-600 mr-1.5"></i> หนองในแท้จากการเพาะเชื้อ (NG Culture)
+                        <i class="fa-solid fa-vial text-sky-600 mr-1.5"></i> หนองในจากการเพาะเชื้อ (NG Culture)
                     </td>
                     <td class="px-4 py-3 text-slate-600">Culture &amp; Isolation</td>
                     <td class="px-4 py-3 text-right font-medium">${d.ng_culture.tested} ตัวอย่าง</td>
                     <td class="px-4 py-3 text-right font-bold text-sky-700">${d.ng_culture.pos} เคส</td>
                     <td class="px-4 py-3 text-right font-bold text-sky-700 bg-sky-50/40">${d.ng_culture.rate}</td>
-                    <td class="px-4 py-3 text-slate-500">พบร่วมกับ PCR 3 เคส / เพาะเชื้อเดี่ยว 2 เคส</td>
+                    <td class="px-4 py-3 text-slate-500">พบร่วมกับ PCR 3 เคส / เพาะเชื้อ 2 เคส</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
                     <td class="px-4 py-3 font-semibold text-indigo-900">
-                        <i class="fa-solid fa-dna text-indigo-600 mr-1.5"></i> หนองในแท้จากสารพันธุกรรม (NG PCR)
+                        <i class="fa-solid fa-dna text-indigo-600 mr-1.5"></i> หนองในจากสารพันธุกรรม (NG PCR)
                     </td>
                     <td class="px-4 py-3 text-slate-600">Real-time Multiplex PCR</td>
                     <td class="px-4 py-3 text-right font-medium">${d.ng_pcr.tested} ตัวอย่าง</td>
                     <td class="px-4 py-3 text-right font-bold text-indigo-700">${d.ng_pcr.pos} เคส</td>
                     <td class="px-4 py-3 text-right font-bold text-indigo-700 bg-indigo-50/40">${d.ng_pcr.rate}</td>
-                    <td class="px-4 py-3 text-slate-500">พบร่วมกับ Culture 3 เคส / PCR เดี่ยว 1 เคส</td>
+                    <td class="px-4 py-3 text-slate-500">พบร่วมกับ Culture 3 เคส / PCR  1 เคส</td>
                 </tr>
                 <tr class="bg-sky-50/60 font-semibold border-y border-sky-100">
                     <td class="px-4 py-2.5 text-sky-950 font-bold" colspan="2">
-                        <i class="fa-solid fa-arrows-to-circle text-sky-700 mr-1.5"></i> รวมผู้ป่วยติดเชื้อหนองในแท้จริง (NG Overall - Deduplicated)
+                        <i class="fa-solid fa-arrows-to-circle text-sky-700 mr-1.5"></i> รวมผู้ป่วยติดเชื้อหนองใน (NG Overall - Deduplicated)
                     </td>
                     <td class="px-4 py-2.5 text-right text-slate-500">รวม 2 วิธี</td>
                     <td class="px-4 py-2.5 text-right font-black text-sky-800">${d.ng_overall} ราย</td>
@@ -754,7 +754,7 @@
                     <td class="px-4 py-3 text-right font-medium">${d.ct_pcr.tested} ตัวอย่าง</td>
                     <td class="px-4 py-3 text-right font-bold text-teal-700">${d.ct_pcr.pos} ราย</td>
                     <td class="px-4 py-3 text-right font-bold text-teal-700 bg-teal-50/40">${d.ct_pcr.rate}</td>
-                    <td class="px-4 py-3 text-slate-500">ตรงกับยอดคลามีเดีย ${d.ct_pcr.pos} เคสในตารางรายเดือน</td>
+                    <td class="px-4 py-3 text-slate-500">ตรงกับยอดหนองในเทียม ${d.ct_pcr.pos} เคสในตารางรายเดือน</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
                     <td class="px-4 py-3 font-semibold text-amber-900">
