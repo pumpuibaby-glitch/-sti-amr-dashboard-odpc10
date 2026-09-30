@@ -1031,6 +1031,85 @@ async function fetchRealtimeData() {
 window.addEventListener('DOMContentLoaded', () => {
     fetchRealtimeData();
 });
+        // ชุดข้อมูลปี 2569 ที่ซิงก์ตรงกับ Calc_summary
+        let DATA_SUMMARY_2569 = {
+            total_patients: 44,
+            total_infected: 13,
+            ng_culture: { tested: 11, pos: 5, rate: '45.5%' },
+            ng_pcr: { tested: 17, pos: 4, rate: '23.5%' },
+            ng_overall: 6,
+            ct_pcr: { tested: 17, pos: 4, rate: '23.5%' },
+            fungi_koh: { tested: 17, pos: 3, rate: '17.6%' }
+        };
+
+        function renderSummaryTable2569() {
+            const tbody = document.getElementById('summaryTable2569Body');
+            if (!tbody) return;
+
+            const d = DATA_SUMMARY_2569;
+            const overallRate = d.total_patients > 0 ? ((d.total_infected / d.total_patients) * 100).toFixed(1) + '%' : '0.0%';
+
+            tbody.innerHTML = `
+                <tr class="hover:bg-slate-50">
+                    <td class="px-4 py-3 font-semibold text-sky-900">
+                        <i class="fa-solid fa-vial text-sky-600 mr-1.5"></i> หนองในแท้จากการเพาะเชื้อ (NG Culture)
+                    </td>
+                    <td class="px-4 py-3 text-slate-600">Culture &amp; Isolation</td>
+                    <td class="px-4 py-3 text-right font-medium">${d.ng_culture.tested} ตัวอย่าง</td>
+                    <td class="px-4 py-3 text-right font-bold text-sky-700">${d.ng_culture.pos} เคส</td>
+                    <td class="px-4 py-3 text-right font-bold text-sky-700 bg-sky-50/40">${d.ng_culture.rate}</td>
+                    <td class="px-4 py-3 text-slate-500">พบร่วมกับ PCR 3 เคส / เพาะเชื้อเดี่ยว 2 เคส</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                    <td class="px-4 py-3 font-semibold text-indigo-900">
+                        <i class="fa-solid fa-dna text-indigo-600 mr-1.5"></i> หนองในแท้จากสารพันธุกรรม (NG PCR)
+                    </td>
+                    <td class="px-4 py-3 text-slate-600">Real-time Multiplex PCR</td>
+                    <td class="px-4 py-3 text-right font-medium">${d.ng_pcr.tested} ตัวอย่าง</td>
+                    <td class="px-4 py-3 text-right font-bold text-indigo-700">${d.ng_pcr.pos} เคส</td>
+                    <td class="px-4 py-3 text-right font-bold text-indigo-700 bg-indigo-50/40">${d.ng_pcr.rate}</td>
+                    <td class="px-4 py-3 text-slate-500">พบร่วมกับ Culture 3 เคส / PCR เดี่ยว 1 เคส</td>
+                </tr>
+                <tr class="bg-sky-50/60 font-semibold border-y border-sky-100">
+                    <td class="px-4 py-2.5 text-sky-950 font-bold" colspan="2">
+                        <i class="fa-solid fa-arrows-to-circle text-sky-700 mr-1.5"></i> รวมผู้ป่วยติดเชื้อหนองในแท้จริง (NG Overall - Deduplicated)
+                    </td>
+                    <td class="px-4 py-2.5 text-right text-slate-500">รวม 2 วิธี</td>
+                    <td class="px-4 py-2.5 text-right font-black text-sky-800">${d.ng_overall} ราย</td>
+                    <td class="px-4 py-2.5 text-right text-sky-800 font-bold">—</td>
+                    <td class="px-4 py-2.5 text-sky-800 font-medium">ตรงกับยอดหนองใน ${d.ng_overall} เคสในตารางรายเดือน</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                    <td class="px-4 py-3 font-semibold text-teal-900">
+                        <i class="fa-solid fa-bacterium text-teal-600 mr-1.5"></i> หนองในเทียมจากสารพันธุกรรม (CT PCR)
+                    </td>
+                    <td class="px-4 py-3 text-slate-600">Real-time Multiplex PCR</td>
+                    <td class="px-4 py-3 text-right font-medium">${d.ct_pcr.tested} ตัวอย่าง</td>
+                    <td class="px-4 py-3 text-right font-bold text-teal-700">${d.ct_pcr.pos} ราย</td>
+                    <td class="px-4 py-3 text-right font-bold text-teal-700 bg-teal-50/40">${d.ct_pcr.rate}</td>
+                    <td class="px-4 py-3 text-slate-500">ตรงกับยอดคลามีเดีย ${d.ct_pcr.pos} เคสในตารางรายเดือน</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                    <td class="px-4 py-3 font-semibold text-amber-900">
+                        <i class="fa-solid fa-circle-nodes text-amber-600 mr-1.5"></i> ตรวจเชื้อรา (KOH Preparation)
+                    </td>
+                    <td class="px-4 py-3 text-slate-600">Direct Microscopy</td>
+                    <td class="px-4 py-3 text-right font-medium">${d.fungi_koh.tested} ตัวอย่าง</td>
+                    <td class="px-4 py-3 text-right font-bold text-amber-600">${d.fungi_koh.pos} ราย</td>
+                    <td class="px-4 py-3 text-right font-bold text-amber-600 bg-amber-50/40">${d.fungi_koh.rate}</td>
+                    <td class="px-4 py-3 text-slate-500">ตรงกับยอดเชื้อรา ${d.fungi_koh.pos} เคสในตารางรายเดือน</td>
+                </tr>
+                <tr class="bg-slate-100 font-bold border-t-2 border-slate-300">
+                    <td class="px-4 py-3 text-slate-900 font-black" colspan="2">
+                        <i class="fa-solid fa-users text-slate-700 mr-1.5"></i> รวมผู้รับบริการและผู้ติดเชื้อจริงสะสม (Total Unique Patients)
+                    </td>
+                    <td class="px-4 py-3 text-right font-black text-slate-900">${d.total_patients} คน</td>
+                    <td class="px-4 py-3 text-right font-black text-sky-800">${d.total_infected} ราย</td>
+                    <td class="px-4 py-3 text-right font-black text-sky-800 bg-sky-100">${overallRate}</td>
+                    <td class="px-4 py-3 text-emerald-700 font-medium">✓ ยอดสอดคล้องกันสมบูรณ์ (NG ${d.ng_overall} + CT ${d.ct_pcr.pos} + เชื้อรา ${d.fungi_koh.pos} = ${d.total_infected})</td>
+                </tr>
+            `;
+        }
     </script>
 </body>
 </html>
