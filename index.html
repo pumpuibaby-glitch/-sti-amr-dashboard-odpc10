@@ -1026,11 +1026,6 @@ async function fetchRealtimeData() {
         console.warn("ใช้ชุดข้อมูลเริ่มต้น (Offline Fallback):", error);
     }
 }
-
-// เรียกให้ดึงข้อมูล Real-time เมื่อเปิดหน้าเว็บ
-window.addEventListener('DOMContentLoaded', () => {
-    fetchRealtimeData();
-});
         // ชุดข้อมูลปี 2569 ที่ซิงก์ตรงกับ Calc_summary
         let DATA_SUMMARY_2569 = {
             total_patients: 44,
@@ -1110,6 +1105,12 @@ window.addEventListener('DOMContentLoaded', () => {
                 </tr>
             `;
         }
+         window.addEventListener('DOMContentLoaded', () => {
+            renderStandardTables();
+            renderCurrentYearMonthlyTable();
+            renderSummaryTable2569(); // <-- เพิ่มบรรทัดนี้
+            initStaticCharts();
+            renderMICDistribution('CRO');
     </script>
 </body>
 </html>
