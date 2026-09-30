@@ -998,6 +998,47 @@
             initStaticCharts();
             renderMICDistribution('CRO');
         });
+        // นำ URL Web App ที่ได้จากขั้นตอนที่ 1 มาวางที่นี่
+const API_URL = "https://script.google.com/macros/s/AKfycbxsOfJtUhtTnf75mB42LhaEHrT8iZgHkra_3vk5rKt1x4mh6DLFccWGm6oO4av1zw/exec";
+
+async function fetchRealtimeData() {
+    try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        
+        console.log("Realtime Data Loaded:", data);
+        
+        // 1. อัปเดตตัวเลขในการ์ด KPI ด้านบนแบบ Real-time
+        if (data.total_patients) {
+            const elTotal = document.getElementById('kpi-total-pts');
+            if (elTotal) elTotal.innerText = data.total_patients;
+        }
+        if (data.ng_positive) {
+            const elNG = document.getElementById('kpi-ng-pos');
+            if (elNG) elNG.innerText = data.ng_positive;
+        }
+        if (data.ct_positive) {
+            const elCT = document.getElementById('kpi-ct-pos');
+            if (elCT) elCT.innerText = data.ct_positive;
+        }
+        if (data.coinfection) {
+            const elCo = document.getElementById('kpi-coinfect');
+            if (elCo) elCo.innerText = data.coinfection;
+        }
+        if (data.fungi_positive) {
+            const elFungi = document.getElementById('kpi-fungi-pos');
+            if (elFungi) elFungi.innerText = data.fungi_positive;
+        }
+        
+    } catch (error) {
+        console.warn("ใช้ชุดข้อมูลเริ่มต้น (Offline Fallback):", error);
+    }
+}
+
+// เรียกให้ดึงข้อมูล Real-time เมื่อเปิดหน้าเว็บ
+window.addEventListener('DOMContentLoaded', () => {
+    fetchRealtimeData();
+});
     </script>
 </body>
 </html>
