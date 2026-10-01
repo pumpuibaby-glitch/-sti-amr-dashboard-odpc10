@@ -15,7 +15,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-   <style>
+    <style>
         body { 
             font-family: 'Sarabun', 'Inter', sans-serif; 
             background-color: #f8fafc; 
@@ -80,20 +80,30 @@
         <!-- ==================== TAB 1: OVERVIEW ==================== -->
         <section id="section-overview" class="space-y-8">
 
-            <!-- 1. KPI Cards แถวเดียว 6 คอลัมน์สมบูรณ์ -->
+            <!-- 1. KPI Cards แถวเดียว 6 คอลัมน์สมบูรณ์ (แก้ไขโครงสร้างการ์ดใบที่ 1 ให้ครบถ้วน) -->
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
                 
-               <!-- 1. ผู้รับบริการสะสม -->
+                <!-- 1. ผู้รับบริการสะสม -->
+                <div class="bg-gradient-to-br from-sky-600 via-sky-700 to-indigo-800 text-white p-4 rounded-2xl shadow-sm border border-sky-400/30 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 w-20 h-20 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] font-bold text-sky-100 uppercase tracking-wider">ผู้รับบริการสะสม</span>
+                            <div class="w-7 h-7 rounded-lg bg-white/20 text-white flex items-center justify-center">
+                                <i class="fa-solid fa-users text-xs"></i>
+                            </div>
+                        </div>
                         <div class="mt-2.5">
                             <span class="text-2xl sm:text-3xl font-black text-white" id="kpi-total-pts">695</span>
                             <span class="text-[11px] text-sky-100 ml-0.5">คน</span>
                         </div>
-                        <div class="mt-3 pt-2 border-t border-white/20 text-[10.5px] text-sky-100 flex justify-between items-center">
-                         <span><i class="fa-solid fa-mars text-cyan-200 mr-0.5"></i>563</span>
-                          <span><i class="fa-solid fa-venus text-pink-200 mr-0.5"></i>132</span>
-                        </div>
-                     </div>
-    
+                    </div>
+                    <div class="mt-3 pt-2 border-t border-white/20 text-[10.5px] text-sky-100 flex justify-between items-center">
+                        <span><i class="fa-solid fa-mars text-cyan-200 mr-0.5"></i>563</span>
+                        <span><i class="fa-solid fa-venus text-pink-200 mr-0.5"></i>132</span>
+                    </div>
+                </div>
+
                 <!-- 2. พบหนองใน (NG Positive) -->
                 <div class="bg-white p-4 rounded-2xl border border-slate-200 card-shadow hover:border-sky-300 transition-all flex flex-col justify-between">
                     <div>
@@ -198,7 +208,7 @@
             <!-- 2. Overview Charts Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                    <h3 class="text-base font-bold text-slate-900 mb-1">สัดส่วนผู้รับบริการและผลการตรวจพบเชื้อสะสม </h3>
+                    <h3 class="text-base font-bold text-slate-900 mb-1">สัดส่วนผู้รับบริการและผลการตรวจพบเชื้อสะสม (N = 695)</h3>
                     <p class="text-xs text-slate-500 mb-4">จำแนกตามชนิดเชื้อที่ตรวจพบสะสมจากฐานข้อมูล</p>
                     <div class="relative h-64">
                         <canvas id="overviewDonutChart"></canvas>
@@ -206,7 +216,7 @@
                 </div>
 
                 <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                    <h3 class="text-base font-bold text-slate-900 mb-1">การกระจายตัวของสิ่งส่งตรวจ </h3>
+                    <h3 class="text-base font-bold text-slate-900 mb-1">การกระจายตัวของสิ่งส่งตรวจ (Specimen Sites รวม 758 ตัวอย่าง)</h3>
                     <p class="text-xs text-slate-500 mb-4">จำแนกตามตำแหน่งสิ่งส่งตรวจ</p>
                     <div class="relative h-64">
                         <canvas id="specimenChart"></canvas>
@@ -331,7 +341,7 @@
             <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                 <div class="mb-4">
                     <h3 class="text-base font-bold text-slate-900">แนวโน้มการตรวจและพบเชื้อ 10 ปี (พ.ศ. 2560 - 2569)</h3>
-                    <p class="text-xs text-slate-500">ข้อมูลจากตารางสรุปรายปี 10 ปีล่าสุด (ตรวจสะสม 614 คน ติดเชื้อสะสม 199 เคส)</p>
+                    <p class="text-xs text-slate-500">ข้อมูลจากตารางสรุปรายปี 10 ปีล่าสุด (ตรวจสะสม 615 คน ติดเชื้อสะสม 199 เคส)</p>
                 </div>
                 <div class="relative h-80 sm:h-96">
                     <canvas id="trend10YearsChart"></canvas>
@@ -552,20 +562,20 @@
             { year: '2569', patients: 44, ng: 6, ct: 4, fungi: 3, cum_pts: 615, cum_inf: 199, ng_culture: 5, ng_pcr: 4 }
         ];
 
-        // ข้อมูลสถิติประชากร 
+        // ข้อมูลสถิติประชากร (รวมได้ 695 พอดีตาม Calc_Summary)
         let AGE_DATA = [
             { group: '< 20 ปี', count: 114, pct: '16.4%' },
-            { group: '20 - 29 ปี', count: 225, pct: '32.4%' },
+            { group: '20 - 29 ปี', count: 224, pct: '32.2%' },
             { group: '30 - 39 ปี', count: 97, pct: '14.0%' },
             { group: '40 - 49 ปี', count: 95, pct: '13.7%' },
             { group: '50 ปีขึ้นไป', count: 118, pct: '17.0%' },
-            { group: 'ไม่ระบุอายุ', count: 47, pct: '6.5%' }
+            { group: 'ไม่ระบุอายุ', count: 47, pct: '6.8%' }
         ];
 
         let FACILITY_DATA = [
-            { name: 'ศูนย์สาธิต สคร.10', count: 582, pct: '83.6%' },
+            { name: 'ศูนย์สาธิต สคร.10', count: 582, pct: '83.7%' },
             { name: 'รพ.มุกดาหาร', count: 78, pct: '11.2%' },
-            { name: 'ศูนย์เวชฯ สคร.10', count: 30, pct: '4.5%' },
+            { name: 'ศูนย์เวชฯ สคร.10', count: 30, pct: '4.3%' },
             { name: 'รพ.วารินชำราบ', count: 3, pct: '0.4%' },
             { name: 'รพ.พริ๊นซ์ อุบล', count: 1, pct: '0.1%' },
             { name: 'รพ.ม.อุบล', count: 1, pct: '0.1%' }
@@ -979,7 +989,7 @@
                     type: 'doughnut',
                     data: {
                         labels: ['หนองใน (NG Pos)', 'คลามีเดีย (CT Pos)', 'เชื้อรา (KOH)', 'ไม่พบเชื้อ'],
-                        datasets: [{ data: [191, 44, 3, 456], backgroundColor: ['#0284c7', '#0d9488', '#f59e0b', '#e2e8f0'], borderWidth: 0 }]
+                        datasets: [{ data: [191, 44, 3, 457], backgroundColor: ['#0284c7', '#0d9488', '#f59e0b', '#e2e8f0'], borderWidth: 0 }]
                     },
                     options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
                 });
@@ -991,14 +1001,14 @@
                     type: 'doughnut',
                     data: {
                         labels: ['ท่อปัสสาวะ (Urethra)', 'อื่นๆ / ปากมดลูก', 'พลาสมา / เลือด', 'ผิวหนัง (Skin/KOH)'],
-                        datasets: [{ data: [558, 115, 70, 17], backgroundColor: ['#0369a1', '#8b5cf6', '#ec4899', '#fbbf24'], borderWidth: 0 }]
+                        datasets: [{ data: [557, 114, 70, 17], backgroundColor: ['#0369a1', '#8b5cf6', '#ec4899', '#fbbf24'], borderWidth: 0 }]
                     },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
                             legend: { position: 'bottom' },
-                            tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed} ตัวอย่าง (${((ctx.parsed / 760) * 100).toFixed(1)}%)` } }
+                            tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed} ตัวอย่าง (${((ctx.parsed / 758) * 100).toFixed(1)}%)` } }
                         }
                     }
                 });
