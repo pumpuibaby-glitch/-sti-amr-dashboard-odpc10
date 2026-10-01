@@ -1066,7 +1066,97 @@
                 }
             });
         }
+        // กำหนดข้อมูลเริ่มต้น (และรองรับการถูกอัปเดตจาก Realtime API)
+        let AGE_DATA = [
+            { group: '< 20 ปี', count: 114, pct: '16.4%' },
+            { group: '20 - 29 ปี', count: 225, pct: '32.3%' },
+            { group: '30 - 39 ปี', count: 97, pct: '13.9%' },
+            { group: '40 - 49 ปี', count: 95, pct: '13.6%' },
+            { group: '50 ปีขึ้นไป', count: 118, pct: '17.0%' },
+            { group: 'ไม่ระบุอายุ', count: 47, pct: '6.8%' }
+        ];
 
+        let FACILITY_DATA = [
+            { name: 'ศูนย์สาธิต สคร.10', count: 582, pct: '83.6%' },
+            { name: 'รพ.มุกดาหาร', count: 78, pct: '11.2%' },
+            { name: 'ศูนย์เวชฯ สคร.10', count: 31, pct: '4.5%' },
+            { name: 'รพ.วารินชำราบ', count: 3, pct: '0.4%' },
+            { name: 'รพ.พริ๊นซ์ อุบล', count: 1, pct: '0.1%' },
+            { name: 'รพ.ม.อุบล', count: 1, pct: '0.1%' }
+        ];
+
+        // ฟังก์ชันเรนเดอร์ตารางประชากรและหน่วยงาน (คำนวณยอดรวมอัตโนมัติ ไม่ Hardcode 697)
+        function renderDemographicTables() {
+            const ageBody = document.getElementById('ageTableBody');
+            if (ageBody) {
+                const totalAge = AGE_DATA.reduce((sum, item) => sum + item.count, 0);
+                ageBody.innerHTML = AGE_DATA.map(a => `
+                    <tr>
+                        <td class="py-2 text-slate-800 font-medium">${a.group}</td>
+                        <td class="py-2 text-right font-bold text-sky-700">${a.count}</td>
+                        <td class="py-2 text-right text-slate-500">${a.pct}</td>
+                    </tr>
+                `).join('') + `
+                    <tr class="font-bold bg-slate-50 border-t border-slate-200">
+                        <td class="py-2">รวมทั้งหมด</td>
+                        <td class="py-2 text-right font-black text-slate-900">${totalAge}</td>
+                        <td class="py-2 text-right">100.0%</td>
+                    </tr>
+                `;
+            }
+
+            const facBody = document.getElementById('facilityTableBody');
+            if (facBody) {
+                const totalFac = FACILITY_DATA.reduce((sum, item) => sum + item.count, 0);
+                facBody.innerHTML = FACILITY_DATA.map(f => `
+                    <tr>
+                        <td class="py-2 text-slate-800 font-medium">${f.name}</td>
+                        <td class="py-2 text-right font-bold text-indigo-700">${f.count}</td>
+                        <td class="py-2 text-right text-slate-500">${f.pct}</td>
+                    </tr>
+                `).join('') + `
+                    <tr class="font-bold bg-slate-50 border-t border-slate-200">
+                        <td class="py-2">รวมทั้งหมด</td>
+                        <td class="py-2 text-right font-black text-slate-900">${totalFac}</td>
+                        <td class="py-2 text-right">100.0%</td>
+                    </tr>
+                `;
+            }
+        }
+        async function fetchRealtimeData() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                console.log("Realtime Data Loaded:", data);
+
+                // 1. อัปเดต KPI Cards ด้านบน
+                if (data.total_patients) document.getElementById('kpi-total-pts').innerText = data.total_patients;
+                if (data.ng_positive) document.getElementById('kpi-ng-pos').innerText = data.ng_positive;
+                if (data.ct_positive) document.getElementById('kpi-ct-pos').innerText = data.ct_positive;
+                if (data.coinfection) document.getElementById('kpi-coinfect').innerText = data.coinfection;
+                if (data.fungi_positive) document.getElementById('kpi-fungi-pos').innerText = data.fungi_positive;
+
+                // 2. อัปเดตตารางปี 2569
+                if (data.fy2569) {
+                    DATA_SUMMARY_2569 = { ...DATA_SUMMARY_2569, ...data.fy2569 };
+                    renderSummaryTable2569();
+                }
+
+                // 3. เพิ่มการอัปเดตตารางอายุและหน่วยงานส่งตรวจแบบ Real-time
+                if (data.age_distribution) {
+                    AGE_DATA = data.age_distribution;
+                }
+                if (data.facility_distribution) {
+                    FACILITY_DATA = data.facility_distribution;
+                }
+                // สั่งเรนเดอร์ตารางใหม่ทันทีที่ข้อมูลมาถึง
+                renderDemographicTables();
+
+            } catch (error) {
+                console.warn("ใช้ชุดข้อมูลเริ่มต้น (Offline Fallback):", error);
+            }
+        }
+      
         // ========================== 6. APP INITIALIZATION ==========================
         window.addEventListener('DOMContentLoaded', () => {
             renderStandardTables();
@@ -1075,6 +1165,14 @@
             initStaticCharts();
             renderMICDistribution('CRO');
             fetchRealtimeData(); // เรียกดึงข้อมูล Real-time ทันที
+                window.addEventListener('DOMContentLoaded', () => {
+            renderStandardTables();
+            renderDemographicTables(); // <-- เพิ่มบรรทัดนี้
+            renderCurrentYearMonthlyTable();
+            renderSummaryTable2569();
+            initStaticCharts();
+            renderMICDistribution('CRO');
+            fetchRealtimeData();
         });
     </script>
 </body>
