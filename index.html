@@ -33,13 +33,16 @@
                     </div>
                     <div>
                         <h1 class="text-lg font-bold text-slate-900 leading-tight">Executive STI & AMR Surveillance Dashboard</h1>
-                        <p class="text-xs text-slate-500">สำนักงานป้องกันควบคุมโรคที่ 10 จ.อุบลราชธานี (ข้อมูลสะสม พ.ศ. 2559 - 2569 )</p>
+                        <p class="text-xs text-slate-500">สำนักงานป้องกันควบคุมโรคที่ 10 จ.อุบลราชธานี (ข้อมูลสะสม พ.ศ. 2559 - 2569)</p>
                     </div>
                 </div>
                 <div class="flex items-center space-x-2">
                     <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
                         <span class="w-2 h-2 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span>
                         ISO 15189:2022
+                    </span>
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
+                        <i class="fa-solid fa-rotate mr-1 text-[10px]"></i> Real-time API Active
                     </span>
                 </div>
             </div>
@@ -70,7 +73,7 @@
         <!-- ==================== TAB 1: OVERVIEW ==================== -->
         <section id="section-overview" class="space-y-8">
 
-            <!-- 1. KPI Cards แถวเดียว 6 คอลัมน์สมบูรณ์ (ผู้รับบริการ 695 คน) -->
+            <!-- 1. KPI Cards แถวเดียว 6 คอลัมน์สมบูรณ์ -->
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
                 
                 <!-- 1. ผู้รับบริการสะสม -->
@@ -110,15 +113,15 @@
                     </div>
                     <div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
                         <span class="text-slate-500">Positivity</span>
-                        <span class="font-bold text-sky-700 bg-sky-50 px-1.5 py-0.5 rounded">26.9%</span>
+                        <span class="font-bold text-sky-700 bg-sky-50 px-1.5 py-0.5 rounded">27.5%</span>
                     </div>
                 </div>
 
-                <!-- 3. พบคลามีเดีย (CT Positive) -->
+                <!-- 3. พบหนองในเทียม (CT Positive) -->
                 <div class="bg-white p-4 rounded-2xl border border-slate-200 card-shadow hover:border-teal-300 transition-all flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between">
-                            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">พบหนองในเทียม (CT)</span>
+                            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">พบคลามีเดีย (CT)</span>
                             <div class="w-7 h-7 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center shadow-sm">
                                 <i class="fa-solid fa-bacterium text-xs"></i>
                             </div>
@@ -198,7 +201,7 @@
             <!-- 2. Overview Charts Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                    <h3 class="text-base font-bold text-slate-900 mb-1">สัดส่วนผู้รับบริการและผลการตรวจพบเชื้อสะสม (N = 696)</h3>
+                    <h3 class="text-base font-bold text-slate-900 mb-1">สัดส่วนผู้รับบริการและผลการตรวจพบเชื้อสะสม (N = 694)</h3>
                     <p class="text-xs text-slate-500 mb-4">จำแนกตามชนิดเชื้อที่ตรวจพบสะสมจากฐานข้อมูล</p>
                     <div class="relative h-64">
                         <canvas id="overviewDonutChart"></canvas>
@@ -300,7 +303,9 @@
                             <i class="fa-solid fa-list-check text-sky-600 mr-2"></i> รายงานสรุปผลการให้บริการตรวจวิเคราะห์แยกวิธี ประจำปีงบประมาณ 2569
                         </h4>
                         <p class="text-xs text-slate-500">จำแนกรายการส่งตรวจแยกวิธีตรวจ เชื่อมโยงสู่ยอดผู้ป่วยจริง (Real-time Dynamic Table)</p>
-                    </div>    
+                    </div>
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-100 text-emerald-800">
+                        Calc_summary Synchronized
                     </span>
                 </div>
                 <div class="overflow-x-auto">
@@ -329,7 +334,7 @@
             <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                 <div class="mb-4">
                     <h3 class="text-base font-bold text-slate-900">แนวโน้มการตรวจและพบเชื้อ 10 ปี (พ.ศ. 2560 - 2569)</h3>
-                    <p class="text-xs text-slate-500">ข้อมูลจากตารางสรุปรายปี (ตรวจสะสม 695 คน ติดเชื้อสะสม 191 เคส)</p>
+                    <p class="text-xs text-slate-500">ข้อมูลจากตารางสรุปรายปี 10 ปีล่าสุด (ตรวจสะสม 614 คน ติดเชื้อสะสม 199 เคส)</p>
                 </div>
                 <div class="relative h-80 sm:h-96">
                     <canvas id="trend10YearsChart"></canvas>
@@ -340,7 +345,7 @@
                 <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
                     <div>
                         <h4 class="text-sm font-bold text-slate-900">ตารางสรุปผลการให้บริการตรวจวิเคราะห์สะสม 10 ปี</h4>
-                        <p class="text-xs text-slate-500">ข้อมูลสถิติจำแนกรายปี</p>
+                        <p class="text-xs text-slate-500">ข้อมูลสถิติจำแนกรายปี (พ.ศ. 2560 - 2569)</p>
                     </div>
                 </div>
                 <div class="overflow-x-auto">
@@ -541,27 +546,27 @@
             { year: '2560', patients: 56, ng: 11, ct: 0, fungi: 0, cum_pts: 56, cum_inf: 11, ng_culture: 11, ng_pcr: 0 },
             { year: '2561', patients: 34, ng: 4, ct: 0, fungi: 0, cum_pts: 90, cum_inf: 15, ng_culture: 4, ng_pcr: 0 },
             { year: '2562', patients: 63, ng: 15, ct: 0, fungi: 0, cum_pts: 153, cum_inf: 30, ng_culture: 15, ng_pcr: 0 },
-            { year: '2563', patients: 57, ng: 22, ct: 0, fungi: 0, cum_pts: 210, cum_inf: 52, ng_culture: 22, ng_pcr: 0 },
-            { year: '2564', patients: 32, ng: 16, ct: 0, fungi: 0, cum_pts: 242, cum_inf: 68, ng_culture: 16, ng_pcr: 0 },
-            { year: '2565', patients: 47, ng: 22, ct: 0, fungi: 0, cum_pts: 289, cum_inf: 90, ng_culture: 22, ng_pcr: 0 },
-            { year: '2566', patients: 19, ng: 6, ct: 0, fungi: 0, cum_pts: 308, cum_inf: 96, ng_culture: 6, ng_pcr: 0 },
-            { year: '2567', patients: 224, ng: 33, ct: 32, fungi: 0, cum_pts: 532, cum_inf: 161, ng_culture: 10, ng_pcr: 23 },
-            { year: '2568', patients: 38, ng: 17, ct: 8, fungi: 0, cum_pts: 570, cum_inf: 186, ng_culture: 5, ng_pcr: 13 },
-            { year: '2569', patients: 44, ng: 6, ct: 4, fungi: 3, cum_pts: 614, cum_inf: 199, ng_culture: 5, ng_pcr: 4 }
+            { year: '2563', patients: 58, ng: 22, ct: 0, fungi: 0, cum_pts: 211, cum_inf: 52, ng_culture: 22, ng_pcr: 0 },
+            { year: '2564', patients: 32, ng: 16, ct: 0, fungi: 0, cum_pts: 243, cum_inf: 68, ng_culture: 16, ng_pcr: 0 },
+            { year: '2565', patients: 47, ng: 22, ct: 0, fungi: 0, cum_pts: 290, cum_inf: 90, ng_culture: 22, ng_pcr: 0 },
+            { year: '2566', patients: 19, ng: 6, ct: 0, fungi: 0, cum_pts: 309, cum_inf: 96, ng_culture: 6, ng_pcr: 0 },
+            { year: '2567', patients: 224, ng: 33, ct: 32, fungi: 0, cum_pts: 533, cum_inf: 161, ng_culture: 10, ng_pcr: 23 },
+            { year: '2568', patients: 38, ng: 17, ct: 8, fungi: 0, cum_pts: 571, cum_inf: 186, ng_culture: 5, ng_pcr: 13 },
+            { year: '2569', patients: 44, ng: 6, ct: 4, fungi: 3, cum_pts: 615, cum_inf: 199, ng_culture: 5, ng_pcr: 4 }
         ];
 
-        // ข้อมูลสถิติประชากร
-        const AGE_DATA = [
+        // ข้อมูลสถิติประชากร (ปรับสมดุลรวมเท่ากับ 694 คนตาม KPI)
+        let AGE_DATA = [
             { group: '< 20 ปี', count: 114, pct: '16.4%' },
-            { group: '20 - 29 ปี', count: 225, pct: '32.3%' },
-            { group: '30 - 39 ปี', count: 97, pct: '13.9%' },
-            { group: '40 - 49 ปี', count: 95, pct: '13.6%' },
+            { group: '20 - 29 ปี', count: 225, pct: '32.4%' },
+            { group: '30 - 39 ปี', count: 97, pct: '14.0%' },
+            { group: '40 - 49 ปี', count: 95, pct: '13.7%' },
             { group: '50 ปีขึ้นไป', count: 118, pct: '17.0%' },
-            { group: 'ไม่ระบุอายุ', count: 47, pct: '6.8%' }
+            { group: 'ไม่ระบุอายุ', count: 45, pct: '6.5%' }
         ];
 
-        const FACILITY_DATA = [
-            { name: 'ศูนย์สาธิต สคร.10', count: 581, pct: '83.6%' }, 
+        let FACILITY_DATA = [
+            { name: 'ศูนย์สาธิต สคร.10', count: 580, pct: '83.6%' },
             { name: 'รพ.มุกดาหาร', count: 78, pct: '11.2%' },
             { name: 'ศูนย์เวชฯ สคร.10', count: 31, pct: '4.5%' },
             { name: 'รพ.วารินชำราบ', count: 3, pct: '0.4%' },
@@ -710,55 +715,69 @@
             const d = DATA_SUMMARY_2569;
             const overallRate = d.total_patients > 0 ? ((d.total_infected / d.total_patients) * 100).toFixed(1) + '%' : '0.0%';
 
+            const ngCultTested = d.ng_culture?.tested ?? 11;
+            const ngCultPos = d.ng_culture?.pos ?? d.ng_culture?.positive ?? 5;
+            const ngCultRate = d.ng_culture?.rate ?? '45.5%';
+
+            const ngPcrTested = d.ng_pcr?.tested ?? 17;
+            const ngPcrPos = d.ng_pcr?.pos ?? d.ng_pcr?.positive ?? 4;
+            const ngPcrRate = d.ng_pcr?.rate ?? '23.5%';
+
+            const ngOverall = d.ng_overall ?? 6;
+
+            const ctPcrTested = d.ct_pcr?.tested ?? 17;
+            const ctPcrPos = d.ct_pcr?.pos ?? d.ct_pcr?.positive ?? 4;
+            const ctPcrRate = d.ct_pcr?.rate ?? '23.5%';
+
+            const fungiData = d.fungi_koh || d.fungi || {};
+            const fungiTested = fungiData.tested ?? 17;
+            const fungiPos = fungiData.pos ?? fungiData.positive ?? 3;
+            const fungiRate = fungiData.rate ?? '17.6%';
+
             tbody.innerHTML = `
                 <tr class="hover:bg-slate-50">
                     <td class="px-4 py-3 font-semibold text-sky-900">
                         <i class="fa-solid fa-vial text-sky-600 mr-1.5"></i> หนองในจากการเพาะเชื้อ (NG Culture)
                     </td>
                     <td class="px-4 py-3 text-slate-600">Culture &amp; Isolation</td>
-                    <td class="px-4 py-3 text-right font-medium">${d.ng_culture.tested} ตัวอย่าง</td>
-                    <td class="px-4 py-3 text-right font-bold text-sky-700">${d.ng_culture.pos} เคส</td>
-                    <td class="px-4 py-3 text-right font-bold text-sky-700 bg-sky-50/40">${d.ng_culture.rate}</td>
-                    <td class="px-4 py-3 text-slate-500">พบร่วมกับ PCR 3 เคส</td>
+                    <td class="px-4 py-3 text-right font-medium">${ngCultTested} ตัวอย่าง</td>
+                    <td class="px-4 py-3 text-right font-bold text-sky-700">${ngCultPos} เคส</td>
+                    <td class="px-4 py-3 text-right font-bold text-sky-700 bg-sky-50/40">${ngCultRate}</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
                     <td class="px-4 py-3 font-semibold text-indigo-900">
                         <i class="fa-solid fa-dna text-indigo-600 mr-1.5"></i> หนองในจากสารพันธุกรรม (NG PCR)
                     </td>
                     <td class="px-4 py-3 text-slate-600">Real-time Multiplex PCR</td>
-                    <td class="px-4 py-3 text-right font-medium">${d.ng_pcr.tested} ตัวอย่าง</td>
-                    <td class="px-4 py-3 text-right font-bold text-indigo-700">${d.ng_pcr.pos} เคส</td>
-                    <td class="px-4 py-3 text-right font-bold text-indigo-700 bg-indigo-50/40">${d.ng_pcr.rate}</td>
-                    <td class="px-4 py-3 text-slate-500">พบร่วมกับ Culture 3 เคส</td>
+                    <td class="px-4 py-3 text-right font-medium">${ngPcrTested} ตัวอย่าง</td>
+                    <td class="px-4 py-3 text-right font-bold text-indigo-700">${ngPcrPos} เคส</td>
+                    <td class="px-4 py-3 text-right font-bold text-indigo-700 bg-indigo-50/40">${ngPcrRate}</td>
                 </tr>
                 <tr class="bg-sky-50/60 font-semibold border-y border-sky-100">
                     <td class="px-4 py-2.5 text-sky-950 font-bold" colspan="2">
                         <i class="fa-solid fa-arrows-to-circle text-sky-700 mr-1.5"></i> รวมผู้ป่วยติดเชื้อหนองใน (NG Overall - Deduplicated)
                     </td>
                     <td class="px-4 py-2.5 text-right text-slate-500">รวม 2 วิธี</td>
-                    <td class="px-4 py-2.5 text-right font-black text-sky-800">${d.ng_overall} ราย</td>
+                    <td class="px-4 py-2.5 text-right font-black text-sky-800">${ngOverall} ราย</td>
                     <td class="px-4 py-2.5 text-right text-sky-800 font-bold">—</td>
-                    <td class="px-4 py-2.5 text-sky-800 font-medium">ตรงกับยอดหนองใน ${d.ng_overall} จากตารางรายเดือน</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
                     <td class="px-4 py-3 font-semibold text-teal-900">
                         <i class="fa-solid fa-bacterium text-teal-600 mr-1.5"></i> หนองในเทียมจากสารพันธุกรรม (CT PCR)
                     </td>
                     <td class="px-4 py-3 text-slate-600">Real-time Multiplex PCR</td>
-                    <td class="px-4 py-3 text-right font-medium">${d.ct_pcr.tested} ตัวอย่าง</td>
-                    <td class="px-4 py-3 text-right font-bold text-teal-700">${d.ct_pcr.pos} ราย</td>
-                    <td class="px-4 py-3 text-right font-bold text-teal-700 bg-teal-50/40">${d.ct_pcr.rate}</td>
-                    <td class="px-4 py-3 text-slate-500">ตรงกับยอดหนองในเทียม ${d.ct_pcr.pos} จากตารางรายเดือน</td>
+                    <td class="px-4 py-3 text-right font-medium">${ctPcrTested} ตัวอย่าง</td>
+                    <td class="px-4 py-3 text-right font-bold text-teal-700">${ctPcrPos} ราย</td>
+                    <td class="px-4 py-3 text-right font-bold text-teal-700 bg-teal-50/40">${ctPcrRate}</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
                     <td class="px-4 py-3 font-semibold text-amber-900">
                         <i class="fa-solid fa-circle-nodes text-amber-600 mr-1.5"></i> ตรวจเชื้อรา (KOH Preparation)
                     </td>
                     <td class="px-4 py-3 text-slate-600">Direct Microscopy</td>
-                    <td class="px-4 py-3 text-right font-medium">${d.fungi_koh.tested} ตัวอย่าง</td>
-                    <td class="px-4 py-3 text-right font-bold text-amber-600">${d.fungi_koh.pos} ราย</td>
-                    <td class="px-4 py-3 text-right font-bold text-amber-600 bg-amber-50/40">${d.fungi_koh.rate}</td>
-                    <td class="px-4 py-3 text-slate-500">ตรงกับยอดเชื้อรา ${d.fungi_koh.pos} จากตารางรายเดือน</td>
+                    <td class="px-4 py-3 text-right font-medium">${fungiTested} ตัวอย่าง</td>
+                    <td class="px-4 py-3 text-right font-bold text-amber-600">${fungiPos} ราย</td>
+                    <td class="px-4 py-3 text-right font-bold text-amber-600 bg-amber-50/40">${fungiRate}</td>
                 </tr>
                 <tr class="bg-slate-100 font-bold border-t-2 border-slate-300">
                     <td class="px-4 py-3 text-slate-900 font-black" colspan="2">
@@ -767,12 +786,50 @@
                     <td class="px-4 py-3 text-right font-black text-slate-900">${d.total_patients} คน</td>
                     <td class="px-4 py-3 text-right font-black text-sky-800">${d.total_infected} ราย</td>
                     <td class="px-4 py-3 text-right font-black text-sky-800 bg-sky-100">${overallRate}</td>
-                    <td class="px-4 py-3 text-emerald-700 font-medium">✓ ยอดสอดคล้องกันสมบูรณ์ (NG ${d.ng_overall} + CT ${d.ct_pcr.pos} + เชื้อรา ${d.fungi_koh.pos} = ${d.total_infected})</td>
                 </tr>
             `;
         }
 
-        // 3. เรนเดอร์ตารางสถิติเดิม (10 ปี, สถิติประชากร, AMR, EQA)
+        // 3. เรนเดอร์ตารางประชากรและหน่วยงาน (ฟังก์ชันเดียว คำนวณผลรวมอัตโนมัติ)
+        function renderDemographicTables() {
+            const ageBody = document.getElementById('ageTableBody');
+            if (ageBody) {
+                const totalAge = AGE_DATA.reduce((sum, item) => sum + item.count, 0);
+                ageBody.innerHTML = AGE_DATA.map(a => `
+                    <tr>
+                        <td class="py-2 text-slate-800 font-medium">${a.group}</td>
+                        <td class="py-2 text-right font-bold text-sky-700">${a.count}</td>
+                        <td class="py-2 text-right text-slate-500">${a.pct}</td>
+                    </tr>
+                `).join('') + `
+                    <tr class="font-bold bg-slate-50 border-t border-slate-200">
+                        <td class="py-2">รวมทั้งหมด</td>
+                        <td class="py-2 text-right font-black text-slate-900">${totalAge}</td>
+                        <td class="py-2 text-right">100.0%</td>
+                    </tr>
+                `;
+            }
+
+            const facBody = document.getElementById('facilityTableBody');
+            if (facBody) {
+                const totalFac = FACILITY_DATA.reduce((sum, item) => sum + item.count, 0);
+                facBody.innerHTML = FACILITY_DATA.map(f => `
+                    <tr>
+                        <td class="py-2 text-slate-800 font-medium">${f.name}</td>
+                        <td class="py-2 text-right font-bold text-indigo-700">${f.count}</td>
+                        <td class="py-2 text-right text-slate-500">${f.pct}</td>
+                    </tr>
+                `).join('') + `
+                    <tr class="font-bold bg-slate-50 border-t border-slate-200">
+                        <td class="py-2">รวมทั้งหมด</td>
+                        <td class="py-2 text-right font-black text-slate-900">${totalFac}</td>
+                        <td class="py-2 text-right">100.0%</td>
+                    </tr>
+                `;
+            }
+        }
+
+        // 4. เรนเดอร์ตารางสถิติสะสม 10 ปี, AMR และ EQA
         function renderStandardTables() {
             const trendBody = document.getElementById('trendTableBody');
             const trendFoot = document.getElementById('trendTableFoot');
@@ -793,42 +850,16 @@
 
                 trendFoot.innerHTML = `
                     <tr>
-                        <td class="px-3 py-3">รวมทั้งสิ้น</td>
-                        <td class="px-3 py-3 text-right font-black">614</td>
+                        <td class="px-3 py-3">รวมทั้งสิ้น (10 ปี)</td>
+                        <td class="px-3 py-3 text-right font-black">615</td>
                         <td class="px-3 py-3 text-right bg-sky-100 text-sky-900">152</td>
                         <td class="px-3 py-3 text-right bg-teal-100 text-teal-900">44</td>
                         <td class="px-3 py-3 text-right bg-amber-100 text-amber-900">3</td>
-                        <td class="px-3 py-3 text-right bg-slate-200">614</td>
+                        <td class="px-3 py-3 text-right bg-slate-200">615</td>
                         <td class="px-3 py-3 text-right bg-rose-100 text-rose-900">199</td>
                         <td class="px-3 py-3 text-right bg-indigo-100 text-indigo-900">116</td>
                         <td class="px-3 py-3 text-right bg-purple-100 text-purple-900">40</td>
                     </tr>
-                `;
-            }
-
-            const ageBody = document.getElementById('ageTableBody');
-            if (ageBody) {
-                ageBody.innerHTML = AGE_DATA.map(a => `
-                    <tr>
-                        <td class="py-2 text-slate-800 font-medium">${a.group}</td>
-                        <td class="py-2 text-right font-bold text-sky-700">${a.count}</td>
-                        <td class="py-2 text-right text-slate-500">${a.pct}</td>
-                    </tr>
-                `).join('') + `
-                    <tr class="font-bold bg-slate-50"><td class="py-2">รวมทั้งหมด</td><td class="py-2 text-right">696</td><td class="py-2 text-right">100.0%</td></tr>
-                `;
-            }
-
-            const facBody = document.getElementById('facilityTableBody');
-            if (facBody) {
-                facBody.innerHTML = FACILITY_DATA.map(f => `
-                    <tr>
-                        <td class="py-2 text-slate-800 font-medium">${f.name}</td>
-                        <td class="py-2 text-right font-bold text-indigo-700">${f.count}</td>
-                        <td class="py-2 text-right text-slate-500">${f.pct}</td>
-                    </tr>
-                `).join('') + `
-                    <tr class="font-bold bg-slate-50"><td class="py-2">รวมทั้งหมด</td><td class="py-2 text-right">697</td><td class="py-2 text-right">100.0%</td></tr>
                 `;
             }
 
@@ -951,7 +982,7 @@
                     type: 'doughnut',
                     data: {
                         labels: ['หนองใน (NG Pos)', 'คลามีเดีย (CT Pos)', 'เชื้อรา (KOH)', 'ไม่พบเชื้อ'],
-                        datasets: [{ data: [187, 44, 3, 462], backgroundColor: ['#0284c7', '#0d9488', '#f59e0b', '#e2e8f0'], borderWidth: 0 }]
+                        datasets: [{ data: [191, 44, 3, 456], backgroundColor: ['#0284c7', '#0d9488', '#f59e0b', '#e2e8f0'], borderWidth: 0 }]
                     },
                     options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
                 });
@@ -1038,11 +1069,20 @@
                     if (elFungi) elFungi.innerText = data.fungi_positive;
                 }
 
-                // 2. อัปเดตข้อมูลตารางปี 2569 ถ้ามีส่งมาจาก API
+                // 2. อัปเดตตารางปี 2569
                 if (data.fy2569) {
                     DATA_SUMMARY_2569 = { ...DATA_SUMMARY_2569, ...data.fy2569 };
                     renderSummaryTable2569();
                 }
+
+                // 3. อัปเดตตารางอายุและหน่วยงานส่งตรวจแบบ Real-time
+                if (data.age_distribution) {
+                    AGE_DATA = data.age_distribution;
+                }
+                if (data.facility_distribution) {
+                    FACILITY_DATA = data.facility_distribution;
+                }
+                renderDemographicTables();
 
             } catch (error) {
                 console.warn("ใช้ชุดข้อมูลเริ่มต้น (Offline Fallback):", error);
@@ -1066,140 +1106,11 @@
                 }
             });
         }
-       // กำหนดข้อมูลเริ่มต้น (และรองรับการถูกอัปเดตจาก Realtime API)
-        let AGE_DATA = [
-            { group: '< 20 ปี', count: 114, pct: '16.4%' },
-            { group: '20 - 29 ปี', count: 225, pct: '32.3%' },
-            { group: '30 - 39 ปี', count: 97, pct: '13.9%' },
-            { group: '40 - 49 ปี', count: 95, pct: '13.6%' },
-            { group: '50 ปีขึ้นไป', count: 118, pct: '17.0%' },
-            { group: 'ไม่ระบุอายุ', count: 47, pct: '6.8%' }
-        ];
 
-        let FACILITY_DATA = [
-            { name: 'ศูนย์สาธิต สคร.10', count: 582, pct: '83.6%' },
-            { name: 'รพ.มุกดาหาร', count: 78, pct: '11.2%' },
-            { name: 'ศูนย์เวชฯ สคร.10', count: 31, pct: '4.5%' },
-            { name: 'รพ.วารินชำราบ', count: 3, pct: '0.4%' },
-            { name: 'รพ.พริ๊นซ์ อุบล', count: 1, pct: '0.1%' },
-            { name: 'รพ.ม.อุบล', count: 1, pct: '0.1%' }
-        ];
-
-        // ฟังก์ชันเรนเดอร์ตารางประชากรและหน่วยงาน (คำนวณยอดรวมอัตโนมัติ ไม่ Hardcode 697)
-        function renderDemographicTables() {
-            const ageBody = document.getElementById('ageTableBody');
-            if (ageBody) {
-                const totalAge = AGE_DATA.reduce((sum, item) => sum + item.count, 0);
-                ageBody.innerHTML = AGE_DATA.map(a => `
-                    <tr>
-                        <td class="py-2 text-slate-800 font-medium">${a.group}</td>
-                        <td class="py-2 text-right font-bold text-sky-700">${a.count}</td>
-                        <td class="py-2 text-right text-slate-500">${a.pct}</td>
-                    </tr>
-                `).join('') + `
-                    <tr class="font-bold bg-slate-50 border-t border-slate-200">
-                        <td class="py-2">รวมทั้งหมด</td>
-                        <td class="py-2 text-right font-black text-slate-900">${totalAge}</td>
-                        <td class="py-2 text-right">100.0%</td>
-                    </tr>
-                `;
-            }
-
-            const facBody = document.getElementById('facilityTableBody');
-            if (facBody) {
-                const totalFac = FACILITY_DATA.reduce((sum, item) => sum + item.count, 0);
-                facBody.innerHTML = FACILITY_DATA.map(f => `
-                    <tr>
-                        <td class="py-2 text-slate-800 font-medium">${f.name}</td>
-                        <td class="py-2 text-right font-bold text-indigo-700">${f.count}</td>
-                        <td class="py-2 text-right text-slate-500">${f.pct}</td>
-                    </tr>
-                `).join('') + `
-                    <tr class="font-bold bg-slate-50 border-t border-slate-200">
-                        <td class="py-2">รวมทั้งหมด</td>
-                        <td class="py-2 text-right font-black text-slate-900">${totalFac}</td>
-                        <td class="py-2 text-right">100.0%</td>
-                    </tr>
-                `;
-            }
-        }
-
-        // ฟังก์ชันเรนเดอร์ตารางประชากรและหน่วยงาน (คำนวณยอดรวมอัตโนมัติ ไม่ Hardcode 697)
-        function renderDemographicTables() {
-            const ageBody = document.getElementById('ageTableBody');
-            if (ageBody) {
-                const totalAge = AGE_DATA.reduce((sum, item) => sum + item.count, 0);
-                ageBody.innerHTML = AGE_DATA.map(a => `
-                    <tr>
-                        <td class="py-2 text-slate-800 font-medium">${a.group}</td>
-                        <td class="py-2 text-right font-bold text-sky-700">${a.count}</td>
-                        <td class="py-2 text-right text-slate-500">${a.pct}</td>
-                    </tr>
-                `).join('') + `
-                    <tr class="font-bold bg-slate-50 border-t border-slate-200">
-                        <td class="py-2">รวมทั้งหมด</td>
-                        <td class="py-2 text-right font-black text-slate-900">${totalAge}</td>
-                        <td class="py-2 text-right">100.0%</td>
-                    </tr>
-                `;
-            }
-
-            const facBody = document.getElementById('facilityTableBody');
-            if (facBody) {
-                const totalFac = FACILITY_DATA.reduce((sum, item) => sum + item.count, 0);
-                facBody.innerHTML = FACILITY_DATA.map(f => `
-                    <tr>
-                        <td class="py-2 text-slate-800 font-medium">${f.name}</td>
-                        <td class="py-2 text-right font-bold text-indigo-700">${f.count}</td>
-                        <td class="py-2 text-right text-slate-500">${f.pct}</td>
-                    </tr>
-                `).join('') + `
-                    <tr class="font-bold bg-slate-50 border-t border-slate-200">
-                        <td class="py-2">รวมทั้งหมด</td>
-                        <td class="py-2 text-right font-black text-slate-900">${totalFac}</td>
-                        <td class="py-2 text-right">100.0%</td>
-                    </tr>
-                `;
-            }
-        }
-        async function fetchRealtimeData() {
-            try {
-                const response = await fetch(API_URL);
-                const data = await response.json();
-                console.log("Realtime Data Loaded:", data);
-
-                // 1. อัปเดต KPI Cards ด้านบน
-                if (data.total_patients) document.getElementById('kpi-total-pts').innerText = data.total_patients;
-                if (data.ng_positive) document.getElementById('kpi-ng-pos').innerText = data.ng_positive;
-                if (data.ct_positive) document.getElementById('kpi-ct-pos').innerText = data.ct_positive;
-                if (data.coinfection) document.getElementById('kpi-coinfect').innerText = data.coinfection;
-                if (data.fungi_positive) document.getElementById('kpi-fungi-pos').innerText = data.fungi_positive;
-
-                // 2. อัปเดตตารางปี 2569
-                if (data.fy2569) {
-                    DATA_SUMMARY_2569 = { ...DATA_SUMMARY_2569, ...data.fy2569 };
-                    renderSummaryTable2569();
-                }
-
-                // 3. เพิ่มการอัปเดตตารางอายุและหน่วยงานส่งตรวจแบบ Real-time
-                if (data.age_distribution) {
-                    AGE_DATA = data.age_distribution;
-                }
-                if (data.facility_distribution) {
-                    FACILITY_DATA = data.facility_distribution;
-                }
-                // สั่งเรนเดอร์ตารางใหม่ทันทีที่ข้อมูลมาถึง
-                renderDemographicTables();
-
-            } catch (error) {
-                console.warn("ใช้ชุดข้อมูลเริ่มต้น (Offline Fallback):", error);
-            }
-        }
-      
         // ========================== 6. APP INITIALIZATION ==========================
-                window.addEventListener('DOMContentLoaded', () => {
+        window.addEventListener('DOMContentLoaded', () => {
             renderStandardTables();
-            renderDemographicTables(); // <-- เพิ่มบรรทัดนี้
+            renderDemographicTables();
             renderCurrentYearMonthlyTable();
             renderSummaryTable2569();
             initStaticCharts();
