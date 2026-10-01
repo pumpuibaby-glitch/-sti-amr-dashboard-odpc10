@@ -1066,7 +1066,7 @@
                 }
             });
         }
-        // กำหนดข้อมูลเริ่มต้น (และรองรับการถูกอัปเดตจาก Realtime API)
+       // กำหนดข้อมูลเริ่มต้น (และรองรับการถูกอัปเดตจาก Realtime API)
         let AGE_DATA = [
             { group: '< 20 ปี', count: 114, pct: '16.4%' },
             { group: '20 - 29 ปี', count: 225, pct: '32.3%' },
@@ -1084,6 +1084,45 @@
             { name: 'รพ.พริ๊นซ์ อุบล', count: 1, pct: '0.1%' },
             { name: 'รพ.ม.อุบล', count: 1, pct: '0.1%' }
         ];
+
+        // ฟังก์ชันเรนเดอร์ตารางประชากรและหน่วยงาน (คำนวณยอดรวมอัตโนมัติ ไม่ Hardcode 697)
+        function renderDemographicTables() {
+            const ageBody = document.getElementById('ageTableBody');
+            if (ageBody) {
+                const totalAge = AGE_DATA.reduce((sum, item) => sum + item.count, 0);
+                ageBody.innerHTML = AGE_DATA.map(a => `
+                    <tr>
+                        <td class="py-2 text-slate-800 font-medium">${a.group}</td>
+                        <td class="py-2 text-right font-bold text-sky-700">${a.count}</td>
+                        <td class="py-2 text-right text-slate-500">${a.pct}</td>
+                    </tr>
+                `).join('') + `
+                    <tr class="font-bold bg-slate-50 border-t border-slate-200">
+                        <td class="py-2">รวมทั้งหมด</td>
+                        <td class="py-2 text-right font-black text-slate-900">${totalAge}</td>
+                        <td class="py-2 text-right">100.0%</td>
+                    </tr>
+                `;
+            }
+
+            const facBody = document.getElementById('facilityTableBody');
+            if (facBody) {
+                const totalFac = FACILITY_DATA.reduce((sum, item) => sum + item.count, 0);
+                facBody.innerHTML = FACILITY_DATA.map(f => `
+                    <tr>
+                        <td class="py-2 text-slate-800 font-medium">${f.name}</td>
+                        <td class="py-2 text-right font-bold text-indigo-700">${f.count}</td>
+                        <td class="py-2 text-right text-slate-500">${f.pct}</td>
+                    </tr>
+                `).join('') + `
+                    <tr class="font-bold bg-slate-50 border-t border-slate-200">
+                        <td class="py-2">รวมทั้งหมด</td>
+                        <td class="py-2 text-right font-black text-slate-900">${totalFac}</td>
+                        <td class="py-2 text-right">100.0%</td>
+                    </tr>
+                `;
+            }
+        }
 
         // ฟังก์ชันเรนเดอร์ตารางประชากรและหน่วยงาน (คำนวณยอดรวมอัตโนมัติ ไม่ Hardcode 697)
         function renderDemographicTables() {
