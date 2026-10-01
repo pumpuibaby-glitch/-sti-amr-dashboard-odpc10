@@ -83,15 +83,15 @@
             <!-- 1. KPI Cards แถวเดียว 6 คอลัมน์สมบูรณ์ -->
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
                 
-                <!-- 1. ผู้รับบริการสะสม -->
-                <div class="bg-gradient-to-br from-sky-600 via-sky-700 to-indigo-800 text-white p-4 rounded-2xl shadow-sm border border-sky-400/30 flex flex-col justify-between relative overflow-hidden">
-                    <div class="absolute -right-4 -bottom-4 w-20 h-20 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
-                    <div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[11px] font-bold text-sky-100 uppercase tracking-wider">ผู้รับบริการสะสม</span>
-                            <div class="w-7 h-7 rounded-lg bg-white/20 text-white flex items-center justify-center">
-                                <i class="fa-solid fa-users text-xs"></i>
-                            </div>
+               <!-- 1. ผู้รับบริการสะสม -->
+<div class="mt-2.5">
+    <span class="text-2xl sm:text-3xl font-black text-white" id="kpi-total-pts">695</span>
+    <span class="text-[11px] text-sky-100 ml-0.5">คน</span>
+</div>
+<div class="mt-3 pt-2 border-t border-white/20 text-[10.5px] text-sky-100 flex justify-between items-center">
+    <span><i class="fa-solid fa-mars text-cyan-200 mr-0.5"></i>563</span>
+    <span><i class="fa-solid fa-venus text-pink-200 mr-0.5"></i>132</span>
+</div>
                         </div>
                         <div class="mt-2.5">
                             <span class="text-2xl sm:text-3xl font-black text-white" id="kpi-total-pts">694</span>
@@ -562,20 +562,20 @@
             { year: '2569', patients: 44, ng: 6, ct: 4, fungi: 3, cum_pts: 615, cum_inf: 199, ng_culture: 5, ng_pcr: 4 }
         ];
 
-        // ข้อมูลสถิติประชากร (ปรับสมดุลรวมเท่ากับ 694 คนตาม KPI)
+        // ข้อมูลสถิติประชากร 
         let AGE_DATA = [
             { group: '< 20 ปี', count: 114, pct: '16.4%' },
             { group: '20 - 29 ปี', count: 225, pct: '32.4%' },
             { group: '30 - 39 ปี', count: 97, pct: '14.0%' },
             { group: '40 - 49 ปี', count: 95, pct: '13.7%' },
             { group: '50 ปีขึ้นไป', count: 118, pct: '17.0%' },
-            { group: 'ไม่ระบุอายุ', count: 45, pct: '6.5%' }
+            { group: 'ไม่ระบุอายุ', count: 47, pct: '6.5%' }
         ];
 
         let FACILITY_DATA = [
-            { name: 'ศูนย์สาธิต สคร.10', count: 580, pct: '83.6%' },
+            { name: 'ศูนย์สาธิต สคร.10', count: 582, pct: '83.6%' },
             { name: 'รพ.มุกดาหาร', count: 78, pct: '11.2%' },
-            { name: 'ศูนย์เวชฯ สคร.10', count: 31, pct: '4.5%' },
+            { name: 'ศูนย์เวชฯ สคร.10', count: 30, pct: '4.5%' },
             { name: 'รพ.วารินชำราบ', count: 3, pct: '0.4%' },
             { name: 'รพ.พริ๊นซ์ อุบล', count: 1, pct: '0.1%' },
             { name: 'รพ.ม.อุบล', count: 1, pct: '0.1%' }
