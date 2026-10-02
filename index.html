@@ -82,6 +82,32 @@
 
             <!-- 1. KPI Cards แถวเดียว 6 คอลัมน์สมบูรณ์ (แก้ไขโครงสร้างการ์ดใบที่ 1 ให้ครบถ้วน) -->
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+                <!-- 2. Donut Charts Grid ประจำปีงบประมาณ 2569 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- วงที่ 1: สัดส่วนการติดเชื้อปี 2569 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
+                    <div class="flex items-center justify-between mb-1">
+                        <h3 class="text-base font-bold text-slate-900">สัดส่วนผลการติดเชื้อ ประจำปี 2569 (N = 44)</h3>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-sky-100 text-sky-800">พบเชื้อ 29.5%</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-4">จำแนกตามผู้ป่วยติดเชื้อเดี่ยว ติดเชื้อร่วม (Co-infection) และไม่พบเชื้อ</p>
+                    <div class="relative h-64">
+                        <canvas id="donut2569Infection"></canvas>
+                    </div>
+                </div>
+
+                <!-- วงที่ 2: สัดส่วนการตรวจพบหนองในแยกวิธี ปี 2569 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
+                    <div class="flex items-center justify-between mb-1">
+                        <h3 class="text-base font-bold text-slate-900">ประสิทธิภาพการตรวจพบหนองในแยกวิธี (NG Yield)</h3>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 text-indigo-800">รวม 6 ราย</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-4">เปรียบเทียบการตรวจพบระหว่างการเพาะเชื้อ (Culture) และสารพันธุกรรม (PCR)</p>
+                    <div class="relative h-64">
+                        <canvas id="donut2569Method"></canvas>
+                    </div>
+                </div>
+            </div>
                 
                 <!-- 1. ผู้รับบริการสะสม -->
                 <div class="bg-gradient-to-br from-sky-600 via-sky-700 to-indigo-800 text-white p-4 rounded-2xl shadow-sm border border-sky-400/30 flex flex-col justify-between relative overflow-hidden">
@@ -1046,7 +1072,139 @@
                 });
             }
         }
+function initStaticCharts() {
+            // === กราฟ Donut หน้าแรก (เฉพาะปี 2569) ===
+            const donut2569InfCtx = document.getElementById('donut2569Infection');
+            if (donut2569InfCtx) {
+                new Chart(donut2569InfCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: [
+                            'หนองในอย่างเดียว (NG Single)', 
+                            'คลามีเดียอย่างเดียว (CT Single)', 
+                            'ติดเชื้อร่วม (CT & NG Co-inf)', 
+                            'เชื้อรา (KOH/Wet)', 
+                            'ตรวจไม่พบเชื้อ (Negative)'
+                        ],
+                        datasets: [{
+                            data: [4, 2, 2, 3, 31],
+                            backgroundColor: ['#0284c7', '#0d9488', '#8b5cf6', '#f59e0b', '#e2e8f0'],
+                            borderWidth: 2,
+                            borderColor: '#ffffff'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'bottom', labels: { boxWidth: 12, padding: 10, font: { size: 11 } } },
+                            tooltip: {
+                                callbacks: {
+                                    label: ctx => ` ${ctx.label}: ${ctx.parsed} ราย (${((ctx.parsed / 44) * 100).toFixed(1)}%)`
+                                }
+                            }
+                        }
+                    }
+                });
+            }
 
+            const donut2569MethodCtx = document.getElementById('donut2569Method');
+            if (donut2569MethodCtx) {
+                new Chart(donut2569MethodCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: [
+                            'Culture (+) & PCR (+)', 
+                            'Culture (+) เท่านั้น', 
+                            'PCR (+) เท่านั้น (Culture -/ไม่ได้ทำ)', 
+                            'ไม่พบเชื้อหนองใน'
+                        ],
+                        datasets: [{
+                            data: [3, 2, 1, 38],
+                            backgroundColor: ['#1e40af', '#38bdf8', '#8b5cf6', '#e2e8f0'],
+                            borderWidth: 2,
+                            borderColor: '#ffffff'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'bottom', labels: { boxWidth: 12, padding: 10, font: { size: 11 } } },
+                            tooltip: {
+                                callbacks: {
+                                    label: ctx => ` ${ctx.label}: ${ctx.parsed} ราย (${((ctx.parsed / 44) * 100).toFixed(1)}%)`
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // === กราฟของแท็บที่ 2 (ภาพรวมสะสม 11 ปี ยังคงไว้ครบถ้วน) ===
+            const donutCtx = document.getElementById('overviewDonutChart');
+            if (donutCtx) {
+                new Chart(donutCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['หนองใน (NG Pos)', 'คลามีเดีย (CT Pos)', 'เชื้อรา (KOH/Wet)', 'ไม่พบเชื้อ'],
+                        datasets: [{ data: [191, 44, 39, 421], backgroundColor: ['#0284c7', '#0d9488', '#f59e0b', '#e2e8f0'], borderWidth: 0 }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+                });
+            }
+
+            const specCtx = document.getElementById('specimenChart');
+            if (specCtx) {
+                new Chart(specCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['ท่อปัสสาวะ (Urethra)', 'อื่นๆ / ปากมดลูก / ช่องคลอด', 'พลาสมา / เลือด', 'ผิวหนัง (Skin/KOH)'],
+                        datasets: [{ data: [557, 114, 70, 17], backgroundColor: ['#0369a1', '#8b5cf6', '#ec4899', '#fbbf24'], borderWidth: 0 }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'bottom' },
+                            tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed} ตัวอย่าง (${((ctx.parsed / 758) * 100).toFixed(1)}%)` } }
+                        }
+                    }
+                });
+            }
+
+            const trendCtx = document.getElementById('trend10YearsChart');
+            if (trendCtx) {
+                new Chart(trendCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: TREND_10_YEARS.map(d => d.year),
+                        datasets: [
+                            { label: 'ผู้รับบริการตรวจ (คน)', data: TREND_10_YEARS.map(d => d.patients), backgroundColor: '#e2e8f0', borderRadius: 4, order: 4 },
+                            { type: 'line', label: 'หนองในเพาะเชื้อ (Culture NG)', data: TREND_10_YEARS.map(d => d.ng_culture), borderColor: '#0284c7', backgroundColor: '#0284c7', borderWidth: 3, pointRadius: 4, order: 1 },
+                            { type: 'line', label: 'สารพันธุกรรมหนองใน (PCR NG)', data: TREND_10_YEARS.map(d => d.ng_pcr), borderColor: '#6366f1', backgroundColor: '#6366f1', borderWidth: 2, pointRadius: 4, order: 2 },
+                            { type: 'line', label: 'สารพันธุกรรมคลามีเดีย (PCR CT)', data: TREND_10_YEARS.map(d => d.ct), borderColor: '#0d9488', backgroundColor: '#0d9488', borderWidth: 2, borderDash: [5, 5], pointRadius: 4, order: 3 }
+                        ]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { y: { beginAtZero: true } } }
+                });
+            }
+
+            const amrCtx = document.getElementById('amrBarChart');
+            if (amrCtx) {
+                new Chart(amrCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: AMR_DRUGS.map(d => d.drug),
+                        datasets: [
+                            { label: 'ไวต่อยา (S) %', data: AMR_DRUGS.map(d => (100 - d.r_pct).toFixed(1)), backgroundColor: '#10b981', borderRadius: 4 },
+                            { label: 'ดื้อยา (R) %', data: AMR_DRUGS.map(d => d.r_pct.toFixed(1)), backgroundColor: '#ef4444', borderRadius: 4 }
+                        ]
+                    },
+                    options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true, max: 100, ticks: { callback: v => v + '%' } }, y: { stacked: true } }, plugins: { legend: { position: 'bottom' } } }
+                });
+            }
+        }
         // ========================== 5. REAL-TIME DATA FETCH ==========================
         async function fetchRealtimeData() {
             try {
