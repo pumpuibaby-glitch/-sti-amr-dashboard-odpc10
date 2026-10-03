@@ -112,7 +112,7 @@
                         </div>
                     </div>
                     <div class="mt-3 pt-2 border-t border-white/20 text-[10.5px] text-sky-100 flex justify-between items-center">
-                        <span>ติดเชื้อจริง: <strong class="text-white">13 ราย</strong></span>
+                        <span>ติดเชื้อจริง: <strong class="text-white">19 ราย</strong></span>
                         <span class="bg-white/20 px-1.5 py-0.5 rounded text-[10px]">29.5%</span>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                             </div>
                         </div>
                         <div class="mt-2.5">
-                            <span class="text-2xl sm:text-3xl font-black text-sky-700" id="kpi-2569-ng">6</span>
+                            <span class="text-2xl sm:text-3xl font-black text-sky-700" id="kpi-2569-ng">12</span>
                             <span class="text-[11px] text-slate-500 ml-0.5">ราย</span>
                         </div>
                     </div>
@@ -223,7 +223,7 @@
                 <!-- วงที่ 1: สัดส่วนการติดเชื้อปี 2569 -->
                 <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                     <div class="flex items-center justify-between mb-1">
-                        <h3 class="text-base font-bold text-slate-900">สัดส่วนผลการติดเชื้อ ประจำปี 2569 (N = 44)</h3>
+                        <h3 class="text-base font-bold text-slate-900">สัดส่วนผลการติดเชื้อ ประจำปี 2569 (N = 48)</h3>
                         <span class="text-xs font-semibold px-2 py-0.5 rounded bg-sky-100 text-sky-800">พบเชื้อ 29.5%</span>
                     </div>
                     <p class="text-xs text-slate-500 mb-4">จำแนกตามผู้ป่วยติดเชื้อเดี่ยว ติดเชื้อร่วม (Co-infection) และไม่พบเชื้อ</p>
@@ -236,7 +236,7 @@
                 <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                     <div class="flex items-center justify-between mb-1">
                         <h3 class="text-base font-bold text-slate-900">ประสิทธิภาพการตรวจพบหนองในแยกวิธี (NG Yield)</h3>
-                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 text-indigo-800">รวม 6 ราย</span>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 text-indigo-800">รวม 12 ราย</span>
                     </div>
                     <p class="text-xs text-slate-500 mb-4">เปรียบเทียบการตรวจพบระหว่างการเพาะเชื้อ (Culture) และสารพันธุกรรม (PCR)</p>
                     <div class="relative h-64">
@@ -592,9 +592,9 @@
      // ข้อมูลสรุปปี 2569 (อัปเดตผู้รับบริการ 48 คน, NG รวมตัดซ้ำ 8 คน)
         let DATA_SUMMARY_2569 = {
             total_patients: 48,
-            total_infected: 13,
+            total_infected: 19,
             ng_culture: { tested: 12, pos: 6, rate: '50.0%' },
-            ng_pcr: { tested: 17, pos: 4, rate: '23.5%' },
+            ng_pcr: { tested: 17, pos: 8, rate: '23.5%' },
             ng_overall: 8, // 👈 6 (Culture) + 4 (PCR) - 2 (ซ้ำ) = 8 ราย
             ct_pcr: { tested: 17, pos: 4, rate: '23.5%' },
             coinfection: { tested: 17, pos: 2, rate: '11.8%' },
@@ -613,7 +613,7 @@
             { year: '2566', patients: 19, ng: 6, ct: 0, fungi: 3, cum_pts: 389, cum_inf: 171, ng_culture: 6, ng_pcr: 0 },
             { year: '2567', patients: 224, ng: 33, ct: 32, fungi: 0, cum_pts: 613, cum_inf: 203, ng_culture: 10, ng_pcr: 23 },
             { year: '2568', patients: 38, ng: 17, ct: 8, fungi: 2, cum_pts: 651, cum_inf: 228, ng_culture: 5, ng_pcr: 13 },
-            { year: '2569', patients: 44, ng: 6, ct: 4, fungi: 3, cum_pts: 695, cum_inf: 240, ng_culture: 5, ng_pcr: 4 }
+            { year: '2569', patients: 48, ng: 12, ct: 4, fungi: 3, cum_pts: 695, cum_inf: 240, ng_culture: 6, ng_pcr: 8 }
         ];
 
         // ข้อมูลสถิติประชากรสะสม (รวม 695 พอดีตาม Calc_Summary)
@@ -1107,7 +1107,7 @@
                             'ไม่พบเชื้อหนองใน'
                         ],
                         datasets: [{
-                            data: [3, 2, 1, 38],
+                            data: [12, 6, 8, 21],
                             backgroundColor: ['#1e40af', '#38bdf8', '#8b5cf6', '#e2e8f0'],
                             borderWidth: 2,
                             borderColor: '#ffffff'
@@ -1135,7 +1135,7 @@
                     type: 'doughnut',
                     data: {
                         labels: ['หนองใน (NG Pos)', 'คลามีเดีย (CT Pos)', 'เชื้อรา (KOH/Wet)', 'ไม่พบเชื้อ'],
-                        datasets: [{ data: [191, 44, 39, 421], backgroundColor: ['#0284c7', '#0d9488', '#f59e0b', '#e2e8f0'], borderWidth: 0 }]
+                        datasets: [{ data: [191, 48, 39, 421], backgroundColor: ['#0284c7', '#0d9488', '#f59e0b', '#e2e8f0'], borderWidth: 0 }]
                     },
                     options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
                 });
