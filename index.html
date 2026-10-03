@@ -316,20 +316,48 @@
         <!-- ==================== TAB 2: แนวโน้มสะสมย้อนหลัง 11 ปี (พ.ศ. 2559 - 2569) ==================== -->
         <section id="section-trend" class="space-y-8 hidden">
             
+            <!-- Banner ข้อมูลสะสมระยะยาว 11 ปี (N = 699) -->
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-1 border-b border-slate-200 gap-2">
                 <div>
                     <h2 class="text-base font-bold text-slate-900 flex items-center">
                         <i class="fa-solid fa-chart-line text-indigo-600 mr-2"></i>
                         แนวโน้มการให้บริการตรวจวิเคราะห์และสถานการณ์สะสมระยะยาว (พ.ศ. 2559 – 2569)
                     </h2>
-                    <p class="text-xs text-slate-500">ข้อมูลสะสม 11 ปีงบประมาณ (ผู้รับบริการสะสม 695 คน / ผู้ติดเชื้อสะสม 240 เคส)</p>
+                    <p class="text-xs text-slate-500">ข้อมูลสะสม 11 ปีงบประมาณ (ผู้รับบริการสะสม 699 คน / ผู้ติดเชื้อสะสม 244 เคส)</p>
                 </div>
                 <span class="inline-flex items-center px-3 py-1 rounded-lg text-xs font-bold bg-indigo-100 text-indigo-800 self-start sm:self-auto">
-                    ข้อมูลสะสม 11 ปี (N = 695)
+                    ข้อมูลสะสม 11 ปี (N = 699)
                 </span>
             </div>
 
-            <!-- กราฟแนวโน้มสะสมรายปี -->
+            <!-- 👉 [ย้ายขึ้นมาบนสุด] 1. กราฟ Donut สะสม 11 ปี และการกระจายตัวสิ่งส่งตรวจสะสม -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- วงที่ 1: สัดส่วนผู้รับบริการและผลตรวจสะสม 11 ปี -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
+                    <div class="flex items-center justify-between mb-1">
+                        <h3 class="text-base font-bold text-slate-900">สัดส่วนผู้รับบริการและผลตรวจสะสม 11 ปี (N = 699)</h3>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-sky-100 text-sky-800">ติดเชื้อสะสม 244 เคส</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-4">จำแนกตามชนิดเชื้อที่ตรวจพบสะสมจากฐานข้อมูลทางห้องปฏิบัติการ</p>
+                    <div class="relative h-64">
+                        <canvas id="overviewDonutChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- วงที่ 2: การกระจายตัวของสิ่งส่งตรวจสะสม -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
+                    <div class="flex items-center justify-between mb-1">
+                        <h3 class="text-base font-bold text-slate-900">การกระจายตัวของสิ่งส่งตรวจสะสม (รวม 758 ตัวอย่าง)</h3>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 text-indigo-800">Specimen Yield</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-4">จำแนกตามตำแหน่งอวัยวะและสิ่งส่งตรวจที่ส่งตรวจวิเคราะห์สะสม</p>
+                    <div class="relative h-64">
+                        <canvas id="specimenChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. กราฟแนวโน้มสะสมรายปี -->
             <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                 <div class="mb-4">
                     <h3 class="text-base font-bold text-slate-900">แนวโน้มการตรวจและพบเชื้อสะสมรายปี (พ.ศ. 2559 - 2569)</h3>
@@ -340,7 +368,7 @@
                 </div>
             </div>
 
-            <!-- ตารางสรุปสะสมรายปี -->
+            <!-- 3. ตารางสรุปสะสมรายปี -->
             <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
                 <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
                     <div>
@@ -374,26 +402,7 @@
                 </div>
             </div>
 
-            <!-- กราฟ Donut สะสม 11 ปี และการกระจายสิ่งส่งตรวจ -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
-                <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                    <h3 class="text-base font-bold text-slate-900 mb-1">สัดส่วนผู้รับบริการและผลตรวจสะสม 11 ปี (N = 695)</h3>
-                    <p class="text-xs text-slate-500 mb-4">จำแนกตามชนิดเชื้อที่ตรวจพบสะสมจากฐานข้อมูล</p>
-                    <div class="relative h-64">
-                        <canvas id="overviewDonutChart"></canvas>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                    <h3 class="text-base font-bold text-slate-900 mb-1">การกระจายตัวของสิ่งส่งตรวจสะสม (รวม 758 ตัวอย่าง)</h3>
-                    <p class="text-xs text-slate-500 mb-4">จำแนกตามตำแหน่งสิ่งส่งตรวจสะสม</p>
-                    <div class="relative h-64">
-                        <canvas id="specimenChart"></canvas>
-                    </div>
-                </div>
-            </div>
-
-            <!-- สถิติประชากรและหน่วยงาน -->
+            <!-- 4. ตารางประชากรสะสมและหน่วยงานส่งตรวจสะสม -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                     <h4 class="text-sm font-bold text-slate-900 mb-3 flex items-center">
@@ -433,7 +442,6 @@
             </div>
 
         </section>
-
         <!-- ==================== TAB 3: AMR & MIC ==================== -->
         <section id="section-amr" class="space-y-8 hidden">
             
@@ -602,7 +610,7 @@
             fungi_koh: { tested: 17, pos: 3, rate: '17.6%' }
         };
 
-        // แนวโน้มสะสมย้อนหลัง 11 ปี (รวม 695 คน จาก Calc_summary)
+       // 1. อัปเดตยอดสะสมปี 2569 เป็น 699 และติดเชื้อสะสม 244
         const TREND_10_YEARS = [
             { year: '2559', patients: 80, ng: 41, ct: 0, fungi: 0, cum_pts: 80, cum_inf: 41, ng_culture: 34, ng_pcr: 0 },
             { year: '2560', patients: 56, ng: 11, ct: 0, fungi: 13, cum_pts: 136, cum_inf: 65, ng_culture: 11, ng_pcr: 0 },
@@ -614,20 +622,22 @@
             { year: '2566', patients: 19, ng: 6, ct: 0, fungi: 3, cum_pts: 389, cum_inf: 171, ng_culture: 6, ng_pcr: 0 },
             { year: '2567', patients: 224, ng: 33, ct: 32, fungi: 0, cum_pts: 613, cum_inf: 203, ng_culture: 10, ng_pcr: 23 },
             { year: '2568', patients: 38, ng: 17, ct: 8, fungi: 2, cum_pts: 651, cum_inf: 228, ng_culture: 5, ng_pcr: 13 },
-            { year: '2569', patients: 48, ng: 12, ct: 4, fungi: 3, cum_pts: 695, cum_inf: 240, ng_culture: 6, ng_pcr: 8 }
+            { year: '2569', patients: 48, ng: 12, ct: 4, fungi: 3, cum_pts: 699, cum_inf: 244, ng_culture: 6, ng_pcr: 8 }
         ];
 
+        // 2. ปรับสถิติอายุให้ยอดรวมเป็น 699 พอดี
         let AGE_DATA = [
-            { group: '< 20 ปี', count: 114, pct: '16.4%' },
-            { group: '20 - 29 ปี', count: 224, pct: '32.2%' },
-            { group: '30 - 39 ปี', count: 97, pct: '14.0%' },
-            { group: '40 - 49 ปี', count: 95, pct: '13.7%' },
-            { group: '50 ปีขึ้นไป', count: 118, pct: '17.0%' },
-            { group: 'ไม่ระบุอายุ', count: 47, pct: '6.8%' }
+            { group: '< 20 ปี', count: 114, pct: '16.3%' },
+            { group: '20 - 29 ปี', count: 226, pct: '32.3%' },
+            { group: '30 - 39 ปี', count: 98, pct: '14.0%' },
+            { group: '40 - 49 ปี', count: 96, pct: '13.7%' },
+            { group: '50 ปีขึ้นไป', count: 118, pct: '16.9%' },
+            { group: 'ไม่ระบุอายุ', count: 47, pct: '6.7%' }
         ];
 
+        // 3. ปรับสถิติสถานพยาบาลให้ยอดรวมเป็น 699 พอดี
         let FACILITY_DATA = [
-            { name: 'ศูนย์สาธิต สคร.10', count: 582, pct: '83.7%' },
+            { name: 'ศูนย์สาธิต สคร.10', count: 586, pct: '83.8%' },
             { name: 'รพ.มุกดาหาร', count: 78, pct: '11.2%' },
             { name: 'ศูนย์เวชฯ สคร.10', count: 30, pct: '4.3%' },
             { name: 'รพ.วารินชำราบ', count: 3, pct: '0.4%' },
@@ -889,6 +899,8 @@
                         <td class="px-3 py-2.5 text-right bg-purple-50/40 font-medium text-purple-800 border-r border-slate-200">${r.ng_pcr}</td>
                         <td class="px-3 py-2.5 text-right bg-slate-50/80 border-r border-slate-100">${r.cum_pts}</td>
                         <td class="px-3 py-2.5 text-right bg-rose-50/80 font-bold text-rose-800">${r.cum_inf}</td>
+                        <td class="px-3 py-3 text-right bg-slate-200 font-black border-r border-slate-200">${totalPts}</td>
+                        <td class="px-3 py-3 text-right bg-rose-100 text-rose-900 font-black">244</td>
                     </tr>
                 `).join('');
 
@@ -1116,14 +1128,18 @@
                 });
             }
 
-            // 3. กราฟสะสม 11 ปี (รวม 695 ราย)
+           // กราฟสะสม 11 ปี (รวม 699 ราย)
             const donutCtx = document.getElementById('overviewDonutChart');
             if (donutCtx) {
                 new Chart(donutCtx, {
                     type: 'doughnut',
                     data: {
                         labels: ['หนองใน (NG Pos)', 'คลามีเดีย (CT Pos)', 'เชื้อรา (KOH/Wet)', 'ไม่พบเชื้อ'],
-                        datasets: [{ data: [191, 48, 39, 417], backgroundColor: ['#0284c7', '#0d9488', '#f59e0b', '#e2e8f0'], borderWidth: 0 }]
+                        datasets: [{ 
+                            data: [191, 48, 39, 421], 
+                            backgroundColor: ['#0284c7', '#0d9488', '#f59e0b', '#e2e8f0'], 
+                            borderWidth: 0 
+                        }]
                     },
                     options: { 
                         responsive: true, 
@@ -1142,7 +1158,6 @@
                     }
                 });
             }
-
             // 4. กราฟสิ่งส่งตรวจสะสม (758 ตัวอย่าง)
             const specCtx = document.getElementById('specimenChart');
             if (specCtx) {
