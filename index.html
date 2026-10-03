@@ -57,14 +57,11 @@
             </div>
         </div>
 
-        <!-- Navigation Tabs 4 แท็บหลัก -->
+        <!-- Navigation Tabs: 3 แท็บหลัก -->
         <div class="bg-white border-t border-slate-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-8 overflow-x-auto">
                 <button onclick="switchTab('overview')" id="tab-overview" class="tab-btn active py-3 text-sm font-medium text-slate-600 hover:text-sky-600 whitespace-nowrap">
                     <i class="fa-solid fa-calendar-day mr-2"></i>สถานการณ์ปัจจุบัน ประจำปี 2569
-                </button>
-                <button onclick="switchTab('trend')" id="tab-trend" class="tab-btn py-3 text-sm font-medium text-slate-600 hover:text-sky-600 whitespace-nowrap">
-                    <i class="fa-solid fa-chart-line mr-2"></i>แนวโน้มสะสมย้อนหลัง 11 ปี (พ.ศ. 2559 - 2569)
                 </button>
                 <button onclick="switchTab('amr')" id="tab-amr" class="tab-btn py-3 text-sm font-medium text-slate-600 hover:text-sky-600 whitespace-nowrap">
                     <i class="fa-solid fa-shield-virus mr-2"></i>เฝ้าระวังเชื้อดื้อยา (AMR & MIC)
@@ -79,7 +76,7 @@
     <!-- Main Content -->
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-        <!-- ==================== TAB 1: เฉพาะปี 2569 ทั้งหมด ==================== -->
+        <!-- ==================== TAB 1: สถานการณ์ปัจจุบัน ประจำปี 2569 ==================== -->
         <section id="section-overview" class="space-y-8">
 
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-1 border-b border-slate-200 gap-2">
@@ -95,10 +92,10 @@
                 </span>
             </div>
 
-            <!-- 1. KPI Cards เฉพาะปี 2569 (6 คอลัมน์) -->
+            <!-- KPI Cards ปี 2569 -->
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
                 
-                <!-- 1. ผู้รับบริการปี 2569 -->
+                <!-- 1. ผู้รับบริการ -->
                 <div class="bg-gradient-to-br from-sky-600 via-sky-700 to-indigo-800 text-white p-4 rounded-2xl shadow-sm border border-sky-400/30 flex flex-col justify-between relative overflow-hidden">
                     <div class="absolute -right-4 -bottom-4 w-20 h-20 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
                     <div>
@@ -119,7 +116,7 @@
                     </div>
                 </div>
 
-                <!-- 2. พบหนองใน (NG Overall) ปี 2569 -->
+                <!-- 2. พบหนองใน (NG Overall) -->
                 <div class="bg-white p-4 rounded-2xl border border-slate-200 card-shadow hover:border-sky-300 transition-all flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between">
@@ -139,7 +136,7 @@
                     </div>
                 </div>
 
-                <!-- 3. พบหนองในเทียม (CT PCR) ปี 2569 -->
+                <!-- 3. พบหนองในเทียม (CT PCR) -->
                 <div class="bg-white p-4 rounded-2xl border border-slate-200 card-shadow hover:border-teal-300 transition-all flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between">
@@ -159,7 +156,7 @@
                     </div>
                 </div>
 
-                <!-- 4. ติดเชื้อร่วม (CT/NG Co-infection) ปี 2569 -->
+                <!-- 4. ติดเชื้อร่วม (CT/NG Co-infection) -->
                 <div class="bg-white p-4 rounded-2xl border border-slate-200 card-shadow hover:border-purple-300 transition-all flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between">
@@ -179,7 +176,7 @@
                     </div>
                 </div>
 
-                <!-- 5. พบเชื้อรา (KOH / Wet smear) ปี 2569 -->
+                <!-- 5. พบเชื้อรา (KOH / Wet smear) -->
                 <div class="bg-white p-4 rounded-2xl border border-slate-200 card-shadow hover:border-amber-300 transition-all flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between">
@@ -199,7 +196,7 @@
                     </div>
                 </div>
 
-                <!-- 6. เฝ้าระวังเชื้อดื้อยาปี 2569 -->
+                <!-- 6. เฝ้าระวังเชื้อดื้อยา -->
                 <div class="bg-gradient-to-br from-rose-500 to-amber-600 text-white p-4 rounded-2xl shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between">
@@ -220,13 +217,13 @@
 
             </div>
 
-            <!-- 2. Donut Charts Grid ประจำปีงบประมาณ 2569 -->
+            <!-- Donut Charts ปีงบประมาณ 2569 -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <!-- วงที่ 1: สัดส่วนการติดเชื้อปี 2569 -->
                 <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                     <div class="flex items-center justify-between mb-1">
                         <h3 class="text-base font-bold text-slate-900">สัดส่วนผลการติดเชื้อ ประจำปี 2569 (N = 48)</h3>
-                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-sky-100 text-sky-800">พบเชื้อ 39.6%</span>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-sky-100 text-sky-800" id="badge-inf-rate">พบเชื้อ 39.6%</span>
                     </div>
                     <p class="text-xs text-slate-500 mb-4">จำแนกตามผู้ป่วยติดเชื้อเดี่ยว ติดเชื้อร่วม (Co-infection) และไม่พบเชื้อ</p>
                     <div class="relative h-64">
@@ -238,7 +235,7 @@
                 <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
                     <div class="flex items-center justify-between mb-1">
                         <h3 class="text-base font-bold text-slate-900">ประสิทธิภาพการตรวจพบหนองในแยกวิธี (NG Yield)</h3>
-                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 text-indigo-800">รวม 12 ราย</span>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 text-indigo-800" id="badge-ng-yield">รวม 12 ราย</span>
                     </div>
                     <p class="text-xs text-slate-500 mb-4">เปรียบเทียบการตรวจพบระหว่างการเพาะเชื้อ (Culture) และสารพันธุกรรม (PCR)</p>
                     <div class="relative h-64">
@@ -247,7 +244,7 @@
                 </div>
             </div>
 
-            <!-- 3. ตารางเฝ้าระวังรายเดือน ประจำปีงบประมาณ 2569 -->
+            <!-- ตารางเฝ้าระวังรายเดือน 2569 -->
             <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
                 <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                     <div>
@@ -282,7 +279,7 @@
                 </div>
             </div>
 
-            <!-- 4. ตารางสรุปภาพรวมปี 2569 แยกตามวิธีตรวจวิเคราะห์ -->
+            <!-- ตารางสรุปภาพรวมปี 2569 แยกตามวิธีตรวจวิเคราะห์ -->
             <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
                 <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                     <div>
@@ -313,136 +310,7 @@
 
         </section>
 
-        <!-- ==================== TAB 2: แนวโน้มสะสมย้อนหลัง 11 ปี (พ.ศ. 2559 - 2569) ==================== -->
-        <section id="section-trend" class="space-y-8 hidden">
-            
-            <!-- Banner ข้อมูลสะสมระยะยาว 11 ปี (N = 699) -->
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-1 border-b border-slate-200 gap-2">
-                <div>
-                    <h2 class="text-base font-bold text-slate-900 flex items-center">
-                        <i class="fa-solid fa-chart-line text-indigo-600 mr-2"></i>
-                        แนวโน้มการให้บริการตรวจวิเคราะห์และสถานการณ์สะสมระยะยาว (พ.ศ. 2559 – 2569)
-                    </h2>
-                    <p class="text-xs text-slate-500">ข้อมูลสะสม 11 ปีงบประมาณ (ผู้รับบริการสะสม 699 คน / ผู้ติดเชื้อสะสม 244 เคส)</p>
-                </div>
-                <span class="inline-flex items-center px-3 py-1 rounded-lg text-xs font-bold bg-indigo-100 text-indigo-800 self-start sm:self-auto">
-                    ข้อมูลสะสม 11 ปี (N = 699)
-                </span>
-            </div>
-
-            <!-- 👉 [ย้ายขึ้นมาบนสุด] 1. กราฟ Donut สะสม 11 ปี และการกระจายตัวสิ่งส่งตรวจสะสม -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- วงที่ 1: สัดส่วนผู้รับบริการและผลตรวจสะสม 11 ปี -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                    <div class="flex items-center justify-between mb-1">
-                        <h3 class="text-base font-bold text-slate-900">สัดส่วนผู้รับบริการและผลตรวจสะสม 11 ปี (N = 699)</h3>
-                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-sky-100 text-sky-800">ติดเชื้อสะสม 244 เคส</span>
-                    </div>
-                    <p class="text-xs text-slate-500 mb-4">จำแนกตามชนิดเชื้อที่ตรวจพบสะสมจากฐานข้อมูลทางห้องปฏิบัติการ</p>
-                    <div class="relative h-64">
-                        <canvas id="overviewDonutChart"></canvas>
-                    </div>
-                </div>
-
-                <!-- วงที่ 2: การกระจายตัวของสิ่งส่งตรวจสะสม -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                    <div class="flex items-center justify-between mb-1">
-                        <h3 class="text-base font-bold text-slate-900">การกระจายตัวของสิ่งส่งตรวจสะสม (รวม 758 ตัวอย่าง)</h3>
-                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-100 text-indigo-800">Specimen Yield</span>
-                    </div>
-                    <p class="text-xs text-slate-500 mb-4">จำแนกตามตำแหน่งอวัยวะและสิ่งส่งตรวจที่ส่งตรวจวิเคราะห์สะสม</p>
-                    <div class="relative h-64">
-                        <canvas id="specimenChart"></canvas>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. กราฟแนวโน้มสะสมรายปี -->
-            <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                <div class="mb-4">
-                    <h3 class="text-base font-bold text-slate-900">แนวโน้มการตรวจและพบเชื้อสะสมรายปี (พ.ศ. 2559 - 2569)</h3>
-                    <p class="text-xs text-slate-500">เปรียบเทียบจำนวนผู้รับบริการตรวจกับการตรวจพบเชื้อด้วยวิธี Culture และ PCR</p>
-                </div>
-                <div class="relative h-80 sm:h-96">
-                    <canvas id="trend10YearsChart"></canvas>
-                </div>
-            </div>
-
-            <!-- 3. ตารางสรุปสะสมรายปี -->
-            <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
-                <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
-                    <div>
-                        <h4 class="text-sm font-bold text-slate-900">ตารางสรุปผลการให้บริการตรวจวิเคราะห์สะสมรายปี (พ.ศ. 2559 - 2569)</h4>
-                        <p class="text-xs text-slate-500">จำแนกตามชนิดเชื้อที่ตรวจพบ วิธีตรวจวิเคราะห์ และยอดสะสมต่อเนื่อง</p>
-                    </div>
-                </div>
-                <div class="overflow-x-auto">
-                    <table class="min-w-full border-collapse text-xs">
-                        <thead>
-                            <tr class="bg-slate-100 text-slate-700 text-center font-bold border-b border-slate-200">
-                                <th rowspan="2" class="px-3 py-3 text-left border-r border-slate-200 bg-slate-200/60">ปี พ.ศ.</th>
-                                <th rowspan="2" class="px-3 py-3 text-right border-r border-slate-200 bg-slate-200/60">ผู้รับบริการ<br><span class="text-[10px] font-normal text-slate-500">(รายปี)</span></th>
-                                <th colspan="3" class="px-3 py-2 border-r border-slate-200 bg-sky-50 text-sky-900">ตรวจพบเชื้อจำแนกตามชนิดโรค (เคส)</th>
-                                <th colspan="2" class="px-3 py-2 border-r border-slate-200 bg-indigo-50 text-indigo-900">เฉพาะหนองในแยกวิธีตรวจ (เคส)</th>
-                                <th colspan="2" class="px-3 py-2 bg-slate-200/80 text-slate-800">ยอดสะสมต่อเนื่อง (Cumulative)</th>
-                            </tr>
-                            <tr class="bg-slate-50 text-slate-600 font-semibold border-b-2 border-slate-300">
-                                <th class="px-3 py-2 text-right bg-sky-50/60 text-sky-800 border-r border-slate-100">หนองใน (NG)</th>
-                                <th class="px-3 py-2 text-right bg-teal-50/60 text-teal-800 border-r border-slate-100">คลามีเดีย (CT)</th>
-                                <th class="px-3 py-2 text-right bg-amber-50/60 text-amber-800 border-r border-slate-200">เชื้อรา (KOH/Wet)</th>
-                                <th class="px-3 py-2 text-right bg-indigo-50/60 text-indigo-800 border-r border-slate-100">เพาะเชื้อ (Culture)</th>
-                                <th class="px-3 py-2 text-right bg-purple-50/60 text-purple-800 border-r border-slate-200">PCR สารพันธุกรรม</th>
-                                <th class="px-3 py-2 text-right bg-slate-100 border-r border-slate-100">ตรวจสะสม (คน)</th>
-                                <th class="px-3 py-2 text-right bg-rose-50 text-rose-800 font-bold">ติดเชื้อสะสม (เคส)</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-200 bg-white" id="trendTableBody"></tbody>
-                        <tfoot class="bg-slate-100 font-bold border-t-2 border-slate-300 text-slate-900" id="trendTableFoot"></tfoot>
-                    </table>
-                </div>
-            </div>
-
-            <!-- 4. ตารางประชากรสะสมและหน่วยงานส่งตรวจสะสม -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                    <h4 class="text-sm font-bold text-slate-900 mb-3 flex items-center">
-                        <i class="fa-solid fa-user-group text-sky-600 mr-2"></i> การกระจายตัวตามกลุ่มอายุสะสม
-                    </h4>
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-slate-200 text-xs">
-                            <thead class="bg-slate-50 text-slate-700 font-semibold">
-                                <tr>
-                                    <th class="py-2 text-left">กลุ่มอายุ</th>
-                                    <th class="py-2 text-right">จำนวน (คน)</th>
-                                    <th class="py-2 text-right">สัดส่วน (%)</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100" id="ageTableBody"></tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
-                    <h4 class="text-sm font-bold text-slate-900 mb-3 flex items-center">
-                        <i class="fa-solid fa-hospital text-indigo-600 mr-2"></i> หน่วยงานที่ส่งตรวจสะสม
-                    </h4>
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-slate-200 text-xs">
-                            <thead class="bg-slate-50 text-slate-700 font-semibold">
-                                <tr>
-                                    <th class="py-2 text-left">หน่วยงานที่ส่งตรวจ</th>
-                                    <th class="py-2 text-right">จำนวน (เคส)</th>
-                                    <th class="py-2 text-right">สัดส่วน (%)</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100" id="facilityTableBody"></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-        <!-- ==================== TAB 3: AMR & MIC ==================== -->
+        <!-- ==================== TAB 2: เฝ้าระวังเชื้อดื้อยา (AMR & MIC) ==================== -->
         <section id="section-amr" class="space-y-8 hidden">
             
             <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
@@ -514,7 +382,7 @@
 
         </section>
 
-        <!-- ==================== TAB 4: EQA ==================== -->
+        <!-- ==================== TAB 3: ประกันคุณภาพ (EQA) ==================== -->
         <section id="section-eqa" class="space-y-8 hidden">
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -582,7 +450,7 @@
 
         // ========================== 2. DATA REPOSITORY ==========================
         
-        // ข้อมูลเฝ้าระวังรายเดือนปี 2569 (ยอด tested รวม 48 คน, NG รวม 12 คน)
+        // ข้อมูลเฝ้าระวังรายเดือนปี 2569 (ยอดส่งตรวจรวม 48 คน, NG 12 คน)
         const MONTHLY_SURVEILLANCE_2569 = [
             { month: 'ต.ค. 68', ym: '2025-10', tested: 4, ng: 3, ct: 0, fungi: 0, total_pos: 3, pos_rate: '75.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบ NG เพาะเชื้อ 3 เคส (CRO/CFM S)' },
             { month: 'พ.ย. 68', ym: '2025-11', tested: 1, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'ส่งตรวจคัดกรองทั่วไป' },
@@ -591,7 +459,7 @@
             { month: 'ก.พ. 69', ym: '2026-02', tested: 2, ng: 0, ct: 0, fungi: 0, total_pos: 0, pos_rate: '0.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'ส่งตรวจคัดกรองทั่วไป' },
             { month: 'มี.ค. 69', ym: '2026-03', tested: 6, ng: 2, ct: 1, fungi: 0, total_pos: 2, pos_rate: '33.3%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบ NG Culture 2 เคส (ไวต่อยาหลัก)' },
             { month: 'เม.ย. 69', ym: '2026-04', tested: 4, ng: 1, ct: 1, fungi: 0, total_pos: 2, pos_rate: '50.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบ CT และ NG จาก Real-time PCR' },
-            { month: 'พ.ค. 69', ym: '2026-05', tested: 3, ng: 1, ct: 1, fungi: 0, total_pos: 2, pos_rate: '66.7%', amr_badge: '🔴 ตรวจพบเชื้อดื้อยา (Alert)', note: '⚠️ เคส M502 ดื้อยาหลายขนาน (CRO 0.75, CFM 2.0)' },
+            { month: 'พ.ค. 69', ym: '2026-05', tested: 3, ng: 1, ct: 1, fungi: 0, total_pos: 2, pos_rate: '66.7%', amr_badge: '🔴 ตรวจพบเชื้อดื้อยา (Alert)', note: '⚠️️ เคส M502 ดื้อยาหลายขนาน (CRO 0.75, CFM 2.0)' },
             { month: 'มิ.ย. 69', ym: '2026-06', tested: 4, ng: 1, ct: 0, fungi: 0, total_pos: 1, pos_rate: '25.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบ NG จาก Real-time PCR' },
             { month: 'ก.ค. 69', ym: '2026-07', tested: 7, ng: 1, ct: 0, fungi: 0, total_pos: 1, pos_rate: '14.3%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'ตรวจคัดกรองกลุ่มเสี่ยง' },
             { month: 'ส.ค. 69', ym: '2026-08', tested: 10, ng: 3, ct: 1, fungi: 2, total_pos: 5, pos_rate: '50.0%', amr_badge: '🟢 ไวต่อยาปกติ', note: 'พบเชื้อรา KOH 2 เคส, ติดเชื้อร่วม CT/NG' },
@@ -609,41 +477,6 @@
             coinfection: { tested: 17, pos: 2, rate: '11.8%' },
             fungi_koh: { tested: 17, pos: 3, rate: '17.6%' }
         };
-
-       // 1. อัปเดตยอดสะสมปี 2569 เป็น 699 และติดเชื้อสะสม 244
-        const TREND_10_YEARS = [
-            { year: '2559', patients: 80, ng: 41, ct: 0, fungi: 0, cum_pts: 80, cum_inf: 41, ng_culture: 34, ng_pcr: 0 },
-            { year: '2560', patients: 56, ng: 11, ct: 0, fungi: 13, cum_pts: 136, cum_inf: 65, ng_culture: 11, ng_pcr: 0 },
-            { year: '2561', patients: 34, ng: 4, ct: 0, fungi: 4, cum_pts: 170, cum_inf: 73, ng_culture: 4, ng_pcr: 0 },
-            { year: '2562', patients: 63, ng: 15, ct: 0, fungi: 8, cum_pts: 233, cum_inf: 96, ng_culture: 15, ng_pcr: 0 },
-            { year: '2563', patients: 58, ng: 22, ct: 0, fungi: 2, cum_pts: 291, cum_inf: 120, ng_culture: 22, ng_pcr: 0 },
-            { year: '2564', patients: 32, ng: 16, ct: 0, fungi: 3, cum_pts: 323, cum_inf: 139, ng_culture: 16, ng_pcr: 0 },
-            { year: '2565', patients: 47, ng: 22, ct: 0, fungi: 1, cum_pts: 370, cum_inf: 162, ng_culture: 22, ng_pcr: 0 },
-            { year: '2566', patients: 19, ng: 6, ct: 0, fungi: 3, cum_pts: 389, cum_inf: 171, ng_culture: 6, ng_pcr: 0 },
-            { year: '2567', patients: 224, ng: 33, ct: 32, fungi: 0, cum_pts: 613, cum_inf: 203, ng_culture: 10, ng_pcr: 23 },
-            { year: '2568', patients: 38, ng: 17, ct: 8, fungi: 2, cum_pts: 651, cum_inf: 228, ng_culture: 5, ng_pcr: 13 },
-            { year: '2569', patients: 48, ng: 12, ct: 4, fungi: 3, cum_pts: 699, cum_inf: 244, ng_culture: 6, ng_pcr: 8 }
-        ];
-
-        // 2. ปรับสถิติอายุให้ยอดรวมเป็น 699 พอดี
-        let AGE_DATA = [
-            { group: '< 20 ปี', count: 114, pct: '16.3%' },
-            { group: '20 - 29 ปี', count: 226, pct: '32.3%' },
-            { group: '30 - 39 ปี', count: 98, pct: '14.0%' },
-            { group: '40 - 49 ปี', count: 96, pct: '13.7%' },
-            { group: '50 ปีขึ้นไป', count: 118, pct: '16.9%' },
-            { group: 'ไม่ระบุอายุ', count: 47, pct: '6.7%' }
-        ];
-
-        // 3. ปรับสถิติสถานพยาบาลให้ยอดรวมเป็น 699 พอดี
-        let FACILITY_DATA = [
-            { name: 'ศูนย์สาธิต สคร.10', count: 586, pct: '83.8%' },
-            { name: 'รพ.มุกดาหาร', count: 78, pct: '11.2%' },
-            { name: 'ศูนย์เวชฯ สคร.10', count: 30, pct: '4.3%' },
-            { name: 'รพ.วารินชำราบ', count: 3, pct: '0.4%' },
-            { name: 'รพ.พริ๊นซ์ อุบล', count: 1, pct: '0.1%' },
-            { name: 'รพ.ม.อุบล', count: 1, pct: '0.1%' }
-        ];
 
         const AMR_DRUGS = [
             { drug: 'Ceftriaxone (CRO)', tested: 149, s: 148, r: 0, r_pct: 0.0 },
@@ -723,6 +556,12 @@
             { prog: 'Slide proficiency Malaria', rounds: 1, pass: 1, fail: 0, rate: '100.0%', status: 'ปิดรอบสมบูรณ์' },
             { prog: 'Slide proficiency Microfilaria', rounds: 1, pass: 1, fail: 0, rate: '100.0%', status: 'ปิดรอบสมบูรณ์' }
         ];
+
+        // ตัวแปรเก็บ Instance ของกราฟเพื่ออัปเดต Live Data
+        let donut2569InfChart = null;
+        let donut2569MethodChart = null;
+        let micChartInstance = null;
+        let amrBarChartInstance = null;
 
         // ========================== 3. RENDERING FUNCTIONS ==========================
         
@@ -846,87 +685,7 @@
             `;
         }
 
-        function renderDemographicTables() {
-            const ageBody = document.getElementById('ageTableBody');
-            if (ageBody) {
-                const totalAge = AGE_DATA.reduce((sum, item) => sum + item.count, 0);
-                ageBody.innerHTML = AGE_DATA.map(a => `
-                    <tr>
-                        <td class="py-2 text-slate-800 font-medium">${a.group}</td>
-                        <td class="py-2 text-right font-bold text-sky-700">${a.count}</td>
-                        <td class="py-2 text-right text-slate-500">${a.pct}</td>
-                    </tr>
-                `).join('') + `
-                    <tr class="font-bold bg-slate-50 border-t border-slate-200">
-                        <td class="py-2">รวมทั้งหมด</td>
-                        <td class="py-2 text-right font-black text-slate-900">${totalAge}</td>
-                        <td class="py-2 text-right">100.0%</td>
-                    </tr>
-                `;
-            }
-
-            const facBody = document.getElementById('facilityTableBody');
-            if (facBody) {
-                const totalFac = FACILITY_DATA.reduce((sum, item) => sum + item.count, 0);
-                facBody.innerHTML = FACILITY_DATA.map(f => `
-                    <tr>
-                        <td class="py-2 text-slate-800 font-medium">${f.name}</td>
-                        <td class="py-2 text-right font-bold text-indigo-700">${f.count}</td>
-                        <td class="py-2 text-right text-slate-500">${f.pct}</td>
-                    </tr>
-                `).join('') + `
-                    <tr class="font-bold bg-slate-50 border-t border-slate-200">
-                        <td class="py-2">รวมทั้งหมด</td>
-                        <td class="py-2 text-right font-black text-slate-900">${totalFac}</td>
-                        <td class="py-2 text-right">100.0%</td>
-                    </tr>
-                `;
-            }
-        }
-
         function renderStandardTables() {
-            const trendBody = document.getElementById('trendTableBody');
-            const trendFoot = document.getElementById('trendTableFoot');
-            if (trendBody && trendFoot) {
-                trendBody.innerHTML = TREND_10_YEARS.map(r => `
-                    <tr class="hover:bg-slate-50 transition-colors">
-                        <td class="px-3 py-2.5 font-bold text-slate-900 border-r border-slate-100">${r.year}</td>
-                        <td class="px-3 py-2.5 text-right font-medium border-r border-slate-100">${r.patients}</td>
-                        <td class="px-3 py-2.5 text-right bg-sky-50/40 font-bold text-sky-800 border-r border-slate-100">${r.ng}</td>
-                        <td class="px-3 py-2.5 text-right bg-teal-50/40 font-bold text-teal-800 border-r border-slate-100">${r.ct}</td>
-                        <td class="px-3 py-2.5 text-right bg-amber-50/40 font-bold text-amber-800 border-r border-slate-200">${r.fungi}</td>
-                        <td class="px-3 py-2.5 text-right bg-indigo-50/40 font-medium text-indigo-800 border-r border-slate-100">${r.ng_culture}</td>
-                        <td class="px-3 py-2.5 text-right bg-purple-50/40 font-medium text-purple-800 border-r border-slate-200">${r.ng_pcr}</td>
-                        <td class="px-3 py-2.5 text-right bg-slate-50/80 border-r border-slate-100">${r.cum_pts}</td>
-                        <td class="px-3 py-2.5 text-right bg-rose-50/80 font-bold text-rose-800">${r.cum_inf}</td>
-                        
-                    </tr>
-                `).join('');
-
-                const totalPts = TREND_10_YEARS.reduce((s, r) => s + r.patients, 0);
-                const totalNG = TREND_10_YEARS.reduce((s, r) => s + r.ng, 0);
-                const totalCT = TREND_10_YEARS.reduce((s, r) => s + r.ct, 0);
-                const totalFungi = TREND_10_YEARS.reduce((s, r) => s + r.fungi, 0);
-                const totalCult = TREND_10_YEARS.reduce((s, r) => s + r.ng_culture, 0);
-                const totalPCR = TREND_10_YEARS.reduce((s, r) => s + r.ng_pcr, 0);
-
-                trendFoot.innerHTML = `
-                    <tr class="border-t-2 border-slate-300">
-                        <td class="px-3 py-3 border-r border-slate-200 font-black">รวมทั้งสิ้น</td>
-                        <td class="px-3 py-3 text-right font-black border-r border-slate-200">${totalPts}</td>
-                        <td class="px-3 py-3 text-right bg-sky-100 text-sky-900 font-black border-r border-slate-200">${totalNG}</td>
-                        <td class="px-3 py-3 text-right bg-teal-100 text-teal-900 font-black border-r border-slate-200">${totalCT}</td>
-                        <td class="px-3 py-3 text-right bg-amber-100 text-amber-900 font-black border-r border-slate-300">${totalFungi}</td>
-                        <td class="px-3 py-3 text-right bg-indigo-100 text-indigo-900 font-black border-r border-slate-200">${totalCult}</td>
-                        <td class="px-3 py-3 text-right bg-purple-100 text-purple-900 font-black border-r border-slate-300">${totalPCR}</td>
-                        <td class="px-3 py-3 text-right bg-slate-200 font-black border-r border-slate-200">${totalPts}</td>
-                        <td class="px-3 py-3 text-right bg-rose-100 text-rose-900 font-black">240</td>
-                        <td class="px-3 py-3 text-right bg-slate-200 font-black border-r border-slate-200">${totalPts}</td>
-                        <td class="px-3 py-3 text-right bg-rose-100 text-rose-900 font-black">244</td>
-                    </tr>
-                `;
-            }
-
             const amrBody = document.getElementById('amrYearlyTableBody');
             if (amrBody) {
                 amrBody.innerHTML = AMR_YEARLY.map(y => `
@@ -981,8 +740,6 @@
         // ========================== 4. CHART.JS VISUALIZATIONS ==========================
         Chart.defaults.font.family = "'Sarabun', 'Inter', sans-serif";
         Chart.defaults.color = '#64748b';
-
-        let micChartInstance = null;
 
         function renderMICDistribution(drugKey) {
             const dataConfig = MIC_DATASETS[drugKey];
@@ -1054,10 +811,10 @@
         };
 
         function initStaticCharts() {
-            // 1. กราฟสัดส่วนผลการติดเชื้อปี 2569 (รวม 48 คน)
+            // 1. กราฟสัดส่วนผลการติดเชื้อปี 2569
             const donut2569InfCtx = document.getElementById('donut2569Infection');
             if (donut2569InfCtx) {
-                new Chart(donut2569InfCtx, {
+                donut2569InfChart = new Chart(donut2569InfCtx, {
                     type: 'doughnut',
                     data: {
                         labels: [
@@ -1092,10 +849,10 @@
                 });
             }
 
-            // 2. กราฟประสิทธิภาพการตรวจพบหนองในแยกวิธี (NG รวม 12 คน ใน 48 คน)
+            // 2. กราฟประสิทธิภาพการตรวจพบหนองในแยกวิธี
             const donut2569MethodCtx = document.getElementById('donut2569Method');
             if (donut2569MethodCtx) {
-                new Chart(donut2569MethodCtx, {
+                donut2569MethodChart = new Chart(donut2569MethodCtx, {
                     type: 'doughnut',
                     data: {
                         labels: [
@@ -1129,78 +886,10 @@
                 });
             }
 
-           // กราฟสะสม 11 ปี (รวม 699 ราย)
-            const donutCtx = document.getElementById('overviewDonutChart');
-            if (donutCtx) {
-                new Chart(donutCtx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['หนองใน (NG Pos)', 'คลามีเดีย (CT Pos)', 'เชื้อรา (KOH/Wet)', 'ไม่พบเชื้อ'],
-                        datasets: [{ 
-                            data: [191, 48, 39, 421], 
-                            backgroundColor: ['#0284c7', '#0d9488', '#f59e0b', '#e2e8f0'], 
-                            borderWidth: 0 
-                        }]
-                    },
-                    options: { 
-                        responsive: true, 
-                        maintainAspectRatio: false, 
-                        plugins: { 
-                            legend: { position: 'bottom' },
-                            tooltip: {
-                                callbacks: {
-                                    label: ctx => {
-                                        const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
-                                        return ` ${ctx.label}: ${ctx.parsed} คน (${((ctx.parsed / total) * 100).toFixed(1)}%)`;
-                                    }
-                                }
-                            }
-                        } 
-                    }
-                });
-            }
-            // 4. กราฟสิ่งส่งตรวจสะสม (758 ตัวอย่าง)
-            const specCtx = document.getElementById('specimenChart');
-            if (specCtx) {
-                new Chart(specCtx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['ท่อปัสสาวะ (Urethra)', 'อื่นๆ / ปากมดลูก / ช่องคลอด', 'พลาสมา / เลือด', 'ผิวหนัง (Skin/KOH)'],
-                        datasets: [{ data: [557, 114, 70, 17], backgroundColor: ['#0369a1', '#8b5cf6', '#ec4899', '#fbbf24'], borderWidth: 0 }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { position: 'bottom' },
-                            tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed} ตัวอย่าง (${((ctx.parsed / 758) * 100).toFixed(1)}%)` } }
-                        }
-                    }
-                });
-            }
-
-            // 5. กราฟแนวโน้มสะสมรายปี
-            const trendCtx = document.getElementById('trend10YearsChart');
-            if (trendCtx) {
-                new Chart(trendCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: TREND_10_YEARS.map(d => d.year),
-                        datasets: [
-                            { label: 'ผู้รับบริการตรวจ (คน)', data: TREND_10_YEARS.map(d => d.patients), backgroundColor: '#e2e8f0', borderRadius: 4, order: 4 },
-                            { type: 'line', label: 'หนองในเพาะเชื้อ (Culture NG)', data: TREND_10_YEARS.map(d => d.ng_culture), borderColor: '#0284c7', backgroundColor: '#0284c7', borderWidth: 3, pointRadius: 4, order: 1 },
-                            { type: 'line', label: 'สารพันธุกรรมหนองใน (PCR NG)', data: TREND_10_YEARS.map(d => d.ng_pcr), borderColor: '#6366f1', backgroundColor: '#6366f1', borderWidth: 2, pointRadius: 4, order: 2 },
-                            { type: 'line', label: 'สารพันธุกรรมคลามีเดีย (PCR CT)', data: TREND_10_YEARS.map(d => d.ct), borderColor: '#0d9488', backgroundColor: '#0d9488', borderWidth: 2, borderDash: [5, 5], pointRadius: 4, order: 3 }
-                        ]
-                    },
-                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { y: { beginAtZero: true } } }
-                });
-            }
-
-            // 6. กราฟ AMR แนวนอน
+            // 3. กราฟ AMR แนวนอน
             const amrCtx = document.getElementById('amrBarChart');
             if (amrCtx) {
-                new Chart(amrCtx, {
+                amrBarChartInstance = new Chart(amrCtx, {
                     type: 'bar',
                     data: {
                         labels: AMR_DRUGS.map(d => d.drug),
@@ -1209,7 +898,16 @@
                             { label: 'ดื้อยา (R) %', data: AMR_DRUGS.map(d => d.r_pct.toFixed(1)), backgroundColor: '#ef4444', borderRadius: 4 }
                         ]
                     },
-                    options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true, max: 100, ticks: { callback: v => v + '%' } }, y: { stacked: true } }, plugins: { legend: { position: 'bottom' } } }
+                    options: { 
+                        indexAxis: 'y', 
+                        responsive: true, 
+                        maintainAspectRatio: false, 
+                        scales: { 
+                            x: { stacked: true, max: 100, ticks: { callback: v => v + '%' } }, 
+                            y: { stacked: true } 
+                        }, 
+                        plugins: { legend: { position: 'bottom' } } 
+                    }
                 });
             }
         }
@@ -1263,12 +961,18 @@
                     if (infSub) infSub.innerText = `${DATA_SUMMARY_2569.total_infected} ราย`;
 
                     const rateSub = document.getElementById('kpi-2569-rate-sub');
-                    if (rateSub && DATA_SUMMARY_2569.total_patients > 0) {
-                        rateSub.innerText = ((DATA_SUMMARY_2569.total_infected / DATA_SUMMARY_2569.total_patients) * 100).toFixed(1) + '%';
+                    const badgeInfRate = document.getElementById('badge-inf-rate');
+                    if (DATA_SUMMARY_2569.total_patients > 0) {
+                        const calculatedRate = ((DATA_SUMMARY_2569.total_infected / DATA_SUMMARY_2569.total_patients) * 100).toFixed(1) + '%';
+                        if (rateSub) rateSub.innerText = calculatedRate;
+                        if (badgeInfRate) badgeInfRate.innerText = `พบเชื้อ ${calculatedRate}`;
                     }
 
                     const ng = document.getElementById('kpi-2569-ng');
                     if (ng) ng.innerText = DATA_SUMMARY_2569.ng_overall;
+
+                    const badgeNgYield = document.getElementById('badge-ng-yield');
+                    if (badgeNgYield) badgeNgYield.innerText = `รวม ${DATA_SUMMARY_2569.ng_overall} ราย`;
 
                     const ct = document.getElementById('kpi-2569-ct');
                     if (ct) ct.innerText = DATA_SUMMARY_2569.ct_pcr.pos;
@@ -1288,12 +992,32 @@
                     const fungiRate = document.getElementById('kpi-2569-fungi-rate');
                     if (fungiRate) fungiRate.innerText = DATA_SUMMARY_2569.fungi_koh.rate;
 
+                    // สั่งอัปเดตกราฟ Donut ปี 2569 แบบ Live
+                    if (donut2569InfChart) {
+                        const coVal = DATA_SUMMARY_2569.coinfection.pos;
+                        const ngSingle = Math.max(0, DATA_SUMMARY_2569.ng_overall - coVal);
+                        const ctSingle = Math.max(0, DATA_SUMMARY_2569.ct_pcr.pos - coVal);
+                        const fungiVal = DATA_SUMMARY_2569.fungi_koh.pos;
+                        const negativeVal = Math.max(0, DATA_SUMMARY_2569.total_patients - DATA_SUMMARY_2569.total_infected);
+                        
+                        donut2569InfChart.data.datasets[0].data = [ngSingle, ctSingle, coVal, fungiVal, negativeVal];
+                        donut2569InfChart.update();
+                    }
+
+                    if (donut2569MethodChart) {
+                        const cultPos = DATA_SUMMARY_2569.ng_culture.pos;
+                        const pcrPos = DATA_SUMMARY_2569.ng_pcr.pos;
+                        const coMethod = 2; // ซ้ำทั้ง 2 วิธี
+                        const cultOnly = Math.max(0, cultPos - coMethod);
+                        const pcrOnly = Math.max(0, pcrPos - coMethod);
+                        const noNg = Math.max(0, DATA_SUMMARY_2569.total_patients - DATA_SUMMARY_2569.ng_overall);
+
+                        donut2569MethodChart.data.datasets[0].data = [coMethod, cultOnly, pcrOnly, noNg];
+                        donut2569MethodChart.update();
+                    }
+
                     renderSummaryTable2569();
                 }
-
-                if (data.age_distribution) AGE_DATA = data.age_distribution;
-                if (data.facility_distribution) FACILITY_DATA = data.facility_distribution;
-                renderDemographicTables();
 
             } catch (error) {
                 console.warn("ใช้ชุดข้อมูลเริ่มต้น (Offline Fallback):", error);
@@ -1306,13 +1030,13 @@
             }
         }
 
-        // ฟังก์ชันสลับแท็บพร้อมสั่ง Resize กราฟป้องกันบั๊กหน้าจอย่อ
+        // ฟังก์ชันสลับแท็บ (3 แท็บ) พร้อมสั่ง Resize กราฟ
         function switchTab(tabId) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             const activeBtn = document.getElementById('tab-' + tabId);
             if (activeBtn) activeBtn.classList.add('active');
 
-            ['overview', 'trend', 'amr', 'eqa'].forEach(id => {
+            ['overview', 'amr', 'eqa'].forEach(id => {
                 const section = document.getElementById('section-' + id);
                 if (section) {
                     if (id === tabId) {
@@ -1331,7 +1055,6 @@
         // ========================== 6. APP INITIALIZATION ==========================
         window.addEventListener('DOMContentLoaded', () => {
             renderStandardTables();
-            renderDemographicTables();
             renderCurrentYearMonthlyTable();
             renderSummaryTable2569();
             initStaticCharts();
